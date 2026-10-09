@@ -15,7 +15,7 @@ function meta(file, ext) {
     return { slug: d.slug, lang: d.lang || 'zh', draft: !!d.draft };
   }
   const fm = (text.match(/^---\r?\n([\s\S]*?)\r?\n---/) || [])[1] || '';
-  const get = (k) => ((fm.match(new RegExp(`^${k}:\s*(.*)$`, 'm')) || [])[1] || '').trim().replace(/^["']|["']$/g, '');
+  const get = (k) => ((fm.match(new RegExp(`^${k}:[ \\t]*(.*)$`, 'm')) || [])[1] || '').trim().replace(/^["']|["']$/g, '');
   return { slug: get('slug'), lang: get('lang') || 'zh', draft: get('draft') === 'true' };
 }
 
@@ -23,9 +23,10 @@ const pairs = [];
 for (const { dir, ext } of dirs) {
   const files = readdirSync(dir).filter((f) => f.endsWith(ext));
   const items = files.map((f) => {
-    const path = join(dir, f).replace(/\/g, '/');
+    const path = `${dir}/${f}`;
     const m = meta(path, ext);
-    return { path, file: f, ...m, slug: m.slug || f.slice(0, -ext.length) };
+    const slug = String(m.slug || f.slice(0, -ext.length)).toLowerCase().replace(/[^a-z0-9一-鿿]+/g, '-').replace(/^-+|-+$/g, '');
+    return { path, file: f, ...m, slug };
   });
   for (const it of items) {
     if (it.draft) continue; // 草稿先不翻译，等发布了再说

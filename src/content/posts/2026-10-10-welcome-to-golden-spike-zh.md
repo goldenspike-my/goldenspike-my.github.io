@@ -1,6 +1,6 @@
 ---
 title: 欢迎来到金釘子！
-slug: Welcome to Golden Spike!
+slug: welcome-to-golden-spike
 date: 2026-10-10
 category: geo
 lang: zh

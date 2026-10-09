@@ -9,7 +9,9 @@ export const slugOf = (e: { id: string }) => e.id.replace(/@en$/, '');
 
 /** 给 content.config.ts 用：决定每篇内容的内部编号 */
 export function twinId({ entry, data }: { entry: string; data: Record<string, unknown> }) {
-  const slug = String(data.slug || entry.replace(/\.(md|json)$/, '').split('/').pop());
+  const raw = String(data.slug || entry.replace(/\.(md|json)$/, '').split('/').pop());
+  // 整理网址名称：大写变小写，空格和符号变成 -（例如 "Hello World!" → hello-world）
+  const slug = raw.toLowerCase().replace(/[^a-z0-9一-鿿]+/g, '-').replace(/^-+|-+$/g, '') || 'post';
   return data.lang === 'en' ? `${slug}@en` : slug;
 }
 
