@@ -16,6 +16,7 @@ const year = new Date().getFullYear();
       <a href={url(lang, '/about')}>{t(lang, 'about')}</a>
       <a href={site.youtubeUrl}>YouTube</a>
       {site.instagramUrl && <a href={site.instagramUrl}>Instagram</a>}
+      {site.linkedinUrl && <a href={site.linkedinUrl}>LinkedIn</a>}
       {site.email && <a href={`mailto:${site.email}`}>Email</a>}
     </nav>
   </div>

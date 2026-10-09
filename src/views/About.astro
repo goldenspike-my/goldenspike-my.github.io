@@ -19,6 +19,7 @@ const { Content } = await render(page);
         <div class="links">
           <a class="btn btn-gold" href={site.youtubeUrl}>{t(lang, 'subscribe')}</a>
           {site.instagramUrl && <a class="btn btn-ghost" href={site.instagramUrl}>Instagram</a>}
+          {site.linkedinUrl && <a class="btn btn-ghost" href={site.linkedinUrl}>LinkedIn</a>}
           {site.email && <a class="btn btn-ghost" href={`mailto:${site.email}`}>Email</a>}
         </div>
       </div>
