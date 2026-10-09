@@ -111,6 +111,20 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
   .prose :global(blockquote) { margin: 28px 0; padding: 18px 24px; border-left: 4px solid #D9A60B; background: var(--paper-card); border-radius: 0 10px 10px 0; font-family: var(--font-cjk-serif); font-weight: 500; font-size: 21px; line-height: 1.7; color: #1A160C; }
   .prose :global(blockquote p) { margin: 0; }
   .prose :global(img) { border-radius: 10px; margin: 8px 0; }
+  /* 文章图片（大小/位置由图片说明里的 #小 #中 #左 #右 决定，见 src/lib/rehype-figures.mjs） */
+  .prose :global(.fig) { margin: 30px auto; width: 100%; }
+  .prose :global(.fig img) { width: 100%; height: auto; margin: 0; border: 1px solid var(--line); }
+  .prose :global(.fig figcaption) { margin-top: 10px; font-size: 14px; line-height: 1.6; color: var(--muted); text-align: center; }
+  .prose :global(.fig-medium) { width: 65%; }
+  .prose :global(.fig-small) { width: 40%; }
+  .prose :global(.fig-left), .prose :global(.fig-right) { width: 45%; margin-top: 6px; margin-bottom: 18px; }
+  .prose :global(.fig-left) { float: left; margin-right: 28px; }
+  .prose :global(.fig-right) { float: right; margin-left: 28px; }
+  .prose :global(.fig-left.fig-small), .prose :global(.fig-right.fig-small) { width: 33%; }
+  .prose :global(.fig-left.fig-medium), .prose :global(.fig-right.fig-medium) { width: 55%; }
+  .prose :global(.fig-left figcaption), .prose :global(.fig-right figcaption) { text-align: left; }
+  .prose :global(h2), .prose :global(h3), .prose :global(hr) { clear: both; }
+  .prose::after { content: ''; display: block; clear: both; }
   .prose :global(a) { color: var(--gold-deep); text-underline-offset: 3px; }
   .prose :global(ul), .prose :global(ol) { padding-left: 1.4em; margin: 0 0 22px; }
   .prose :global(li) { margin-bottom: 6px; }
@@ -118,5 +132,11 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
   .prose :global(hr) { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
   .prose :global(table) { width: 100%; border-collapse: collapse; font-size: 16px; display: block; overflow-x: auto; }
   .prose :global(th), .prose :global(td) { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
-  @media (max-width: 640px) { .prose { font-size: 17px; } }
+  @media (max-width: 640px) {
+    .prose { font-size: 17px; }
+    /* 手机屏幕窄：靠左/靠右的图片改回整行，避免文字被挤成一条 */
+    .prose :global(.fig.fig-left), .prose :global(.fig.fig-right) { float: none; width: 100%; margin: 26px 0; }
+    .prose :global(.fig.fig-small) { width: 70%; margin-left: auto; margin-right: auto; }
+    .prose :global(.fig.fig-medium) { width: 100%; }
+  }
 </style>

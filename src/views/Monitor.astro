@@ -79,7 +79,11 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
   const el = document.getElementById('monitor')!;
   const ds = el.dataset as Record<string, string>;
   const lang = ds.lang;
-  const map = L.map('map', { worldCopyJump: true, minZoom: 1 }).setView([10, 170], 2);
+  // 南北方向锁住（不会拖出地图外的灰色区域）；东西方向可以一直拖
+  const map = L.map('map', {
+    worldCopyJump: true, minZoom: 2,
+    maxBounds: [[-85, -1080], [85, 1080]], maxBoundsViscosity: 1,
+  }).setView([10, 170], 2);
   // 底图：Esri 深灰色地图（免费、不需要 API key）
   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
     attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
@@ -99,11 +103,15 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
     layer.clearLayers();
     // draw small ones first so big ones sit on top
     [...shown].sort((a, b) => a.mag - b.mag).forEach((q) => {
-      L.circleMarker([q.lat, q.lon < -30 ? q.lon + 360 : q.lon], { // Pacific-centred: shift the Americas east
-        radius: Math.max(4, q.mag * q.mag * 0.55), color: '#1A160C', weight: 1,
-        fillColor: magColor(q.mag), fillOpacity: 0.85,
-      }).bindPopup(`<strong>M${q.mag.toFixed(1)}</strong><br>${escapeHtml(q.place)}<br>${new Date(q.time).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-GB')}<br>${ds.depth} ${Math.round(q.depth)} km<br><a href="${escapeHtml(q.url)}" target="_blank" rel="noopener">USGS ↗</a>`)
-        .addTo(layer);
+      const lon = q.lon < -30 ? q.lon + 360 : q.lon; // Pacific-centred: shift the Americas east
+      const popup = `<strong>M${q.mag.toFixed(1)}</strong><br>${escapeHtml(q.place)}<br>${new Date(q.time).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-GB')}<br>${ds.depth} ${Math.round(q.depth)} km<br><a href="${escapeHtml(q.url)}" target="_blank" rel="noopener">USGS ↗</a>`;
+      // 地图左右会重复出现好几个地球，每个地球都画一份，拖到哪里都看得到
+      for (const shift of [-360, 0, 360]) {
+        L.circleMarker([q.lat, lon + shift], {
+          radius: Math.max(4, q.mag * q.mag * 0.55), color: '#1A160C', weight: 1,
+          fillColor: magColor(q.mag), fillOpacity: 0.85,
+        }).bindPopup(popup).addTo(layer);
+      }
     });
     count.textContent = `${shown.length} ${ds.count}`;
     list.innerHTML = shown.length
