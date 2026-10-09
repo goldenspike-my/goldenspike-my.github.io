@@ -26,10 +26,10 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
           <a href={url(lang, '/blog')}>{t(lang, 'blog')}</a><span aria-hidden="true">›</span><span>{cat[lang]}</span>
         </nav>
         <header class="head">
-          <span class="tag">{cat[lang]}{d.youtubeId ? (lang === 'zh' ? ' · 视频文字版' : ' · Video write-up') : ''}</span>
+          <span class="tag">{cat[lang]}{d.youtubeId ? ` · ${t(lang, 'videoWriteup')}` : ''}</span>
           <h1>{d.title}</h1>
           {d.description && <p class="dek">{d.description}</p>}
-          <div class="meta"><span>金釘子</span><span>{formatDate(d.date, lang)}</span><span>{mins} {t(lang, 'minRead')}</span>{twin && <a class="twin" href={altHref} lang={otherLang}>{lang === 'zh' ? 'Read in English →' : '阅读中文版 →'}</a>}</div>
+          <div class="meta"><span>金釘子</span><span>{formatDate(d.date, lang)}</span><span>{mins} {t(lang, 'minRead')}</span>{twin && <a class="twin" href={altHref} lang={otherLang}>{t(lang, 'readOtherLang')}</a>}</div>
         </header>
         {d.cover && <img class="cover" src={asset(d.cover)} alt={d.coverAlt || ''} />}
         <div class="prose"><Content /></div>
@@ -53,7 +53,7 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
           <div class="video-box sec-dark">
             <div class="vb-body">
               <span class="tag">YouTube</span>
-              <span class="vb-title">{lang === 'zh' ? '每周新视频，五分钟看懂地球' : 'New videos every week'}</span>
+              <span class="vb-title">{t(lang, 'postVideoBox')}</span>
               <a class="btn btn-gold" href={site.youtubeUrl}>{t(lang, 'subscribe')}</a>
             </div>
           </div>

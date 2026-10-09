@@ -2,13 +2,13 @@
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { switchLangPath, asset, type Lang } from '../lib/i18n';
+import { switchLangPath, asset, t, type Lang } from '../lib/i18n';
 // altHref：另一种语言的对应页面（例如文章的英文版）；没给就用同一路径
 interface Props { lang: Lang; title?: string; description?: string; active?: string; image?: string; altHref?: string }
 const { lang, title, description, active, image, altHref } = Astro.props;
-const siteName = lang === 'zh' ? '金釘子 GoldenSpike' : 'GoldenSpike 金釘子';
+const siteName = t(lang, 'siteName');
 const fullTitle = title ? `${title} · ${siteName}` : siteName;
-const desc = description || (lang === 'zh' ? '地质与地震科普，加上京都研究生活与旅行。' : 'Geology and seismology explained simply, plus life and travel from Kyoto.');
+const desc = description || t(lang, 'siteDescription');
 const path = Astro.url.pathname;
 const ogImage = image ? new URL(asset(image), Astro.site).href : undefined;
 ---

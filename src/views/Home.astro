@@ -113,9 +113,7 @@ const icons: Record<string, string> = {
         <div class="ph avatar" aria-hidden="true">GS</div>
         <div>
           <h2>{t(lang, 'aboutTitle')}</h2>
-          <p>{lang === 'zh'
-            ? '马来西亚人，毕业于马来亚大学地质系，现在在京都大学做地震研究。"金釘子"取自地质学的 Golden Spike（GSSP），也就是定义地质年代分界的标准点。'
-            : 'From Malaysia, trained in geology at the University of Malaya, now doing earthquake research at Kyoto University. A Golden Spike (GSSP) is the reference point that defines a boundary in geologic time.'}</p>
+          <p>{t(lang, 'homeAboutText')}</p>
           <a href={url(lang, '/about')}>{t(lang, 'readMore')} →</a>
         </div>
       </div>

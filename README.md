@@ -81,7 +81,7 @@ YouTube 频道首页 + 个人博客。中英双语，免费放在 GitHub Pages �
 | 内容 | 位置 |
 |---|---|
 | 颜色 | `src/styles/global.css` 最上面 |
-| 按钮、栏目文字（中英） | `src/lib/i18n.ts` |
+| 按钮、栏目文字（中英） | `src/data/ui.json`（Pages CMS「网站文字」） |
 | 文章 | `src/content/posts/` |
 | 测验 | `src/content/quizzes/` |
 | 上传的图片 | `public/uploads/` |

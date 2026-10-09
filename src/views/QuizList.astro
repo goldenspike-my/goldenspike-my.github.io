@@ -17,7 +17,7 @@ const { quizzes, fallback } = await getQuizzesForLang(lang);
   </section>
   <section class="sec-light section">
     <div class="wrap">
-      {fallback && <p class="note">{lang === 'en' ? 'Some quizzes are only in Chinese for now.' : ''}</p>}
+      {fallback && <p class="note">{t(lang, 'quizFallback')}</p>}
       <div class="grid">
         {quizzes.map((q, i) => (
           <a class="qcard" href={url(q.data.lang, `/quiz/${slugOf(q)}`)}>

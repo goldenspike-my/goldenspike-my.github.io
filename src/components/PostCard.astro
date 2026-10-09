@@ -15,7 +15,7 @@ const mins = readingTime(post.body || '');
     : <div class="ph cover-ph" aria-hidden="true">
         <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M2 20l6-9 4 5 3-4 7 8z"/><circle cx="17" cy="6" r="2"/></svg>
       </div>}
-  <span class="tag">{cat[lang]}{d.youtubeId ? (lang === 'zh' ? ' · 视频文字版' : ' · Video write-up') : ''}{lang === 'en' && d.lang === 'zh' ? ' · 中文' : ''}</span>
+  <span class="tag">{cat[lang]}{d.youtubeId ? ` · ${t(lang, 'videoWriteup')}` : ''}{lang === 'en' && d.lang === 'zh' ? ' · 中文' : ''}</span>
   <span class="title" lang={d.lang === 'zh' ? 'zh-Hans' : 'en'}>{d.title}</span>
   {d.description && <span class="desc">{d.description}</span>}
   <span class="meta">{formatDate(d.date, lang)} · {mins} {t(lang, 'minRead')}</span>
