@@ -11,6 +11,10 @@ _Last updated: 2026-10-10 (site LIVE; Pages CMS connected)_
 - He asked to be guided in English this session (use English if he asks; otherwise the Chinese default below).
 - PC has git (Git Credential Manager, signed in) but NO node/npm/gh/python.
 - Next-steps 1–3 below are done.
+- **zh/en twins** (src/lib/twins.ts): a post/quiz with the same `slug` but other `lang` is its translation. Internal id = `slug` (zh) or `slug@en` (en); always build URLs with `slugOf()`. Language toggle + "Read in English" link jump to the twin; lists show own-language items + untranslated ones from the other language. CMS filenames include `-{lang}`.
+- Added: English rock-cycle post; quizzes (zh+en) for rock-cycle, sleeping-giant, segamat, golden-spike (written from the YouTube descriptions — he should verify against his videos).
+- Video thumbnails fixed (img height attr forced 4:3 → now 16:9 crop removes YouTube's black bars).
+- Open question: he asked about auto-translating posts. Proposed a GitHub Action using his free Gemini API key (as a repo secret) to create the missing twin automatically; awaiting his choice.
 
 ## About the user
 - Malaysian geology graduate (University of Malaya), now doing seismology research at Kyoto University.
