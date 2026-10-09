@@ -14,7 +14,9 @@ _Last updated: 2026-10-10 (site LIVE; Pages CMS connected)_
 - **zh/en twins** (src/lib/twins.ts): a post/quiz with the same `slug` but other `lang` is its translation. Internal id = `slug` (zh) or `slug@en` (en); always build URLs with `slugOf()`. Language toggle + "Read in English" link jump to the twin; lists show own-language items + untranslated ones from the other language. CMS filenames include `-{lang}`.
 - Added: English rock-cycle post; quizzes (zh+en) for rock-cycle, sleeping-giant, segamat, golden-spike (written from the YouTube descriptions — he should verify against his videos).
 - Video thumbnails fixed (img height attr forced 4:3 → now 16:9 crop removes YouTube's black bars).
-- Open question: he asked about auto-translating posts. Proposed a GitHub Action using his free Gemini API key (as a repo secret) to create the missing twin automatically; awaiting his choice.
+- **Auto-translate (working, tested 2026-10-10)**: `.github/workflows/translate.yml` runs on pushes to posts/quizzes. `scripts/find-missing-twins.mjs` lists published items with no twin → Claude Code CLI (`claude -p`, his Pro plan via secret `CLAUDE_CODE_OAUTH_TOKEN`, ~1-year token from `claude setup-token`) writes the twin as `draft: true` → bot commits. Rules in `scripts/translate-prompt.md`. Note: anthropics/claude-code-action does NOT support `push` events, hence the CLI. Bot commits don't trigger deploy (fine: drafts); his "untick draft" save in CMS does.
+- Claude CLI is installed at `%USERPROFILE%\.local\bin\claude.exe` but not on PATH.
+- Gotcha: when writing files via Bash heredocs in this environment, backslashes got eaten — use the Write/Edit tools for code with regex/escapes. Don't `npm ci` inside the Google Drive folder (super slow + syncs node_modules); build in a temp clone instead.
 
 ## About the user
 - Malaysian geology graduate (University of Malaya), now doing seismology research at Kyoto University.
