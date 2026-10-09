@@ -1,0 +1,32 @@
+{
+  "videos": [
+    {
+      "youtubeId": "",
+      "title": "昔加末地震是怎么发生的？",
+      "titleEn": "What caused the Segamat earthquakes?",
+      "series": "news",
+      "date": ""
+    },
+    {
+      "youtubeId": "",
+      "title": "马来半岛沉睡的巨人",
+      "titleEn": "The sleeping giant beneath the Malay Peninsula",
+      "series": "seismology",
+      "date": ""
+    },
+    {
+      "youtubeId": "",
+      "title": "石头回收计划：岩石循环",
+      "titleEn": "The rock cycle: how Earth recycles stone",
+      "series": "rocks",
+      "date": ""
+    },
+    {
+      "youtubeId": "",
+      "title": "金釘子是什么？频道介绍",
+      "titleEn": "What is a Golden Spike? Channel intro",
+      "series": "channel",
+      "date": ""
+    }
+  ]
+}

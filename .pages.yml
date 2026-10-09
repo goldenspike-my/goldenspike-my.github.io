@@ -1,0 +1,288 @@
+# Pages CMS 设定：决定你在 app.pagescms.org 编辑器里看到哪些栏目和输入框。
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  # ===== 博客文章 =====
+  - name: posts
+    label: 博客文章
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    filename: "{year}-{month}-{day}-{fields.slug}.md"
+    view:
+      primary: title
+      fields: [title, date, category, lang, draft]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: slug
+        label: 网址名称
+        description: 只在第一次建立时用，英文小写，单词之间用 - 连接，例如 rock-cycle
+        type: string
+        required: true
+      - name: description
+        label: 摘要（一两句）
+        type: text
+      - name: date
+        label: 发布日期
+        type: date
+        required: true
+      - name: category
+        label: 分类
+        type: select
+        default: geo
+        options:
+          values:
+            - { name: geo, label: 地质与地震 }
+            - { name: life, label: 京都生活 }
+            - { name: travel, label: 旅行 }
+      - name: lang
+        label: 语言
+        type: select
+        default: zh
+        options:
+          values:
+            - { name: zh, label: 中文 }
+            - { name: en, label: English }
+      - name: cover
+        label: 封面图
+        type: image
+      - name: coverAlt
+        label: 封面图说明（给看不到图片的读者）
+        type: string
+      - name: youtubeId
+        label: 对应的 YouTube 视频 ID
+        description: 视频网址 watch?v= 后面那一串，例如 dQw4w9WgXcQ。没有就留空。
+        type: string
+      - name: tags
+        label: 标签
+        type: string
+        list: true
+      - name: draft
+        label: 草稿（打勾就不会出现在网站上）
+        type: boolean
+        default: false
+      - name: body
+        label: 正文
+        type: rich-text
+
+  # ===== 测验 =====
+  - name: quizzes
+    label: 测验
+    type: collection
+    path: src/content/quizzes
+    format: json
+    filename: "{fields.slug}.json"
+    view:
+      primary: title
+      fields: [title, lang, order]
+      sort: order
+    fields:
+      - name: title
+        label: 测验标题
+        type: string
+        required: true
+      - name: slug
+        label: 网址名称（英文小写，用 - 连接）
+        type: string
+        required: true
+      - name: description
+        label: 简介
+        type: text
+      - name: lang
+        label: 语言
+        type: select
+        default: zh
+        options:
+          values:
+            - { name: zh, label: 中文 }
+            - { name: en, label: English }
+      - name: order
+        label: 排序（数字小的排前面）
+        type: number
+        default: 1
+      - name: youtubeId
+        label: 对应的 YouTube 视频 ID（可留空）
+        type: string
+      - name: questions
+        label: 题目
+        type: object
+        list: true
+        fields:
+          - name: question
+            label: 题目
+            type: string
+            required: true
+          - name: options
+            label: 选项
+            type: string
+            list: true
+          - name: answer
+            label: 正确答案是第几个选项（从 1 开始数）
+            type: number
+            required: true
+          - name: explanation
+            label: 解释（答完后显示）
+            type: text
+
+  # ===== 标本图库 =====
+  - name: specimens
+    label: 标本图库
+    type: collection
+    path: src/content/specimens
+    format: yaml-frontmatter
+    filename: "{fields.slug}.md"
+    view:
+      primary: name
+      fields: [name, type, location]
+    fields:
+      - name: name
+        label: 名称（中文）
+        type: string
+        required: true
+      - name: nameEn
+        label: 英文名称
+        type: string
+      - name: slug
+        label: 文件名称（英文小写，用 - 连接）
+        type: string
+        required: true
+      - name: type
+        label: 类型
+        type: select
+        default: igneous
+        options:
+          values:
+            - { name: igneous, label: 火成岩 }
+            - { name: sedimentary, label: 沉积岩 }
+            - { name: metamorphic, label: 变质岩 }
+            - { name: mineral, label: 矿物 }
+            - { name: fossil, label: 化石 }
+      - name: location
+        label: 产地
+        type: string
+      - name: image
+        label: 照片
+        type: image
+        required: true
+      - name: date
+        label: 拍摄日期
+        type: date
+      - name: body
+        label: 说明
+        type: rich-text
+
+  # ===== 视频系列分类 =====
+  - name: videos
+    label: 视频分类
+    type: file
+    path: src/data/videos.json
+    format: json
+    fields:
+      - name: videos
+        label: 视频（网站会自动抓最新视频；这里用来指定系列和英文标题）
+        type: object
+        list: true
+        fields:
+          - name: youtubeId
+            label: YouTube 视频 ID
+            type: string
+          - name: title
+            label: 中文标题
+            type: string
+          - name: titleEn
+            label: 英文标题
+            type: string
+          - name: series
+            label: 系列
+            type: select
+            options:
+              values:
+                - { name: rocks, label: 岩石 }
+                - { name: seismology, label: 地震 }
+                - { name: landforms, label: 地貌 }
+                - { name: quakes, label: 历史大地震 }
+                - { name: news, label: 真实事件 }
+                - { name: vlog, label: Vlog }
+                - { name: channel, label: 频道 }
+                - { name: other, label: 其他 }
+          - name: date
+            label: 发布日期（只在抓不到 YouTube 时使用）
+            type: string
+
+  # ===== 首页"你知道吗"卡片 =====
+  - name: facts
+    label: 你知道吗卡片
+    type: file
+    path: src/data/facts.json
+    format: json
+    fields:
+      - name: facts
+        label: 卡片
+        type: object
+        list: true
+        fields:
+          - name: question
+            label: 问题（中文）
+            type: string
+          - name: answer
+            label: 答案（中文）
+            type: text
+          - name: questionEn
+            label: 问题（英文）
+            type: string
+          - name: answerEn
+            label: 答案（英文）
+            type: text
+          - name: icon
+            label: 图标
+            type: select
+            default: question
+            options:
+              values:
+                - { name: question, label: 问号 }
+                - { name: wave, label: 地震波 }
+                - { name: water, label: 水 }
+
+  # ===== 关于我 =====
+  - name: about-zh
+    label: 关于我（中文）
+    type: file
+    path: src/content/pages/about-zh.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: 标题, type: string }
+      - { name: photo, label: 照片, type: image }
+      - { name: body, label: 内容, type: rich-text }
+  - name: about-en
+    label: 关于我（英文）
+    type: file
+    path: src/content/pages/about-en.md
+    format: yaml-frontmatter
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: photo, label: Photo, type: image }
+      - { name: body, label: Content, type: rich-text }
+
+  # ===== 网站基本设定 =====
+  - name: site
+    label: 网站设定
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - { name: youtubeChannelId, label: YouTube 频道 ID（不要改）, type: string }
+      - { name: youtubeUrl, label: YouTube 频道网址, type: string }
+      - { name: instagramUrl, label: Instagram 网址（可留空）, type: string }
+      - { name: email, label: 联络 Email（可留空）, type: string }
+      - { name: heroTitle, label: 首页大标题（中文）, type: string }
+      - { name: heroTitleEn, label: 首页大标题（英文）, type: string }
+      - { name: heroTagline, label: 首页金色副标题, type: string }
+      - { name: heroText, label: 首页介绍（中文）, type: text }
+      - { name: heroTextEn, label: 首页介绍（英文）, type: text }

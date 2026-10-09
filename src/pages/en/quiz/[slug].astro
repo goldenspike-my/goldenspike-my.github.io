@@ -1,0 +1,9 @@
+---
+import Quiz from '../../../views/Quiz.astro';
+import { getQuizzes } from '../../../lib/quizzes';
+export async function getStaticPaths() {
+  return (await getQuizzes('en')).map((quiz) => ({ params: { slug: quiz.id }, props: { quiz } }));
+}
+const { quiz } = Astro.props;
+---
+<Quiz quiz={quiz} lang="en" />
