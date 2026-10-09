@@ -28,6 +28,7 @@ const quizzes = defineCollection({
     lang: z.enum(['zh', 'en']).default('zh'),
     youtubeId: z.string().optional(),
     order: z.number().default(0),
+    draft: z.boolean().default(false),
     questions: z.array(z.object({
       question: z.string(),
       options: z.array(z.string()).min(2),

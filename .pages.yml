@@ -81,7 +81,7 @@ content:
     filename: "{fields.slug}-{fields.lang}.json"
     view:
       primary: title
-      fields: [title, lang, order]
+      fields: [title, lang, order, draft]
       sort: order
     fields:
       - name: title
@@ -110,6 +110,10 @@ content:
       - name: youtubeId
         label: 对应的 YouTube 视频 ID（可留空）
         type: string
+      - name: draft
+        label: 草稿（打勾就不会出现在网站上）
+        type: boolean
+        default: false
       - name: questions
         label: 题目
         type: object

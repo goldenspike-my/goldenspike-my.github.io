@@ -61,6 +61,15 @@ YouTube 频道首页 + 个人博客。中英双语，免费放在 GitHub Pages �
 
 ---
 
+## 中英文版本与自动翻译
+- 英文版 = 跟中文版**同一个网址名称**、语言选 English。两篇会自动互相连接（文章里会出现「Read in English →」）。
+- **自动翻译**：发布一篇文章或测验（没勾草稿）后，如果还没有另一种语言的版本，Claude 会在几分钟内翻译好，存成**草稿**。
+  到 Pages CMS 打开那篇翻译，检查一下，取消勾选「草稿」再保存，就会发布。
+- 之后再修改中文原文，英文版**不会**自动更新，需要自己改（或请 Claude 帮忙）。
+- 需要的钥匙：GitHub 仓库 Settings → Secrets and variables → Actions 里的 `CLAUDE_CODE_OAUTH_TOKEN`（一年有效，过期后用 `claude setup-token` 重新产生）。
+
+---
+
 ## 三、文件位置（想自己改的时候）
 
 | 内容 | 位置 |
@@ -76,5 +85,5 @@ YouTube 频道首页 + 个人博客。中英双语，免费放在 GitHub Pages �
 
 ## 四、技术备注
 - 网站框架：Astro 5（静态网站）。
-- 地震数据：USGS 公开的 GeoJSON（浏览器直接读取，不需要密钥）。地图底图：CARTO / OpenStreetMap。
+- 地震数据：USGS 公开的 GeoJSON（浏览器直接读取，不需要密钥）。地图底图：Esri World Dark Gray（免费、不需要密钥）。
 - 在自己电脑预览（可选，需要先安装 Node.js 22）：`npm install` 然后 `npm run dev`，打开 http://localhost:4321 。
