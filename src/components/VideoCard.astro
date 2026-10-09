@@ -8,7 +8,7 @@ const title = lang === 'en' && video.titleEn ? video.titleEn : video.title;
 ---
 <a class="vcard" href={video.href} data-series={video.series}>
   {video.thumb
-    ? <img src={video.thumb} alt="" loading="lazy" width="480" height="360" />
+    ? <img src={video.thumb} alt="" loading="lazy" width="480" height="270" />
     : <div class="ph thumb-ph">YouTube</div>}
   <div class="body">
     <span class="tag">{s.zh} · {s.en.toUpperCase()}</span>
@@ -18,7 +18,7 @@ const title = lang === 'en' && video.titleEn ? video.titleEn : video.title;
 <style>
   .vcard { text-decoration: none; color: var(--fg); background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
   .vcard:hover { transform: translateY(-3px); border-color: var(--accent); opacity: 1; }
-  .vcard img, .thumb-ph { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .vcard img, .thumb-ph { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }  /* 裁掉 YouTube 缩图上下的黑边 */
   .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px; }
   .title { font-weight: 700; font-size: 18px; line-height: 1.5; }
 </style>

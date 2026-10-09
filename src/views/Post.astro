@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import site from '../data/site.json';
 import { getPosts } from '../lib/posts';
+import { slugOf, findTwin } from '../lib/twins';
 import { categories, formatDate, readingTime, t, url, asset, type Lang } from '../lib/i18n';
 interface Props { post: CollectionEntry<'posts'>; lang: Lang }
 const { post, lang } = Astro.props;
@@ -12,8 +13,12 @@ const toc = headings.filter((h) => h.depth === 2);
 const related = (await getPosts(d.lang)).filter((p) => p.id !== post.id && p.data.category === d.category).slice(0, 3);
 const mins = readingTime(post.body || '');
 const cat = categories[d.category];
+// 另一种语言的版本（有的话，中文/EN 按钮直接跳过去）
+const twin = findTwin(post, await getPosts());
+const otherLang: Lang = lang === 'zh' ? 'en' : 'zh';
+const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, '/blog');
 ---
-<Base lang={lang} title={d.title} description={d.description} active="blog" image={d.cover}>
+<Base lang={lang} title={d.title} description={d.description} active="blog" image={d.cover} altHref={altHref}>
   <div class="sec-light">
     <div class="wrap layout">
       <article class="article" lang={d.lang === 'zh' ? 'zh-Hans' : 'en'}>
@@ -24,7 +29,7 @@ const cat = categories[d.category];
           <span class="tag">{cat[lang]}{d.youtubeId ? (lang === 'zh' ? ' · 视频文字版' : ' · Video write-up') : ''}</span>
           <h1>{d.title}</h1>
           {d.description && <p class="dek">{d.description}</p>}
-          <div class="meta"><span>金釘子</span><span>{formatDate(d.date, lang)}</span><span>{mins} {t(lang, 'minRead')}</span></div>
+          <div class="meta"><span>金釘子</span><span>{formatDate(d.date, lang)}</span><span>{mins} {t(lang, 'minRead')}</span>{twin && <a class="twin" href={altHref} lang={otherLang}>{lang === 'zh' ? 'Read in English →' : '阅读中文版 →'}</a>}</div>
         </header>
         {d.cover && <img class="cover" src={asset(d.cover)} alt={d.coverAlt || ''} />}
         <div class="prose"><Content /></div>
@@ -62,7 +67,7 @@ const cat = categories[d.category];
         {related.length > 0 && (
           <nav class="side-list" aria-label={t(lang, 'related')}>
             <span class="side-title">{t(lang, 'related')}</span>
-            {related.map((p) => <a href={url(p.data.lang, `/blog/${p.id}`)}>{p.data.title}</a>)}
+            {related.map((p) => <a href={url(p.data.lang, `/blog/${slugOf(p)}`)}>{p.data.title}</a>)}
           </nav>
         )}
       </aside>
@@ -79,6 +84,8 @@ const cat = categories[d.category];
   .head h1 { margin: 0; font-family: var(--font-cjk-serif); font-weight: 900; font-size: clamp(30px, 5vw, 50px); line-height: 1.3; color: #1A160C; }
   .dek { margin: 0; font-family: var(--font-cjk-serif); font-weight: 500; font-size: 20px; line-height: 1.75; color: var(--muted); }
   .meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; color: #6E6350; }
+  .meta .twin { color: var(--accent); font-weight: 700; text-decoration: none; }
+  .meta .twin:hover { text-decoration: underline; }
   .cover { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 24px; border-top: 1px solid var(--line); }
   .tags span { background: #ECE5D4; color: #4A4130; padding: 8px 14px; border-radius: 999px; font-size: 14px; }

@@ -79,7 +79,7 @@ const dict = {
   toc: { zh: '本文目录', en: 'Contents' },
   related: { zh: '相关文章', en: 'Related posts' },
   noPosts: { zh: '还没有文章。', en: 'No posts yet.' },
-  enFallback: { zh: '', en: 'English posts are coming. Meanwhile, here are the Chinese ones.' },
+  enFallback: { zh: '', en: 'Some posts are only in Chinese for now.' },
   quizSub: { zh: '看完视频，来考考自己', en: 'Test yourself after watching' },
   questions: { zh: '题', en: 'questions' },
   start: { zh: '开始测验', en: 'Start quiz' },

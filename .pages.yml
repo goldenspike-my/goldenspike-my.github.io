@@ -10,7 +10,7 @@ content:
     type: collection
     path: src/content/posts
     format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{fields.slug}.md"
+    filename: "{year}-{month}-{day}-{fields.slug}-{fields.lang}.md"
     view:
       primary: title
       fields: [title, date, category, lang, draft]
@@ -23,7 +23,7 @@ content:
         required: true
       - name: slug
         label: 网址名称
-        description: 只在第一次建立时用，英文小写，单词之间用 - 连接，例如 rock-cycle
+        description: 英文小写，单词之间用 - 连接，例如 rock-cycle。写英文版时，填跟中文版一模一样的网址名称，两篇就会自动互相连接。
         type: string
         required: true
       - name: description
@@ -78,7 +78,7 @@ content:
     type: collection
     path: src/content/quizzes
     format: json
-    filename: "{fields.slug}.json"
+    filename: "{fields.slug}-{fields.lang}.json"
     view:
       primary: title
       fields: [title, lang, order]
@@ -89,7 +89,7 @@ content:
         type: string
         required: true
       - name: slug
-        label: 网址名称（英文小写，用 - 连接）
+        label: 网址名称（英文小写，用 - 连接；英文版填跟中文版一样的）
         type: string
         required: true
       - name: description

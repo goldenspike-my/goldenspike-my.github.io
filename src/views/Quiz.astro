@@ -2,15 +2,21 @@
 import Base from '../layouts/Base.astro';
 import type { CollectionEntry } from 'astro:content';
 import { t, url, type Lang } from '../lib/i18n';
+import { getQuizzes } from '../lib/quizzes';
+import { slugOf, findTwin } from '../lib/twins';
 interface Props { quiz: CollectionEntry<'quizzes'>; lang: Lang }
 const { quiz, lang } = Astro.props;
 const d = quiz.data;
+// 另一种语言的版本（有的话，中文/EN 按钮直接跳过去）
+const twin = findTwin(quiz, await getQuizzes());
+const otherLang: Lang = lang === 'zh' ? 'en' : 'zh';
+const altHref = twin ? url(otherLang, `/quiz/${slugOf(twin)}`) : url(otherLang, '/quiz');
 const labels = {
   next: t(lang, 'next'), result: t(lang, 'result'), retry: t(lang, 'retry'),
   correct: t(lang, 'correct'), wrong: t(lang, 'wrong'), score: t(lang, 'score'),
 };
 ---
-<Base lang={lang} title={d.title} description={d.description} active="quiz">
+<Base lang={lang} title={d.title} description={d.description} active="quiz" altHref={altHref}>
   <section class="sec-dark banner">
     <div class="wrap narrow">
       <a class="back" href={url(lang, '/quiz')}>← {t(lang, 'backToQuizzes')}</a>

@@ -1,11 +1,12 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { categories, formatDate, readingTime, t, url, asset, type Lang } from '../lib/i18n';
+import { slugOf } from '../lib/twins';
 interface Props { post: CollectionEntry<'posts'>; lang: Lang }
 const { post, lang } = Astro.props;
 const d = post.data;
 const cat = categories[d.category];
-const href = url(d.lang, `/blog/${post.id}`);
+const href = url(d.lang, `/blog/${slugOf(post)}`);
 const mins = readingTime(post.body || '');
 ---
 <a class="pcard" href={href} data-category={d.category}>

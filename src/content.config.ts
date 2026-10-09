@@ -1,9 +1,10 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { twinId } from './lib/twins';
 
 // 博客文章：src/content/posts/*.md
 const posts = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
+  loader: glob({ pattern: '**/*.md', base: './src/content/posts', generateId: twinId }),
   schema: z.object({
     title: z.string(),
     description: z.string().default(''),
@@ -20,7 +21,7 @@ const posts = defineCollection({
 
 // 测验：src/content/quizzes/*.json
 const quizzes = defineCollection({
-  loader: glob({ pattern: '**/*.json', base: './src/content/quizzes' }),
+  loader: glob({ pattern: '**/*.json', base: './src/content/quizzes', generateId: twinId }),
   schema: z.object({
     title: z.string(),
     description: z.string().default(''),

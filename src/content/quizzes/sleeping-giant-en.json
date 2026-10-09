@@ -1,0 +1,40 @@
+{
+  "title": "The Sleeping Giant Quiz",
+  "slug": "sleeping-giant",
+  "description": "Watched \"The sleeping giant beneath the Malay Peninsula\"? Test what you know about earthquakes in Malaysia.",
+  "lang": "en",
+  "order": 2,
+  "youtubeId": "Ol20tenVE1g",
+  "questions": [
+    {
+      "question": "Which plate does Malaysia sit on?",
+      "options": ["The Indo-Australian Plate", "Sundaland, part of the Eurasian Plate", "The Pacific Plate", "The Philippine Sea Plate"],
+      "answer": 2,
+      "explanation": "Malaysia sits in the core of Sundaland on the Eurasian Plate, far from plate boundaries, so large earthquakes are rare."
+    },
+    {
+      "question": "Where do most of the big \"outside\" earthquakes felt in Malaysia come from?",
+      "options": ["The Japan Trench", "The Sumatra subduction zone", "The Himalayas", "The Philippine Trench"],
+      "answer": 2,
+      "explanation": "The Indo-Australian Plate dives beneath the Sunda Plate off Sumatra, and shaking from big quakes there can reach the Malay Peninsula."
+    },
+    {
+      "question": "How did the 2004 Sumatra–Andaman earthquake affect faults in the Malay Peninsula?",
+      "options": ["It had no effect", "It \"reactivated\" some old, sleeping faults", "It lifted the whole peninsula by hundreds of metres", "It locked every fault in place"],
+      "answer": 2,
+      "explanation": "The megaquake changed the stress across the region and is thought to have woken up some ancient faults that had been dormant."
+    },
+    {
+      "question": "Which two faults in Peninsular Malaysia get the most attention as relatively active?",
+      "options": ["San Andreas and North Anatolian", "Bukit Tinggi and Kuala Lumpur", "Median Tectonic Line and Itoigawa–Shizuoka", "Sumatran Fault and Red River Fault"],
+      "answer": 2,
+      "explanation": "The Bukit Tinggi and Kuala Lumpur faults are the most closely watched of the peninsula's potentially active faults."
+    },
+    {
+      "question": "What made the Segamat earthquake unusual?",
+      "options": ["It was the biggest earthquake in Malaysian history", "Its epicentre was not on any known fault zone", "It happened under the sea", "It was caused by a volcanic eruption"],
+      "answer": 2,
+      "explanation": "An epicentre away from known fault zones suggests there may be structures underground we haven't found yet, so it needs more research."
+    }
+  ]
+}

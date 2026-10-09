@@ -5,6 +5,7 @@ description: 火成岩、沉积岩、变质岩，其实是同一个循环里的�
 date: 2026-10-10
 category: geo
 lang: zh
+youtubeId: PZyfQpTmghQ
 tags:
   - 岩石循环
   - 火成岩

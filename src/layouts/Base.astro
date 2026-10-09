@@ -3,8 +3,9 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { switchLangPath, asset, type Lang } from '../lib/i18n';
-interface Props { lang: Lang; title?: string; description?: string; active?: string; image?: string }
-const { lang, title, description, active, image } = Astro.props;
+// altHref：另一种语言的对应页面（例如文章的英文版）；没给就用同一路径
+interface Props { lang: Lang; title?: string; description?: string; active?: string; image?: string; altHref?: string }
+const { lang, title, description, active, image, altHref } = Astro.props;
 const siteName = lang === 'zh' ? '金釘子 GoldenSpike' : 'GoldenSpike 金釘子';
 const fullTitle = title ? `${title} · ${siteName}` : siteName;
 const desc = description || (lang === 'zh' ? '地质与地震科普，加上京都研究生活与旅行。' : 'Geology and seismology explained simply, plus life and travel from Kyoto.');
@@ -19,8 +20,8 @@ const ogImage = image ? new URL(asset(image), Astro.site).href : undefined;
   <title>{fullTitle}</title>
   <meta name="description" content={desc} />
   <link rel="icon" type="image/svg+xml" href={asset('favicon.svg')} />
-  <link rel="alternate" hreflang="zh-Hans" href={new URL(switchLangPath(path, 'zh'), Astro.site)} />
-  <link rel="alternate" hreflang="en" href={new URL(switchLangPath(path, 'en'), Astro.site)} />
+  <link rel="alternate" hreflang="zh-Hans" href={new URL(lang === 'zh' ? path : (altHref ?? switchLangPath(path, 'zh')), Astro.site)} />
+  <link rel="alternate" hreflang="en" href={new URL(lang === 'en' ? path : (altHref ?? switchLangPath(path, 'en')), Astro.site)} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={desc} />
   {ogImage && <meta property="og:image" content={ogImage} />}
@@ -30,7 +31,7 @@ const ogImage = image ? new URL(asset(image), Astro.site).href : undefined;
   <slot name="head" />
 </head>
 <body>
-  <Nav lang={lang} active={active} />
+  <Nav lang={lang} active={active} altHref={altHref} />
   <main><slot /></main>
   <Footer lang={lang} />
 </body>

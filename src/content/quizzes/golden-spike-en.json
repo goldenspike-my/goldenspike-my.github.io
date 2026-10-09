@@ -1,0 +1,28 @@
+{
+  "title": "What Is a Golden Spike? Quiz",
+  "slug": "golden-spike",
+  "description": "Watched the channel intro? Do you know what a \"golden spike\" means in geology?",
+  "lang": "en",
+  "order": 4,
+  "youtubeId": "Hd8secgROVU",
+  "questions": [
+    {
+      "question": "What is the official abbreviation for a geological \"golden spike\"?",
+      "options": ["GPS", "GSSP", "USGS", "GIS"],
+      "answer": 2,
+      "explanation": "GSSP stands for Global Boundary Stratotype Section and Point, nicknamed the \"golden spike\"."
+    },
+    {
+      "question": "What does a golden spike do?",
+      "options": ["Marks the location of a gold mine", "Marks the boundary between geological time periods in real rock layers, like an anchor on a timeline", "Measures the size of earthquakes", "Holds railway tracks in place"],
+      "answer": 2,
+      "explanation": "A golden spike is a reference point in an actual rock section that the whole world uses to divide Earth's history into periods."
+    },
+    {
+      "question": "Why is the channel called GoldenSpike?",
+      "options": ["Because gold is a nice colour", "To be like a golden spike: giving you the core, standard knowledge", "Because the creator collects spikes", "No reason at all"],
+      "answer": 2,
+      "explanation": "A golden spike stands for a standard and an anchor point. The channel aims to boil complex geology down to the key ideas in 3–5 minute videos."
+    }
+  ]
+}

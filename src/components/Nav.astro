@@ -1,7 +1,8 @@
 ---
 import { t, url, switchLangPath, type Lang } from '../lib/i18n';
-interface Props { lang: Lang; active?: string }
-const { lang, active } = Astro.props;
+interface Props { lang: Lang; active?: string; altHref?: string }
+const { lang, active, altHref } = Astro.props;
+const langHref = (to: Lang) => (to !== lang && altHref) ? altHref : switchLangPath(Astro.url.pathname, to);
 const links = [
   { key: 'home', path: '/' },
   { key: 'videos', path: '/videos' },
@@ -29,8 +30,8 @@ const path = Astro.url.pathname;
         <a href={url(lang, l.path)} aria-current={active === l.key ? 'page' : undefined}>{t(lang, l.key)}</a>
       ))}
       <div class="lang" role="group" aria-label="Language">
-        <a href={switchLangPath(path, 'zh')} aria-current={lang === 'zh' ? 'true' : undefined} lang="zh">中文</a>
-        <a href={switchLangPath(path, 'en')} aria-current={lang === 'en' ? 'true' : undefined} lang="en">EN</a>
+        <a href={langHref('zh')} aria-current={lang === 'zh' ? 'true' : undefined} lang="zh">中文</a>
+        <a href={langHref('en')} aria-current={lang === 'en' ? 'true' : undefined} lang="en">EN</a>
       </div>
     </nav>
   </div>

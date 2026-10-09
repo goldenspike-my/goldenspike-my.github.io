@@ -1,0 +1,40 @@
+{
+  "title": "Rock Cycle Quiz",
+  "slug": "rock-cycle",
+  "description": "Watched \"The Rock Recycling Plan\"? See how much you remember.",
+  "lang": "en",
+  "order": 1,
+  "youtubeId": "PZyfQpTmghQ",
+  "questions": [
+    {
+      "question": "Why does granite have relatively large crystals?",
+      "options": ["It cooled quickly at the surface", "It cooled slowly underground", "It was carried by a river", "It contains fossils"],
+      "answer": 2,
+      "explanation": "Magma that cools slowly underground gives minerals plenty of time to grow large crystals, so granite is coarse-grained."
+    },
+    {
+      "question": "Which type of rock is basalt?",
+      "options": ["Sedimentary", "Metamorphic", "Igneous"],
+      "answer": 3,
+      "explanation": "Basalt is an igneous rock formed when lava cools quickly at the surface, which is why its grains are so fine."
+    },
+    {
+      "question": "Which type of rock usually preserves fossils?",
+      "options": ["Igneous", "Sedimentary", "Metamorphic"],
+      "answer": 2,
+      "explanation": "Remains of living things get buried along with sand and mud, so most fossils are found in sedimentary rocks."
+    },
+    {
+      "question": "What does limestone turn into under high heat and pressure?",
+      "options": ["Marble", "Slate", "Sandstone", "Granite"],
+      "answer": 1,
+      "explanation": "Metamorphosed limestone becomes marble. Slate comes from shale."
+    },
+    {
+      "question": "Does a rock melt when it becomes a metamorphic rock?",
+      "options": ["Yes, it melts completely", "No, only its minerals and texture change"],
+      "answer": 2,
+      "explanation": "Metamorphism happens in the solid state. If the rock melted completely it would become magma again, and later form an igneous rock."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Segamat Earthquake Quiz",
+  "slug": "segamat",
+  "description": "Watched \"What caused the Segamat earthquakes?\" See if you can tell interplate and intraplate quakes apart.",
+  "lang": "en",
+  "order": 3,
+  "youtubeId": "HSGN8I7fm4M",
+  "questions": [
+    {
+      "question": "Most big earthquakes in Japan and Indonesia are which type?",
+      "options": ["Interplate earthquakes", "Intraplate earthquakes", "Volcanic earthquakes", "Human-induced earthquakes"],
+      "answer": 1,
+      "explanation": "Japan and Indonesia sit on plate boundaries, and most of their big quakes happen where two plates push against each other, so they are interplate earthquakes."
+    },
+    {
+      "question": "Segamat is far from any plate boundary. What type was this earthquake?",
+      "options": ["Interplate", "Intraplate"],
+      "answer": 2,
+      "explanation": "Earthquakes inside a plate, far from its edges, are called intraplate earthquakes. They are rarer, and their causes are harder to pin down."
+    },
+    {
+      "question": "When seismic waves from a distant earthquake pass by and briefly change the forces on a fault, what is that called?",
+      "options": ["Static stress", "Dynamic stress", "Gravity", "Tidal force"],
+      "answer": 2,
+      "explanation": "Dynamic stress is the brief push and pull from passing seismic waves. Static stress is the permanent change left behind after a nearby fault slips."
+    },
+    {
+      "question": "Why might underground fluids (like water) trigger an earthquake?",
+      "options": ["They make rocks heavier", "They raise pore pressure, \"lubricating\" the fault so it slips more easily", "They cool the fault down", "They glue the fault shut"],
+      "answer": 2,
+      "explanation": "Fluid seeping into a fault raises the pore pressure, which offsets the force clamping the fault together, so it slips more easily."
+    },
+    {
+      "question": "Which Japanese earthquake does the video use as an example of fluids being linked to earthquakes?",
+      "options": ["The Great Hanshin (Kobe) earthquake", "The Great East Japan earthquake", "The Noto earthquake", "The Kumamoto earthquake"],
+      "answer": 3,
+      "explanation": "The Noto Peninsula had years of earthquake swarms before the big quake, and research links them to fluids rising from deep underground."
+    }
+  ]
+}

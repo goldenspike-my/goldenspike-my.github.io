@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { Lang } from './i18n';
+import { withUntranslated } from './twins';
 
 /** Published posts, newest first */
 export async function getPosts(lang?: Lang) {
@@ -7,9 +8,8 @@ export async function getPosts(lang?: Lang) {
   return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-/** Posts for a language; English falls back to Chinese posts when there are none yet */
+/** Posts for a language, plus posts in the other language that have no translation yet */
 export async function getPostsForLang(lang: Lang) {
-  const own = await getPosts(lang);
-  if (own.length || lang === 'zh') return { posts: own, fallback: false };
-  return { posts: await getPosts('zh'), fallback: true };
+  const { items, fallback } = withUntranslated(await getPosts(), lang);
+  return { posts: items.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()), fallback };
 }

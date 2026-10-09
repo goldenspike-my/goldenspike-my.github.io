@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { getQuizzesForLang } from '../lib/quizzes';
 import { t, url, type Lang } from '../lib/i18n';
+import { slugOf } from '../lib/twins';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const { quizzes, fallback } = await getQuizzesForLang(lang);
@@ -16,10 +17,10 @@ const { quizzes, fallback } = await getQuizzesForLang(lang);
   </section>
   <section class="sec-light section">
     <div class="wrap">
-      {fallback && <p class="note">{lang === 'en' ? 'English quizzes are coming. Here are the Chinese ones.' : ''}</p>}
+      {fallback && <p class="note">{lang === 'en' ? 'Some quizzes are only in Chinese for now.' : ''}</p>}
       <div class="grid">
         {quizzes.map((q, i) => (
-          <a class="qcard" href={url(q.data.lang, `/quiz/${q.id}`)}>
+          <a class="qcard" href={url(q.data.lang, `/quiz/${slugOf(q)}`)}>
             <span class="num">{String(i + 1).padStart(2, '0')}</span>
             <span class="title">{q.data.title}</span>
             {q.data.description && <span class="desc">{q.data.description}</span>}

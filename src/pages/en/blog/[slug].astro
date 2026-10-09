@@ -1,8 +1,9 @@
 ---
 import Post from '../../../views/Post.astro';
 import { getPosts } from '../../../lib/posts';
+import { slugOf } from '../../../lib/twins';
 export async function getStaticPaths() {
-  return (await getPosts('en')).map((post) => ({ params: { slug: post.id }, props: { post } }));
+  return (await getPosts('en')).map((post) => ({ params: { slug: slugOf(post) }, props: { post } }));
 }
 const { post } = Astro.props;
 ---

@@ -1,0 +1,28 @@
+{
+  "title": "「金钉子」是什么？小测验",
+  "slug": "golden-spike",
+  "description": "看完频道介绍，你知道「金钉子」在地质学里是什么意思吗？",
+  "lang": "zh",
+  "order": 4,
+  "youtubeId": "Hd8secgROVU",
+  "questions": [
+    {
+      "question": "地质学里的「金钉子」，英文缩写是什么？",
+      "options": ["GPS", "GSSP", "USGS", "GIS"],
+      "answer": 2,
+      "explanation": "GSSP 是 Global Boundary Stratotype Section and Point，全球界线层型剖面和点位，俗称「金钉子」。"
+    },
+    {
+      "question": "「金钉子」的作用是什么？",
+      "options": ["标记金矿的位置", "在地层中标记地质年代之间的界线，像时间轴上的「锚点」", "测量地震的大小", "固定铁轨"],
+      "answer": 2,
+      "explanation": "金钉子是钉在真实岩层上的标准点，全世界都用它来划分地球历史的不同年代。"
+    },
+    {
+      "question": "为什么频道取名「金钉子」？",
+      "options": ["因为喜欢金色", "希望像金钉子一样，为大家提供最核心、最标准的知识", "因为频道主收藏钉子", "随便取的"],
+      "answer": 2,
+      "explanation": "金钉子代表「标准」和「锚点」，频道希望用 3–5 分钟的短片，把复杂的地质知识浓缩成最核心的重点。"
+    }
+  ]
+}
