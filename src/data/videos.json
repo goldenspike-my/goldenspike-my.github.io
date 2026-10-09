@@ -1,32 +1,67 @@
 {
   "videos": [
     {
-      "youtubeId": "",
-      "title": "昔加末地震是怎么发生的？",
-      "titleEn": "What caused the Segamat earthquakes?",
-      "series": "news",
-      "date": ""
-    },
-    {
-      "youtubeId": "",
-      "title": "马来半岛沉睡的巨人",
-      "titleEn": "The sleeping giant beneath the Malay Peninsula",
-      "series": "seismology",
-      "date": ""
-    },
-    {
-      "youtubeId": "",
+      "youtubeId": "PZyfQpTmghQ",
       "title": "石头回收计划：岩石循环",
       "titleEn": "The rock cycle: how Earth recycles stone",
       "series": "rocks",
-      "date": ""
+      "date": "2025-11-17"
     },
     {
-      "youtubeId": "",
+      "youtubeId": "Ol20tenVE1g",
+      "title": "马来半岛沉睡的巨人",
+      "titleEn": "The sleeping giant beneath the Malay Peninsula",
+      "series": "seismology",
+      "date": "2025-11-10"
+    },
+    {
+      "youtubeId": "HSGN8I7fm4M",
+      "title": "昔加末地震是怎么发生的？",
+      "titleEn": "What caused the Segamat earthquakes?",
+      "series": "news",
+      "date": "2025-09-15"
+    },
+    {
+      "youtubeId": "Hd8secgROVU",
       "title": "金釘子是什么？频道介绍",
       "titleEn": "What is a Golden Spike? Channel intro",
       "series": "channel",
-      "date": ""
+      "date": "2025-08-26"
+    },
+    {
+      "youtubeId": "QfpW7fZl-_Y",
+      "title": "東京是名过于实嗎？",
+      "titleEn": "Is Tokyo overrated?",
+      "series": "vlog",
+      "date": "2025-08-21"
+    },
+    {
+      "youtubeId": "VQ_-ANqUbC8",
+      "title": "Farewell UM: My Geology Graduation Day",
+      "titleEn": "Farewell UM: My Geology Graduation Day",
+      "series": "vlog",
+      "date": "2024-12-23"
+    },
+    {
+      "youtubeId": "vH76dA8gLeU",
+      "title": "南浔旅行故事",
+      "titleEn": "Travel story: Nanxun water town",
+      "series": "vlog",
+      "date": "2024-11-27"
+    },
+    {
+      "youtubeId": "NuxTByoPjb0",
+      "title": "沉浸乌镇之美！",
+      "titleEn": "The beauty of Wuzhen",
+      "series": "vlog",
+      "date": "2024-11-08"
+    },
+    {
+      "youtubeId": "eh-ej364_S4",
+      "title": "Seoul Travel Diary",
+      "titleEn": "Seoul Travel Diary",
+      "series": "vlog",
+      "date": "2024-08-12"
     }
   ]
 }
