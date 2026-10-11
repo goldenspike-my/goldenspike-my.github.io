@@ -1,7 +1,7 @@
 ---
 title: Welcome to GoldenSpike!
 slug: welcome-to-golden-spike
-date: 2026-10-10
+date: 2026-10-09
 category: geo
 lang: en
 draft: true
