@@ -4,7 +4,7 @@ _Last updated: 2026-10-10 (site LIVE; Pages CMS connected)_
 
 ## LIVE STATUS (2026-10-10)
 - Live at https://goldenspike-my.github.io/ — repo https://github.com/goldenspike-my/goldenspike-my.github.io (GitHub user `goldenspike-my`).
-- Project folder is now in Google Drive: `G:\My Drive\golden-spike\goldenspike-site` (local git repo, remote `origin`, branch `main`). **Always `git pull` before editing locally** — Pages CMS commits directly to GitHub.
+- Project folder is now in Google Drive: `G:\My Drive\golden-spike\webpage\goldenspike-site` (local git repo, remote `origin`, branch `main`). **Always `git pull` before editing locally** — Pages CMS commits directly to GitHub.
 - Pages Source = GitHub Actions. Pages CMS connected and tested (edit → auto-redeploy works).
 - Monitor basemap switched from CARTO (now shows "API KEY REQUIRED" off localhost) to Esri World_Dark_Gray_Base (no key).
 - videos.json filled with all 9 YouTube IDs; 5 travel videos set to series `vlog` (English titles for those are Claude's guesses — he should review).
