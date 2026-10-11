@@ -1,0 +1,41 @@
+{
+  "title": "Epicentre vs Hypocentre Quiz",
+  "slug": "epicentre-hypocentre",
+  "description": "Watched the episode on epicentres? See if you can tell the epicentre from the hypocentre.",
+  "lang": "en",
+  "order": 5,
+  "youtubeId": "tCVqOF6OwoI",
+  "draft": false,
+  "questions": [
+    {
+      "question": "What does the \"epicentre\" in the news actually mean?",
+      "options": ["The point underground where the fault starts to break", "The point on the surface directly above the hypocentre", "The place where the shaking is strongest"],
+      "answer": 2,
+      "explanation": "The point underground where the rupture begins is the hypocentre. The epicentre is the spot on the surface right above it."
+    },
+    {
+      "question": "Three seismic stations each draw a circle. Where is the epicentre?",
+      "options": ["Wherever is closest to the nearest station", "Where the three circles cross", "At the centres of the circles"],
+      "answer": 2,
+      "explanation": "Each circle shows how far the earthquake is from that station, so the one point all three pass through is the epicentre."
+    },
+    {
+      "question": "What do we call an earthquake 0–70 km deep?",
+      "options": ["A shallow earthquake", "An intermediate-depth earthquake", "A deep earthquake"],
+      "answer": 1,
+      "explanation": "0–70 km is shallow, 70–300 km is intermediate and 300–700 km is deep."
+    },
+    {
+      "question": "Lots of earthquakes are listed at exactly 10 km deep. Why, usually?",
+      "options": ["The crust breaks most easily at 10 km", "When the depth can't be worked out, a fixed depth is filled in", "Seismic stations are buried 10 km underground"],
+      "answer": 2,
+      "explanation": "Without enough stations close by, the depth of a shallow earthquake is hard to pin down, so agencies put in 10 km as a stand-in."
+    },
+    {
+      "question": "Why isn't the epicentre enough to describe the 2004 Sumatra–Andaman earthquake?",
+      "options": ["It didn't have an epicentre", "The rupture ran along the fault for more than 1,000 km", "Its epicentre was on land"],
+      "answer": 2,
+      "explanation": "The hypocentre was only the starting line. A whole stretch of fault slipped, so the worst shaking wasn't necessarily near the epicentre."
+    }
+  ]
+}

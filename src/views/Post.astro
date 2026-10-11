@@ -32,6 +32,13 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
           <div class="meta"><span>金釘子</span><span>{formatDate(d.date, lang)}</span><span>{mins} {t(lang, 'minRead')}</span>{twin && <a class="twin" href={altHref} lang={otherLang}>{t(lang, 'readOtherLang')}</a>}</div>
         </header>
         {d.cover && <img class="cover" src={asset(d.cover)} alt={d.coverAlt || ''} />}
+        {toc.length > 1 && (
+          /* 手机上侧栏会跑到文章最后，所以在文章开头放一份目录（只在窄屏显示） */
+          <details class="toc-mobile" open>
+            <summary>{t(lang, 'toc')}</summary>
+            <nav aria-label={t(lang, 'toc')}>{toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}</nav>
+          </details>
+        )}
         <div class="prose"><Content /></div>
         {d.tags.length > 0 && <div class="tags">{d.tags.map((tag) => <span>#{tag}</span>)}</div>}
       </article>
@@ -59,7 +66,7 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
           </div>
         )}
         {toc.length > 1 && (
-          <nav class="side-list" aria-label={t(lang, 'toc')}>
+          <nav class="side-list toc-side" aria-label={t(lang, 'toc')}>
             <span class="side-title">{t(lang, 'toc')}</span>
             {toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}
           </nav>
@@ -92,6 +99,17 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
 
   .side { flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 28px; position: sticky; top: 96px; }
   @media (max-width: 900px) { .side { position: static; } }
+  /* 文章开头的目录：只在侧栏掉到文章下面的窄屏显示 */
+  .toc-mobile { display: none; background: var(--paper-card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
+  .toc-mobile summary { cursor: pointer; font-size: 13px; font-weight: 700; letter-spacing: .1em; color: var(--accent); }
+  .toc-mobile nav { display: flex; flex-direction: column; margin-top: 8px; }
+  .toc-mobile nav a { color: var(--paper-body); text-decoration: none; padding: 8px 0; font-size: 15px; line-height: 1.5; border-top: 1px solid var(--line); }
+  @media (max-width: 980px) {
+    .layout { flex-direction: column; align-items: stretch; }
+    .article, .side { flex: none; width: 100%; max-width: 760px; }
+    .toc-mobile { display: block; }
+    .side .toc-side { display: none; }
+  }
   .video-box { border-radius: 14px; overflow: hidden; }
   .embed { position: relative; aspect-ratio: 16 / 9; }
   .embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

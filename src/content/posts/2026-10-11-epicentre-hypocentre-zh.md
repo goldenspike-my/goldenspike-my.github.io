@@ -16,7 +16,7 @@ tags:
   - Sabah
 draft: false
 ---
-一则地震新闻，通常只有三行：
+大部分的地震新闻，其实只有三行：
 
 > 规模 4.1。Epicentre 位于 Segamat 以西 5 公里。深度 10 公里。
 

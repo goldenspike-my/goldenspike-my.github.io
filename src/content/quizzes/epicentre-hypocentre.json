@@ -1,0 +1,41 @@
+{
+  "title": "震中与震源小测验",
+  "slug": "epicentre-hypocentre",
+  "description": "看完《新闻说的「震中」，其实不是地震发生的地方？》，分得清 Epicentre 和 Hypocentre 了吗？",
+  "lang": "zh",
+  "order": 5,
+  "youtubeId": "tCVqOF6OwoI",
+  "draft": false,
+  "questions": [
+    {
+      "question": "新闻说的「震中」（Epicentre）指的是哪里？",
+      "options": ["地底下断层开始破裂的那个点", "震源正上方、地面上的那个点", "摇得最厉害的地方"],
+      "answer": 2,
+      "explanation": "地底开始破裂的点是 Hypocentre；Epicentre 是它正上方的地面位置。"
+    },
+    {
+      "question": "三个地震站各画一个圆，Epicentre 在哪里？",
+      "options": ["离最近的地震站最近的地方", "三个圆的交点", "三个圆的圆心"],
+      "answer": 2,
+      "explanation": "每个圆代表「地震离这个站多远」，三个圆交在一起的地方就是 Epicentre。"
+    },
+    {
+      "question": "深度 0–70 公里的地震叫什么？",
+      "options": ["shallow earthquake", "intermediate-depth earthquake", "deep earthquake"],
+      "answer": 1,
+      "explanation": "0–70 km 叫 shallow，70–300 km 叫 intermediate，300–700 km 叫 deep。"
+    },
+    {
+      "question": "很多地震的深度「刚好」是 10 公里，通常是因为？",
+      "options": ["地壳在 10 公里深最容易破裂", "深度算不准时，先填一个固定深度（fixed depth）", "地震站都装在地下 10 公里"],
+      "answer": 2,
+      "explanation": "浅层地震如果附近测站不够，深度很难算准，机构会先用 10 km 代替。"
+    },
+    {
+      "question": "为什么 2004 年 Sumatra-Andaman 大地震不能只看 Epicentre？",
+      "options": ["这次地震没有 Epicentre", "破裂沿着 fault 一路延伸了 1,000 多公里", "它的 Epicentre 在陆地上"],
+      "answer": 2,
+      "explanation": "Hypocentre 只是起跑线，整片 fault 都滑动了，摇得最厉害的地方不一定在 Epicentre 附近。"
+    }
+  ]
+}
