@@ -24,7 +24,6 @@
     "en": "All"
   },
   "enFallback": {
-    "zh": "",
     "en": "Some posts are only in Chinese for now."
   },
   "noPosts": {
@@ -33,7 +32,7 @@
   },
   "wrong": {
     "zh": "不对哦。",
-    "en": "Not quite."
+    "en": "Incorrect."
   },
   "correct": {
     "zh": "答对了！",
@@ -68,12 +67,11 @@
     "en": "questions"
   },
   "quizFallback": {
-    "zh": "",
     "en": "Some quizzes are only in Chinese for now."
   },
   "quizSub": {
     "zh": "看完视频，来考考自己",
-    "en": "Test yourself after watching"
+    "en": "Test yourself after watching my video"
   },
   "gallery": {
     "zh": "标本",
