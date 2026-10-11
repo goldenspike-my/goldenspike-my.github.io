@@ -1,6 +1,6 @@
 ---
 title: 从马大地质，到京大地震
-photo: /uploads/20230603_233341.jpg
+photo: /uploads/20230603_2333412-2.jpg
 ---
 我是马来西亚人，毕业于马来亚大学（University of Malaya）地质系，现在在日本京都大学做地震研究。
 
