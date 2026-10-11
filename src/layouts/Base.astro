@@ -20,10 +20,10 @@ const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{fullTitle}</title>
   <meta name="description" content={desc} />
-  <!-- 网站图标：金钉钉进岩层（频道 Logo，来源 youtube/brand/logo/final）。换图标时把 ?v=2 改成 ?v=3，浏览器才会重新下载 -->
-  <link rel="icon" href={asset('favicon.ico?v=2')} sizes="32x32" />
-  <link rel="icon" type="image/svg+xml" href={asset('favicon.svg?v=2')} />
-  <link rel="apple-touch-icon" href={asset('apple-touch-icon.png?v=2')} />
+  <!-- 网站图标：金钉钉进岩层（频道 Logo，来源 youtube/brand/logo/final） -->
+  <link rel="icon" href={asset('favicon.ico')} sizes="32x32" />
+  <link rel="icon" type="image/svg+xml" href={asset('favicon.svg')} />
+  <link rel="apple-touch-icon" href={asset('apple-touch-icon.png')} />
   <meta name="theme-color" content="#1A160C" />
   <link rel="alternate" hreflang="zh-Hans" href={new URL(lang === 'zh' ? path : (altHref ?? switchLangPath(path, 'zh')), Astro.site)} />
   <link rel="alternate" hreflang="en" href={new URL(lang === 'en' ? path : (altHref ?? switchLangPath(path, 'en')), Astro.site)} />
