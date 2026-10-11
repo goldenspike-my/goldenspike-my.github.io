@@ -28,6 +28,10 @@ Stable doesn't mean still, though. To our west is one of the most active plate b
 
 > Malaysia is like a sturdy house with the neighbours permanently renovating next door.
 
+![M5+ earthquakes from 1976 to 2025, coloured by depth. Almost all of them line up along the Sumatran subduction zone, and the Malay Peninsula itself is nearly empty. Data: USGS ComCat; map: Natural Earth](/uploads/blog/malaysia-seismicity-en.png)
+
+Two things jump out of this map. First, most earthquakes form a line off Sumatra: that's the subduction zone. Second, the further north-east you go, towards the peninsula, the deeper they get, from gold to orange-red. That's the subducting plate sinking deeper as it goes east.
+
 So the earthquakes that affect the peninsula come from two places: big quakes far away, and the faults right under our feet.
 
 ## Source one: the giant next door
@@ -47,6 +51,8 @@ The peninsula is crossed by old faults, most of them running north-west to south
 Then, after 2004, Sumatra had a string of major earthquakes: Nias in 2005 (M8.6), Bengkulu in 2007 (M8.4) and southern Sumatra in 2009 (M7.6). Researchers believe this sequence changed the stresses across the region and reactivated some of the old faults in the peninsula.[1]
 
 The clearest case is **Bukit Tinggi**, on the Selangor–Pahang border. From 30 November 2007 small earthquakes started coming one after another: 9 in 2007, 8 in 2008 and 5 in 2009, about 22 in total, at roughly ML 2.5–3.5.[1] Before that, the national seismic network, which MetMalaysia had been running since 2003, hadn't recorded any significant tectonic earthquake originating within the peninsula itself.
+
+![Local earthquakes recorded around Bukit Tinggi each year. Data: Nazaruddin & Duerrast (2021) #medium](/uploads/blog/bukit-tinggi-en.png)
 
 ### Eight potentially active faults
 

@@ -33,9 +33,13 @@ draft: false
 
 这个循环没有起点，也没有终点。
 
+![Rock Cycle：三大类岩石和它们之间的转化路线](/uploads/blog/rock-cycle-zh.png)
+
 > 石头不是不会变，只是它变的速度，比人类的一生慢太多。
 
 ## 这个想法从哪里来
+
+![James Hutton 的画像，Henry Raeburn 绘（公有领域，Wikimedia Commons） #小 #右](/uploads/blog/photo-hutton.jpg)
 
 把地球看成一个不断循环的系统，最早要归功于苏格兰的 **James Hutton**。他在 1785 年向爱丁堡皇家学会发表自己的理论，1788 年正式出版《Theory of the Earth》。他观察到岩石会被侵蚀、沉积、再被抬升成新的陆地，结论里有一句很有名的话：
 
@@ -59,6 +63,8 @@ Hutton 因此常被称为现代地质学之父。[2]
 
 **马来西亚最老的石头在 Langkawi。** Machinchang Formation 是寒武纪（Cambrian）的砂岩，被认为是马来西亚最古老的岩层，里面还找到了马来西亚最古老的化石：一种三叶虫（trilobite）。[5]
 
+![Batu Caves 的石灰岩山壁和 272 级楼梯。照片：CEphoto, Uwe Aranas，Wikimedia Commons，CC BY-SA 3.0 #小 #右](/uploads/blog/photo-batu-caves.jpg)
+
 **Batu Caves 是一片古老的海底。** 组成 Batu Caves 的 Kuala Lumpur Limestone 大约有 4 亿 3000 万年历史，是志留纪（Silurian）浅海里的碳酸盐堆积起来的。[6] 你爬那 272 级楼梯的时候，其实是在爬一片古代的海床。
 
 ## 石头的三条路
@@ -72,6 +78,8 @@ Hutton 因此常被称为现代地质学之父。[2]
 岩石露出地表后，会经历 **weathering（风化）** 和 **erosion（侵蚀）**，被风、雨、河流、冰川磨成碎屑。这些沙和泥被搬运到低处，一层一层沉积，越埋越深，被上面的重量压实，再被矿物胶结起来，就成了 Sedimentary rock。
 
 这条路线我在京都每天都看得到。京都东北边，比叡山（Mt. Hiei）和大文字山之间有一片 Granite。这些 Granite 风化后变成白色的粗砂，被白川（Shirakawa River）冲下来，就是有名的 **白川砂（Shirakawa-suna）**。[7][8] 京都很多寺庙的枯山水庭园，耙出波纹的那片白砂，用的就是它。
+
+![京都银阁寺的砂庭。京都枯山水里耙出波纹的白砂，传统上用的就是由 Granite 风化而成的白川砂。照片：Jmhullot，Wikimedia Commons，CC BY 3.0](/uploads/blog/photo-ginkakuji-sand.jpg)
 
 > **小知识**：枯山水里的白砂，其实正走在 Rock Cycle 的第二条路上：Granite → 风化 → 砂。如果它被河流带到湖底或海底、埋得够深，几百万年后可能会变成一块新的 Sandstone。
 
@@ -114,3 +122,13 @@ Hutton 因此常被称为现代地质学之父。[2]
 7. 奈良文化财研究所. Japanese Garden Dictionary: Shirakawa sand. https://www.nabunken.go.jp/org/bunka/jgd/pages/ShirakawaSand.html
 8. Zhang, P., Fukamachi, K. & Shibata, S. (2017). Position and expressive form of white sand areas in temple gardens of Kyoto. 日本造园学会. https://jila-zouen.org/wpdata/wp-content/uploads/2017/04/7.pdf
 9. Árkai, P., Sassi, F. P. & Desmons, J. (2004). Very low- to low-grade metamorphic rocks. Recommendations by the IUGS Subcommission on the Systematics of Metamorphic Rocks. https://www.ugr.es/~agcasco/personal/IUGS/pdf-IUGS/scmr_low_r2_verylowtolowgrademetamorphicrocks.pdf
+
+## 图片来源
+
+James Hutton 画像：Henry Raeburn，公有领域，https://commons.wikimedia.org/wiki/File:Sir_Henry_Raeburn_-_James_Hutton,_1726_-_1797._Geologist_-_Google_Art_Project.jpg
+
+Batu Caves：CEphoto, Uwe Aranas，CC BY-SA 3.0，https://commons.wikimedia.org/wiki/File:Gombak_Selangor_Batu-Caves-01.jpg
+
+银阁寺砂庭：Jmhullot，CC BY 3.0，https://commons.wikimedia.org/wiki/File:Ginkakuji_Sand_Garden.jpg
+
+Rock Cycle 图为金釘子自绘。

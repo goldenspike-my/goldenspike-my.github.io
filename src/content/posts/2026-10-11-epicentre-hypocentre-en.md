@@ -32,6 +32,8 @@ In the video I used a glass of water. A coin at the bottom is the hypocentre and
 
 The distance between the two is the **depth**.
 
+![From the video: on a map you only see the epicentre (left); in cross-section the hypocentre sits directly beneath it, and the distance between them is the depth (schematic)](/uploads/blog/ep01-two-points.jpg)
+
 The news always gives the epicentre for a practical reason: you can put it on a flat map, and generally the closer you are to it, the harder the shaking.
 
 ## How it works: finding the point
@@ -40,9 +42,13 @@ The moment the rock breaks, it sends out **seismic waves** in every direction, a
 
 The waves travel at different speeds. The faster P-wave arrives first and the slower S-wave arrives later, and the further away the earthquake, the bigger the gap between them. So from that gap alone, a single station can work out how far away the earthquake was.
 
+![From the video: a near station and a far station. The gap between the fast wave (cyan) and the slow wave (gold) grows with distance (schematic)](/uploads/blog/ep01-time-gap.jpg)
+
 > **Rule of thumb:** for fairly nearby earthquakes, multiply the gap between the S-wave and P-wave arrivals (in seconds) by 8 and you get roughly the distance in kilometres.[3] A gap of 5 seconds means the quake was about 40 km away. For distant earthquakes the multiplier grows, and you need a proper travel-time table.
 
 What one station can't tell you is the direction. Draw a circle around the station with that distance as the radius, and the earthquake is somewhere on that circle. A second station gives a second circle, and the two circles cross at two points. The third station's circle passes through one of them, and that's the epicentre.
+
+![From the video: one circle each around Kuala Lumpur, Kuantan and Johor Bahru, crossing at Segamat (illustrative station positions, not real MetMalaysia stations). Map: Natural Earth](/uploads/blog/ep01-three-circles.jpg)
 
 That's the classroom version, of course. Real earthquakes happen underground, not on paper, so there are actually **four unknowns**: longitude, latitude, depth and the time the quake started. In theory you need at least four stations. In practice, seismologists use tens or hundreds of stations and let a computer find the answer that fits all the observations best.[4][5]
 
@@ -62,6 +68,8 @@ Below that, earthquakes all but disappear. And according to the USGS, every eart
 
 For two earthquakes of the same size, the shallower one is closer to us, its energy hasn't had time to spread out, and the shaking is stronger. The deeper one has to send its waves a long way up, so the shaking is weaker but it's felt over a much wider area.
 
+![From the video: two earthquakes of the same size. The shallow one (left) shakes the few houses right above it hard; the deep one's waves have a long way to travel up (schematic)](/uploads/blog/ep01-shallow-deep.jpg)
+
 ## The deeper stuff: a hypocentre is an estimate
 
 Let's compare two Malaysian earthquakes.
@@ -79,11 +87,15 @@ Interestingly, different agencies come up with different numbers for the same ea
 
 The two Segamat epicentres are more than ten kilometres apart.[1][10]
 
+![From the video: the same Segamat earthquake, with MetMalaysia's epicentre (gold) and USGS's (cyan) more than ten kilometres apart. MetMalaysia only said "about 5 km west", so its pin is placed from that description](/uploads/blog/ep01-two-answers.jpg)
+
 That doesn't mean anyone got it wrong. Use different stations, or assume different wave speeds in the ground, and you'll get a different answer. **Every hypocentre comes with an uncertainty.** And those ten-odd kilometres matter: before you can say which fault caused an earthquake, you need to know how accurate the epicentre is.
 
 ### Depth is the hardest part
 
 The biggest uncertainty is usually the depth, because depth and start time can trade off against each other. A hypocentre that's a bit deeper but started a bit earlier can produce almost the same arrival times at the stations, and the computer struggles to tell the two apart.[4]
+
+![From the video: a shallower, later hypocentre and a deeper, earlier one give almost the same arrival times at the outer stations; only a station near the epicentre (right) tells them apart (schematic, times illustrative)](/uploads/blog/ep01-depth-vs-time.jpg)
 
 The best fix is having a station close to the hypocentre. The USGS rule of thumb is that depth is only well constrained when the nearest station is closer to the epicentre than the earthquake is deep.[11]
 
@@ -94,6 +106,8 @@ The best fix is having a station close to the hypocentre. The USGS rule of thumb
 ### That "10 km"
 
 This is why so many shallow earthquakes have a depth of **exactly** 10 km. I checked the USGS catalogue: from January to September 2026, there were 921 shallow earthquakes in Southeast Asia (M4.5 and above, shallower than 40 km), and 523 of them had a depth of exactly 10.0 km.[12]
+
+![Depths of shallow earthquakes in Southeast Asia (USGS ComCat, January–September 2026, M4.5+, shallower than 40 km, queried 11 October 2026). The 10 km bar towers over the rest. There's also a spike at 35 km that I haven't found an official explanation for yet](/uploads/blog/depth-histogram-en.png)
 
 Often that's a **fixed depth**: when there isn't enough data to pin down the depth, a reasonable default goes in instead.[11][13] In the USGS solution for Segamat, the depth field literally says *operator assigned*, meaning it was set by hand, because the nearest station used was more than 100 km away.[10] MetMalaysia hasn't said how it arrived at its 10 km.
 
@@ -108,6 +122,8 @@ Flip it round, and the Sabah earthquake 600-odd kilometres down had its depth wo
 One more thing. A big earthquake isn't one point breaking, it's a whole stretch of fault.
 
 The 2004 Sumatra–Andaman earthquake started at its epicentre at the southern end and tore northwards for roughly 1,150 to 1,200 km, lasting about eight minutes.[14][15] GPS data showed that the bulk of the energy was released at least 200 km north of the epicentre.[16]
+
+![From the video: the 2004 Sumatra–Andaman earthquake started at its epicentre (star) in the south and tore northwards for over a thousand kilometres in about eight minutes. Data: Ni et al. 2005; Krüger & Ohrnberger 2005. Map: Natural Earth](/uploads/blog/ep01-rupture-2004.jpg)
 
 For an earthquake like that, the hypocentre is just the starting line, and the area around the epicentre isn't necessarily where the shaking was worst.
 

@@ -37,6 +37,8 @@ draft: false
 
 > 金钉子，就是地质时间表上的刻度，而且是钉在真实岩石上的刻度。
 
+![金钉子的原理：在一段岩层剖面里，钉在某种新化石第一次出现的那一层（示意图）](/uploads/blog/gssp-concept-zh.png)
+
 ## GSSP：金钉子的正式名字
 
 金钉子的正式名称是 **Global Boundary Stratotype Section and Point**，简称 **GSSP**，中文叫「全球年代地层单位界线层型剖面和点位」。这名字长到我第一次念的时候差点咬到舌头。
@@ -57,9 +59,13 @@ draft: false
 
 ## 几个有故事的金钉子
 
+![这篇文章提到的金钉子，以及马来西亚最古老岩层所在的 Langkawi（位置为示意）。地图：Natural Earth](/uploads/blog/gssp-map-zh.png)
+
 ### 第一根：捷克的 Klonk
 
 世界上第一个被批准的金钉子在捷克布拉格附近的 Klonk 山丘，1972 年在蒙特利尔的国际地质大会上通过，定义的是志留纪（Silurian）和泥盆纪（Devonian）的分界。它用的信号是一种笔石化石（graptolite）*Monograptus uniformis* 第一次出现的位置。[3]
+
+![捷克 Klonk 的志留纪／泥盆纪界线剖面：山坡中间裸露的就是那段岩层。照片：T. Kebert，Wikimedia Commons，CC BY-SA 4.0](/uploads/blog/photo-klonk.jpg)
 
 从那之后半个世纪，ICS 的列表上已经有大约 80 个批准的金钉子。[1]
 
@@ -98,3 +104,7 @@ draft: false
 5. Langkawi UNESCO Global Geopark. Rock formations. https://www.langkawigeopark.com.my/rock-formations/
 6. IUGS (2024-03-20). Statement on the proposal for an Anthropocene Epoch（SQS 投票：4 赞成、12 反对、3 弃权）. https://www.iugs.org/_files/ugd/f1fc07_40d1a7ed58de458c9f8f24de5e739663.pdf?index=true
 7. Subcommission on Quaternary Stratigraphy. Working Group on the 'Anthropocene'. https://quaternary.stratigraphy.org/working-groups/anthropocene
+
+## 图片来源
+
+Klonk 照片：T. Kebert，CC BY-SA 4.0，https://commons.wikimedia.org/wiki/File:Klonk_silurian-devonian_TK_2021-07-23_2.jpg 。其余图为金釘子自绘，地图底图来自 Natural Earth。

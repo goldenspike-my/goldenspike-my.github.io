@@ -32,9 +32,13 @@ Two engines drive it:
 
 There's no start and no finish.
 
+![The rock cycle: the three families of rock and the routes between them](/uploads/blog/rock-cycle-en.png)
+
 > Rocks do change. They just do it far more slowly than a human lifetime.
 
 ## Where the idea came from
+
+![James Hutton, painted by Henry Raeburn (public domain, Wikimedia Commons) #small #right](/uploads/blog/photo-hutton.jpg)
 
 The idea of Earth as a system that keeps recycling itself goes back to the Scottish naturalist **James Hutton**. He presented his theory to the Royal Society of Edinburgh in 1785 and published *Theory of the Earth* in 1788. He'd seen how rocks are worn down, laid down as sediment and lifted up again as new land, and he ended with a line that's still quoted today:
 
@@ -58,6 +62,8 @@ A few details I love:
 
 **Malaysia's oldest rocks are on Langkawi.** The Machinchang Formation is Cambrian sandstone, described as the oldest rock formation in the country, and it holds Malaysia's oldest known fossil, a trilobite.[5]
 
+![The limestone cliffs and 272 steps of Batu Caves. Photo: CEphoto, Uwe Aranas, Wikimedia Commons, CC BY-SA 3.0 #small #right](/uploads/blog/photo-batu-caves.jpg)
+
 **Batu Caves is an old seabed.** The Kuala Lumpur Limestone that makes up Batu Caves is around 430 million years old, built from carbonate that piled up in a shallow Silurian sea.[6] When you climb those 272 steps, you're climbing up an ancient sea floor.
 
 ## Three roads a rock can take
@@ -71,6 +77,8 @@ Take any rock deep enough and hot enough and it can melt into **magma**. When th
 Once rock is exposed at the surface, **weathering** and **erosion** go to work: wind, rain, rivers and glaciers grind it into fragments. That sand and mud is carried downhill and laid down layer by layer. As it gets buried deeper, the weight above squeezes it together and minerals cement the grains, and it becomes sedimentary rock.
 
 I see this road every day in Kyoto. North-east of the city, between Mt Hiei and Mt Daimonji, there's a body of granite. As it weathers it breaks down into coarse white sand, which the Shirakawa River carries down: the famous **Shirakawa-suna**, or Shirakawa sand.[7][8] It's the white gravel raked into ripples in the dry gardens of so many Kyoto temples.
+
+![The sand garden at Ginkaku-ji in Kyoto. The raked white sand in Kyoto's dry gardens is traditionally Shirakawa sand, weathered from granite. Photo: Jmhullot, Wikimedia Commons, CC BY 3.0](/uploads/blog/photo-ginkakuji-sand.jpg)
 
 > **Did you know?** The raked sand in a Zen garden is literally halfway along road two: granite, weathered into sand. If a river carried it into a lake or the sea and it was buried deeply enough, in a few million years it could become a brand-new sandstone.
 
@@ -113,3 +121,13 @@ So it's less a circle and more a road map. Which road a rock takes depends on wh
 7. Nara National Research Institute for Cultural Properties. Japanese Garden Dictionary: Shirakawa sand. https://www.nabunken.go.jp/org/bunka/jgd/pages/ShirakawaSand.html
 8. Zhang, P., Fukamachi, K. & Shibata, S. (2017). Position and expressive form of white sand areas in temple gardens of Kyoto. Japanese Institute of Landscape Architecture. https://jila-zouen.org/wpdata/wp-content/uploads/2017/04/7.pdf
 9. Árkai, P., Sassi, F. P. & Desmons, J. (2004). Very low- to low-grade metamorphic rocks. Recommendations by the IUGS Subcommission on the Systematics of Metamorphic Rocks. https://www.ugr.es/~agcasco/personal/IUGS/pdf-IUGS/scmr_low_r2_verylowtolowgrademetamorphicrocks.pdf
+
+## Image credits
+
+Portrait of James Hutton: Henry Raeburn, public domain, https://commons.wikimedia.org/wiki/File:Sir_Henry_Raeburn_-_James_Hutton,_1726_-_1797._Geologist_-_Google_Art_Project.jpg
+
+Batu Caves: CEphoto, Uwe Aranas, CC BY-SA 3.0, https://commons.wikimedia.org/wiki/File:Gombak_Selangor_Batu-Caves-01.jpg
+
+Ginkaku-ji sand garden: Jmhullot, CC BY 3.0, https://commons.wikimedia.org/wiki/File:Ginkakuji_Sand_Garden.jpg
+
+The rock cycle diagram is my own.

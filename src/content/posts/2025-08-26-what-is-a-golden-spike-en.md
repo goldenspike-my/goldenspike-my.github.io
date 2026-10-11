@@ -37,6 +37,8 @@ What you need is a single reference that everyone accepts. Somewhere in a real r
 
 > A golden spike is a mark on the geological time scale, and it's driven into actual rock.
 
+![How a golden spike works: in a section of rock layers, it marks the level where a new fossil first appears (schematic)](/uploads/blog/gssp-concept-en.png)
+
 ## GSSP: the official name
 
 The formal term is **Global Boundary Stratotype Section and Point**, or **GSSP**. It's a mouthful, but each part means something simple:
@@ -55,9 +57,13 @@ A boundary only becomes official once the International Commission on Stratigrap
 
 ## A few spikes with a story
 
+![The golden spikes in this post, plus Langkawi, home of Malaysia's oldest rocks (locations approximate). Map: Natural Earth](/uploads/blog/gssp-map-en.png)
+
 ### The first one: Klonk, Czech Republic
 
 The first golden spike ever ratified is on Klonk hill near Prague. It was approved in 1972 at the International Geological Congress in Montreal and marks the boundary between the Silurian and the Devonian. The signal is the first appearance of a graptolite called *Monograptus uniformis*.[3]
+
+![The Silurian–Devonian boundary section at Klonk, Czech Republic: the bare rock in the middle of the slope is the section itself. Photo: T. Kebert, Wikimedia Commons, CC BY-SA 4.0](/uploads/blog/photo-klonk.jpg)
 
 Half a century later, the ICS list has roughly 80 ratified golden spikes.[1]
 
@@ -96,3 +102,7 @@ If you're curious about rocks, earthquakes or the planet in general, I'd love to
 5. Langkawi UNESCO Global Geopark. Rock formations. https://www.langkawigeopark.com.my/rock-formations/
 6. IUGS (20 March 2024). Statement on the proposal for an Anthropocene Epoch (SQS vote: 4 for, 12 against, 3 abstentions). https://www.iugs.org/_files/ugd/f1fc07_40d1a7ed58de458c9f8f24de5e739663.pdf?index=true
 7. Subcommission on Quaternary Stratigraphy. Working Group on the 'Anthropocene'. https://quaternary.stratigraphy.org/working-groups/anthropocene
+
+## Image credits
+
+Klonk photo: T. Kebert, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Klonk_silurian-devonian_TK_2021-07-23_2.jpg . All other figures are my own; base maps from Natural Earth.

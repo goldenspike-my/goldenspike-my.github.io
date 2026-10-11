@@ -34,6 +34,8 @@ MetMalaysia 随后公布：4.1 级，Epicentre 在 Segamat 以西约 5 公里。
 | 8 月 29 日 | 3.4 | Segamat 一带 |
 | 8 月 30 日 | 2.7 | Segamat 一带 |
 
+![2025 年 8 月 Segamat 一带的地震，规模为 MetMalaysia 公布的数字](/uploads/blog/segamat-sequence-zh.png)
+
 规模都不大，但离地面很近，所以感觉很明显。之后 JKR 检查了 Segamat 一带的政府建筑，有 15 栋出现轻微损坏，包括学校和医院墙壁的裂缝，多数是旧裂缝被摇得更明显，不影响结构安全。[4]
 
 ## 马来西亚真的「没有地震」吗？
@@ -57,6 +59,8 @@ MetMalaysia 随后公布：4.1 级，Epicentre 在 Segamat 以西约 5 公里。
 | 频率 | 很频繁 | 很少 |
 | 能量从哪来 | 板块直接互相推挤 | 远方板块运动传进来的应力，加上古老断层重新活动 |
 
+![左：板块交界的地震，发生在两个板块互相挤压的地方；右：板块内部的地震，发生在古老断层上（示意图）](/uploads/blog/plate-types-zh.png)
+
 马来半岛坐在 Sundaland 这块比较稳定的大陆地壳上，离最近的板块交界（Sumatra 的隐没带）有五六百公里。[6] 远方板块推挤的力量会慢慢传进来，让一些古老的断层累积应力，等到某一天超过它能承受的极限，就会滑动一下。
 
 ## 断层是怎么被「推一把」的
@@ -77,6 +81,8 @@ MetMalaysia 随后公布：4.1 级，Epicentre 在 Segamat 以西约 5 公里。
 
 > 不是水让断层变滑，而是水压把两边岩石推开了一点点。
 
+![孔隙压力：有水渗进断层后，水压把两边岩石撑开一点，压紧断层的力量就变小了（示意图）](/uploads/blog/pore-pressure-zh.png)
+
 那 Segamat 底下有没有水？马来西亚有不少温泉，而且都是**非火山性**的：雨水沿着断层和裂缝渗到很深的地方，被地底的热加热之后再冒上来。马来西亚地质学会的整理提到，很多温泉都和花岗岩体及断层带有关。[9][10]
 
 离 Segamat 不远的 Labis 就有温泉，附近的小镇甚至直接叫 Air Panas（热水）。[11] 有温泉，代表地底下确实有热水沿着断层循环。
@@ -92,6 +98,8 @@ MetMalaysia 随后公布：4.1 级，Epicentre 在 Segamat 以西约 5 公里。
 ## 更正：那个「深度 10 公里」
 
 影片里我照着新闻说，这次地震深度 10 公里。后来我做 Epicentre 那一集时查了 USGS 的资料，发现 USGS 的深度一栏写的是 *operator assigned*，也就是资料不够、人工先填的数字；它算出的 Epicentre 也在 Segamat 东南约 13 公里，和 MetMalaysia 的位置差了十几公里。[16]
+
+![两个机构算出的 Segamat 震中。USGS 的位置来自 USGS ComCat（us6000r3fi）；MetMalaysia 只公布了「Segamat 以西约 5 km」，图上按这个描述示意。地图：Natural Earth](/uploads/blog/segamat-map-zh.png)
 
 所以「10 公里」不一定是真的量出来的，Epicentre 也有十几公里的误差。这对判断「是哪一条断层」很重要。详细可以看[震中与震源那一篇](/blog/epicentre-hypocentre)。
 

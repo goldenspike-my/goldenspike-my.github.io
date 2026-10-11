@@ -34,6 +34,8 @@ This post is the extended version of the video. The video covers the two types o
 | 29 Aug | 3.4 | Segamat area |
 | 30 Aug | 2.7 | Segamat area |
 
+![Earthquakes around Segamat in August 2025, with magnitudes as reported by MetMalaysia](/uploads/blog/segamat-sequence-en.png)
+
 None of these were big, but they were close to the surface, so they were clearly felt. When JKR later inspected government buildings in the area, 15 had minor damage, including cracks in school and hospital walls. Most were old cracks that had opened up a bit more, and none affected the structures' safety.[4]
 
 ## So does Malaysia really get no earthquakes?
@@ -57,6 +59,8 @@ The big earthquakes we see on the news from Japan or Indonesia are mostly **inte
 | How often | very often | rarely |
 | Where the energy comes from | plates pushing directly on each other | stress transmitted from distant plate motion, plus old faults moving again |
 
+![Left: an interplate earthquake, where two plates push against each other. Right: an intraplate earthquake on an old fault inside a plate (schematic)](/uploads/blog/plate-types-en.png)
+
 The Malay Peninsula sits on Sundaland, a fairly stable piece of continental crust, five to six hundred kilometres from the nearest plate boundary, the subduction zone off Sumatra.[6] The push from those distant plates slowly makes its way inland and loads up some very old faults. When one of them can't hold any more, it slips.
 
 ## How a fault gets nudged
@@ -77,6 +81,8 @@ Whether a fault slips depends on how tightly the rock on either side is pressed 
 
 > It isn't that water makes the fault slippery. The water pressure props the two sides apart, just a little.
 
+![Pore pressure: once water gets into a fault, its pressure props the sides apart slightly and the force clamping the fault drops (schematic)](/uploads/blog/pore-pressure-en.png)
+
 Is there water down there? Malaysia has plenty of hot springs, and they're all **non-volcanic**: rainwater soaks down through faults and fractures to great depth, is heated by the warm rock, and rises again. The Geological Society of Malaysia notes that many of them are linked to granite bodies and fault zones.[9][10]
 
 There are hot springs at Labis, not far from Segamat. The village nearby is even called Air Panas, "hot water".[11] Hot springs tell us that heated water really is circulating along faults below the surface.
@@ -92,6 +98,8 @@ My thought was that Segamat might be a smaller version of the same thing: fluid 
 ## A correction: that "10 km depth"
 
 In the video I repeated the news and said this earthquake was 10 km deep. When I was researching my episode on epicentres, I checked the USGS record and found its depth listed as *operator assigned*, meaning there wasn't enough data and a default value was entered by hand. USGS also put the epicentre about 13 km east-south-east of Segamat, more than ten kilometres away from MetMalaysia's location.[16]
+
+![The Segamat epicentre according to the two agencies. The USGS location comes from USGS ComCat (us6000r3fi); MetMalaysia only published "about 5 km west of Segamat", so its point is placed from that description. Map: Natural Earth](/uploads/blog/segamat-map-en.png)
 
 So the "10 km" wasn't necessarily measured, and the epicentre itself carries an uncertainty of over ten kilometres. That matters a lot if you're trying to work out which fault was responsible. There's more on this in [my post on epicentres and hypocentres](/en/blog/epicentre-hypocentre).
 

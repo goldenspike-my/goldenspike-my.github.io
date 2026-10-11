@@ -32,6 +32,8 @@ draft: false
 
 两点之间的距离，就是 **depth**。
 
+![影片画面：左边是地图上看到的 Epicentre（只有位置），右边是剖面图，Hypocentre 在 Epicentre 正下方，两者之间的距离就是 depth（示意图）](/uploads/blog/ep01-two-points.jpg)
+
 新闻总是报 Epicentre，原因很实际：它可以直接画在平面地图上，而且一般来说，离 Epicentre 越近，摇得越厉害。
 
 ## 原理：地震学家怎么找到这个点
@@ -40,9 +42,13 @@ draft: false
 
 地震波有快有慢。跑得快的 P-wave 先到，跑得慢的 S-wave 后到。离得越远，两种波到达的时间差得越多。所以一个站只要看这个时间差，就能算出地震离它有多远。
 
+![影片画面：近的测站和远的测站。快的波（青色）和慢的波（金色）到达的时间差，离得越远就越大（示意图）](/uploads/blog/ep01-time-gap.jpg)
+
 > **小知识**：有一个粗略的估算法，对比较近的地震很好用：把 S-wave 和 P-wave 的到达时间差（秒）乘以 8，大约就是地震离测站的距离（公里）。[3] 例如时间差 5 秒，地震大约在 40 公里外。距离很远的时候这个倍数会变大，就要查走时表（travel-time table）了。
 
 可是，一个站只知道距离，不知道方向。以测站为圆心、以这个距离为半径画一个圆，地震就在圆上的某个地方。第二个站再画一个圆，两个圆交在两个点；第三个站的圆，会穿过其中同一个点，那就是 Epicentre。
+
+![影片画面：以 Kuala Lumpur、Kuantan 和 Johor Bahru 三个测站各画一个圆，三个圆交在 Segamat（测站位置为示意，不是真实的 MetMalaysia 测站）。地图：Natural Earth](/uploads/blog/ep01-three-circles.jpg)
 
 当然，这是教学上的简化。真实的地震在地底，不在纸上。要找的其实有**四个未知数**：longitude、latitude、depth，还有地震发生的时间。所以理论上至少要四个站。实际上，地震学家会用几十、甚至几百个站的资料，让电脑找出跟所有观测最吻合的答案。[4][5]
 
@@ -62,6 +68,8 @@ draft: false
 
 同样大小的地震，越浅，离我们越近，能量还没散开就到了地面，摇得越厉害。越深，波要走很远才到地面，摇晃变弱了，但会传得很广。
 
+![影片画面：同样大小的地震，浅的（左）集中摇晃上面几栋房子，深的（右）波要走很远才到地面（示意图）](/uploads/blog/ep01-shallow-deep.jpg)
+
 ## 进阶：Hypocentre 其实是一个估计值
 
 我们拿两个马来西亚的地震来比一比。
@@ -79,11 +87,15 @@ draft: false
 
 Segamat 的两个 Epicentre，相差了十几公里。[1][10]
 
+![影片画面：同一个 Segamat 地震，MetMalaysia（金色）和 USGS（青色）给出的 Epicentre 相差十几公里。MetMalaysia 只公布了「以西约 5 km」，图上按描述示意](/uploads/blog/ep01-two-answers.jpg)
+
 这不代表有谁算错了。用的测站不一样、所假设的地底波速不一样，答案就会不一样。**每一个 Hypocentre 都带着一个误差范围。** 这十几公里很重要：要判断地震是哪一条 fault 引起的，先要知道 Epicentre 有多准。
 
 ### 最难算准的是 depth
 
 误差最大的，通常是 depth。原因是 depth 和发生时间会「互相抵消」：Hypocentre 深一点、但早一点发生，地震波到达测站的时间可能几乎一样。电脑很难分辨这两种情况。[4]
+
+![影片画面：两个 Hypocentre，一个较浅、较晚发生，一个较深、较早发生，传到两边测站的时间几乎一样；只有正上方附近的测站（右图）分得出来（示意图，时间为示意）](/uploads/blog/ep01-depth-vs-time.jpg)
 
 最好的解决办法，是在 Hypocentre 附近就有测站。USGS 有一个经验法则：最近的测站离 Epicentre 的距离，最好小于地震的深度，深度才比较可靠。[11]
 
@@ -94,6 +106,8 @@ Segamat 的两个 Epicentre，相差了十几公里。[1][10]
 ### 那个「10 公里」
 
 所以你会发现，很多浅层地震的 depth 都**刚好**是 10 公里。我查了 USGS 目录：2026 年 1 到 9 月，东南亚的浅层地震（M4.5 以上、深度小于 40 公里）一共 921 个，其中 523 个的深度刚好是 10.0 公里。[12]
+
+![东南亚浅层地震的深度分布（USGS ComCat，2026 年 1–9 月，M4.5 以上，深度小于 40 km，2026-10-11 查询）。10 km 那一格特别高；35 km 也有一个高峰，原因我还没找到官方说明](/uploads/blog/depth-histogram-zh.png)
 
 这有时是一个 **fixed depth**：数据不够、depth 算不准的时候，就先填一个合理的数字。[11][13] USGS 对 Segamat 地震的解，depth 一栏就写着 *operator assigned*，也就是人工指定，因为它用到的最近测站在 100 多公里外。[10] MetMalaysia 的 10 公里是怎么来的，官方没有说明。
 
@@ -108,6 +122,8 @@ Segamat 的两个 Epicentre，相差了十几公里。[1][10]
 还有一点。大地震不是一个点在破裂，而是一整片 fault 在破裂。
 
 2004 年的 Sumatra–Andaman 大地震，从南端的 Epicentre 开始，一路往北裂了大约 1,150 到 1,200 公里，持续大约八分钟。[14][15] GPS 资料显示，这场地震释放能量最集中的地方，在 Epicentre 以北至少 200 公里。[16]
+
+![影片画面：2004 年 Sumatra–Andaman 大地震从南端的 Epicentre（星号）开始，往北裂了一千多公里，大约八分钟。资料：Ni et al. 2005；Krüger & Ohrnberger 2005。地图：Natural Earth](/uploads/blog/ep01-rupture-2004.jpg)
 
 对这种地震来说，Hypocentre 只是起跑线，Epicentre 附近不一定是摇得最厉害的地方。
 
