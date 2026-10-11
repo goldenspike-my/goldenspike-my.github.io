@@ -1,6 +1,6 @@
 ---
 title: From Malaysian geology to Kyoto seismology
-photo: /uploads/20230603_233341-1.jpg
+photo: /uploads/20230603_2333412-1.jpg
 ---
 I'm from Malaysia. I studied geology at the University of Malaya, and I now do earthquake research at Kyoto University in Japan.
 
