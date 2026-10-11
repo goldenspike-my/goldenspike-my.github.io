@@ -38,11 +38,13 @@ draft: false
 
 以 2025 年 8 月 24 日 Segamat 的地震为例，MetMalaysia 和 USGS 都发了报告。[3][4] 把它们放在一起看，就知道每个数字的「性格」不同：
 
+
 | 报告里的数字 | 我的判断 | 为什么 |
-|---|---|---|
+| --------- | ---- | ----------------------- |
 | Epicentre | 中等 | 两个机构的位置差了十几公里 |
 | 规模 | 中等 | 不同机构、不同规模种类（ML、Mw）会差零点几 |
 | Depth | 最低 | 10 公里是先填上去的，下面会解释 |
+
 
 ![影片画面：同一个 Segamat 地震，MetMalaysia（金色）和 USGS（青色）的 Epicentre 相差十几公里。MetMalaysia 只公布了「以西约 5 km」，图上按描述示意](/uploads/blog/ep01-two-answers.jpg)
 
@@ -56,7 +58,7 @@ draft: false
 
 > **小知识：一个可以自己算的公式**。对比较近的地震，把 S-wave 和 P-wave 的到达时间差（秒）乘以 8，大约就是地震离测站的距离（公里）。[5] 时间差 5 秒，大约 40 公里；时间差 10 秒，大约 80 公里。很远的地震这个倍数会变大，就要查走时表了。
 
-但一个测站只知道距离，不知道方向。三个测站各画一个圆，交点就是 Epicentre。这是课本上的方法，我在影片里用 A4 地图和一条绳子示范过：
+但一个测站只知道距离，不知道方向。三个测站各画一个圆，交点就是 Epicentre。这是课本上的方法，我在影片里也展示过：
 
 ![影片画面：以 Kuala Lumpur、Kuantan、Johor Bahru 为圆心各画一个圆，交在 Segamat（测站位置为示意，不是真实的 MetMalaysia 测站）。地图：Natural Earth](/uploads/blog/ep01-three-circles.jpg)
 
@@ -90,14 +92,16 @@ draft: false
 
 你不需要是地震学家，也能看出一个地震的深度靠不靠谱。在 USGS 的地震页面（例如 Segamat 那一次）点开 Origin 的细节，可以看到这几栏：[4]
 
+
 | 栏位 | Segamat 地震 | 怎么读 |
-|---|---|---|
+| ------------------ | ----------------- | ----------------- |
 | Depth | 10 km | 看起来很确定 |
 | Depth Type | operator assigned | 人工指定，不是算出来的 |
 | Number of Stations | 5 | 只用了五个站 |
 | Minimum Distance | 1.137°（约 126 km） | 最近的站比深度远很多 |
 | Horizontal Error | 6.7 km | Epicentre 本身的误差 |
 | Depth Error | 没有 | 不是算出来的，所以也没有误差可以给 |
+
 
 下次看到一个地震的深度刚好是 10 公里，可以先去看 Depth Type 和 Minimum Distance。如果最近的测站在一百公里外，那个深度就要打个问号。
 
@@ -137,22 +141,23 @@ draft: false
 
 ## 参考资料
 
-1. USGS FAQ. What does it mean that the earthquake occurred at a depth of 0 km? https://www.usgs.gov/faqs/what-does-it-mean-earthquake-occurred-a-depth-0-km-how-can-earthquake-have-a-negative-depth
-2. 気象庁 名古屋地方気象台. 震源と震央. https://www.data.jma.go.jp/nagoya/shosai/info/mini-jishin/singen.html
-3. Bernama (2025-08-24). MetMalaysia: 4.1-magnitude quake strikes Segamat. https://www.bernama.com/en/general/news.php?id=2459992
-4. USGS ComCat. M 4.0 – 13 km ESE of Segamat, Malaysia (us6000r3fi). https://earthquake.usgs.gov/earthquakes/eventpage/us6000r3fi
-5. IRIS. How are earthquakes located? https://dev.iris.edu/hq/inclass/fact-sheet/13 ；USGS / NOAA ITTI. Earthquake location（D ≈ 8 × (S−P)）. https://nctr.pmel.noaa.gov/education/ITTI/seismic/EQ_location_USGS.pdf
+1. USGS FAQ. What does it mean that the earthquake occurred at a depth of 0 km? [https://www.usgs.gov/faqs/what-does-it-mean-earthquake-occurred-a-depth-0-km-how-can-earthquake-have-a-negative-depth](https://www.usgs.gov/faqs/what-does-it-mean-earthquake-occurred-a-depth-0-km-how-can-earthquake-have-a-negative-depth)
+2. 気象庁 名古屋地方気象台. 震源と震央. [https://www.data.jma.go.jp/nagoya/shosai/info/mini-jishin/singen.html](https://www.data.jma.go.jp/nagoya/shosai/info/mini-jishin/singen.html)
+3. Bernama (2025-08-24). MetMalaysia: 4.1-magnitude quake strikes Segamat. [https://www.bernama.com/en/general/news.php?id=2459992](https://www.bernama.com/en/general/news.php?id=2459992)
+4. USGS ComCat. M 4.0 – 13 km ESE of Segamat, Malaysia (us6000r3fi). [https://earthquake.usgs.gov/earthquakes/eventpage/us6000r3fi](https://earthquake.usgs.gov/earthquakes/eventpage/us6000r3fi)
+5. IRIS. How are earthquakes located? [https://dev.iris.edu/hq/inclass/fact-sheet/13](https://dev.iris.edu/hq/inclass/fact-sheet/13) ；USGS / NOAA ITTI. Earthquake location（D ≈ 8 × (S−P)）. [https://nctr.pmel.noaa.gov/education/ITTI/seismic/EQ_location_USGS.pdf](https://nctr.pmel.noaa.gov/education/ITTI/seismic/EQ_location_USGS.pdf)
 6. Stein, S. & Wysession, M. (2003). *An Introduction to Seismology, Earthquakes, and Earth Structure*. Blackwell.
-7. Kennett, B. L. N. Earthquake location. CMA Proceedings vol. 31, ANU. https://maths.anu.edu.au/files/CMAProcVol31-Kennett.pdf
-8. USGS FAQ. Why do so many earthquakes occur at a depth of 10 km? https://www.usgs.gov/faqs/why-do-so-many-earthquakes-occur-depth-10km
-9. NIED MOWLAS. Our networks（Hi-net：将近 800 站，平均间距 20 km）. https://www.mowlas.bosai.go.jp/network/?LANG=en
-10. GEOFON / GFZ. About the earthquake list (FAQ). https://geofon.gfz.de/eqinfo/faq/
-11. USGS ComCat 查询（东南亚 90–130°E、10°S–20°N，2026 年 1–9 月，M≥4.5，深度 < 40 km）. https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2026-01-01&endtime=2026-10-01&minlatitude=-10&maxlatitude=20&minlongitude=90&maxlongitude=130&minmagnitude=4.5&maxdepth=40
-12. USGS ComCat. M 7.1 – 57 km NNW of Kota Belud, Malaysia (us6000sasz). https://earthquake.usgs.gov/earthquakes/eventpage/us6000sasz
-13. USGS. Determining the Depth of an Earthquake. https://www.usgs.gov/programs/earthquake-hazards/determining-depth-earthquake
-14. Bernama (2026-02-23). MetMalaysia: 6.8-magnitude quake off Sabah. https://www.bernama.com/tv/news.php?id=2526438
-15. Frohlich, C. (1987). Kiyoo Wadati and early research on deep focus earthquakes. *Journal of Geophysical Research* 92(B13), 13777–13788. https://doi.org/10.1029/JB092iB13p13777
-16. Zhan, Z. (2020). Mechanisms and implications of deep earthquakes. *Annual Review of Earth and Planetary Sciences* 48. https://resolver.caltech.edu/CaltechAUTHORS:20200102-143031414
-17. Ni, S., Kanamori, H. & Helmberger, D. (2005). Energy radiation from the Sumatra earthquake. *Nature* 434, 582. https://doi.org/10.1038/434582a
-18. Krüger, F. & Ohrnberger, M. (2005). Tracking the rupture of the Mw = 9.3 Sumatra earthquake over 1,150 km at teleseismic distance. *Nature* 435, 937–939. https://doi.org/10.1038/nature03696
-19. Vigny, C. et al. (2005). Insight into the 2004 Sumatra–Andaman earthquake from GPS measurements in southeast Asia. *Nature* 436, 201–206. https://doi.org/10.1038/nature03937
+7. Kennett, B. L. N. Earthquake location. CMA Proceedings vol. 31, ANU. [https://maths.anu.edu.au/files/CMAProcVol31-Kennett.pdf](https://maths.anu.edu.au/files/CMAProcVol31-Kennett.pdf)
+8. USGS FAQ. Why do so many earthquakes occur at a depth of 10 km? [https://www.usgs.gov/faqs/why-do-so-many-earthquakes-occur-depth-10km](https://www.usgs.gov/faqs/why-do-so-many-earthquakes-occur-depth-10km)
+9. NIED MOWLAS. Our networks（Hi-net：将近 800 站，平均间距 20 km）. [https://www.mowlas.bosai.go.jp/network/?LANG=en](https://www.mowlas.bosai.go.jp/network/?LANG=en)
+10. GEOFON / GFZ. About the earthquake list (FAQ). [https://geofon.gfz.de/eqinfo/faq/](https://geofon.gfz.de/eqinfo/faq/)
+11. USGS ComCat 查询（东南亚 90–130°E、10°S–20°N，2026 年 1–9 月，M≥4.5，深度 < 40 km）. [https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2026-01-01&endtime=2026-10-01&minlatitude=-10&maxlatitude=20&minlongitude=90&maxlongitude=130&minmagnitude=4.5&maxdepth=40](https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2026-01-01&endtime=2026-10-01&minlatitude=-10&maxlatitude=20&minlongitude=90&maxlongitude=130&minmagnitude=4.5&maxdepth=40)
+12. USGS ComCat. M 7.1 – 57 km NNW of Kota Belud, Malaysia (us6000sasz). [https://earthquake.usgs.gov/earthquakes/eventpage/us6000sasz](https://earthquake.usgs.gov/earthquakes/eventpage/us6000sasz)
+13. USGS. Determining the Depth of an Earthquake. [https://www.usgs.gov/programs/earthquake-hazards/determining-depth-earthquake](https://www.usgs.gov/programs/earthquake-hazards/determining-depth-earthquake)
+14. Bernama (2026-02-23). MetMalaysia: 6.8-magnitude quake off Sabah. [https://www.bernama.com/tv/news.php?id=2526438](https://www.bernama.com/tv/news.php?id=2526438)
+15. Frohlich, C. (1987). Kiyoo Wadati and early research on deep focus earthquakes. *Journal of Geophysical Research* 92(B13), 13777–13788. [https://doi.org/10.1029/JB092iB13p13777](https://doi.org/10.1029/JB092iB13p13777)
+16. Zhan, Z. (2020). Mechanisms and implications of deep earthquakes. *Annual Review of Earth and Planetary Sciences* 48. [https://resolver.caltech.edu/CaltechAUTHORS:20200102-143031414](https://resolver.caltech.edu/CaltechAUTHORS:20200102-143031414)
+17. Ni, S., Kanamori, H. & Helmberger, D. (2005). Energy radiation from the Sumatra earthquake. *Nature* 434, 582. [https://doi.org/10.1038/434582a](https://doi.org/10.1038/434582a)
+18. Krüger, F. & Ohrnberger, M. (2005). Tracking the rupture of the Mw = 9.3 Sumatra earthquake over 1,150 km at teleseismic distance. *Nature* 435, 937–939. [https://doi.org/10.1038/nature03696](https://doi.org/10.1038/nature03696)
+19. Vigny, C. et al. (2005). Insight into the 2004 Sumatra–Andaman earthquake from GPS measurements in southeast Asia. *Nature* 436, 201–206. [https://doi.org/10.1038/nature03937](https://doi.org/10.1038/nature03937)
+
