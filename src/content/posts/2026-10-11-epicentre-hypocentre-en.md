@@ -1,71 +1,139 @@
 ---
-title: "The \"Epicentre\" in the News Isn't Where the Earthquake Happened? Epicentre vs Hypocentre"
+title: "The Epicentre Isn't Where an Earthquake Starts: Epicentre vs Hypocentre"
 slug: epicentre-hypocentre
-description: "The epicentre is just a dot on the ground. The earthquake actually starts underground. Even the \"10 km deep\" you see in the news may not have been measured."
+description: The epicentre is just a point on the map. The earthquake actually starts somewhere underground, and that "10 km deep" you keep seeing in the news often wasn't measured at all.
 date: 2026-10-11
 category: geo
 lang: en
 cover: /uploads/epicentre-hypocentre-cover.png
-coverAlt: "Cross-section of the ground: the pin on the surface is the Epicentre, and the red dot directly below it is the Hypocentre"
-youtubeId: "tCVqOF6OwoI"
+coverAlt: A cross-section through rock layers, with a pin on the surface marking the epicentre and a red dot directly below marking the hypocentre
+youtubeId: tCVqOF6OwoI
 tags:
-  - earthquake
+  - earthquakes
   - epicentre
   - hypocentre
-  - Epicentre
-  - Hypocentre
   - Segamat
-draft: true
+  - Sabah
+draft: false
 ---
-On a Sunday morning, 24 August 2025, an earthquake shook Segamat, a town in Johor. The news said the epicentre was about 5 km west of Segamat, at a depth of 10 km. A lot of people took that to mean the epicentre is where the earthquake happens. It isn't. And that "10 km" may not have been measured at all.[1]
+On Sunday morning, 24 August 2025, Segamat had an earthquake. The news said the epicentre was about 5 km west of town, at a depth of 10 km.[1]
+
+A lot of people took that to mean the epicentre is where the earthquake happened. It isn't. And that "10 km" may not have been measured at all.
+
+This is the written companion to the video. The video works in three layers, the basics, how it works, and the deeper stuff, and here I've added a bit more to each: how to estimate distance from a single seismogram, how seismologists "see" depth, and a few things I've learnt doing earthquake location work in Kyoto.
 
 ## The basics: a point underground
 
-An earthquake is rock deep underground suddenly breaking. The break always starts at one point, and that starting point is called the **Hypocentre** (also known as the focus). Draw a line straight up from the Hypocentre, and where it hits the ground is the **Epicentre**.[2]
+An earthquake is rock underground suddenly breaking and slipping. The break always starts at one particular point, and that starting point is the **hypocentre** (also called the focus). Draw a line straight up from the hypocentre, and where it meets the ground is the **epicentre**.[2]
 
-Picture a glass of water. A coin at the bottom is the Hypocentre, and the water surface is the ground. Look straight down from above, and the spot on the surface right over the coin is the Epicentre.
+In the video I used a glass of water. A coin at the bottom is the hypocentre and the water's surface is the ground. Look straight down, and the spot on the surface directly above the coin is the epicentre.
 
-So the Epicentre tells you where the earthquake is. The Hypocentre tells you one more thing: how deep. The distance between the two points is the **depth**. The news always reports the Epicentre because you can pin it on a map, and usually the closer you are to it, the harder the shaking.
+> The epicentre tells you where. The hypocentre tells you one more thing: how deep.
 
-## How it works: how seismologists find that point
+The distance between the two is the **depth**.
 
-When rock breaks, it sends out seismic waves in all directions. Seismic stations everywhere record when the waves arrive. Some waves are fast and some are slow. The fast ones arrive first, and the farther away you are, the bigger the gap between the two. So a single station can use that time gap to work out how far away the earthquake was, but not in which direction.
+The news always gives the epicentre for a practical reason: you can put it on a flat map, and generally the closer you are to it, the harder the shaking.
 
-Draw a circle around that station, and the earthquake is somewhere on the circle. Draw a second circle around a second station, and the two circles cross at two points. A third station's circle passes through one of those same points, and that's the Epicentre. (This is a simplified version for teaching.)
+## How it works: finding the point
 
-Real earthquakes happen underground, not on paper. There are actually four unknowns: longitude, latitude, depth, and the time the earthquake happened. So you need at least four stations. In practice, people use dozens or even hundreds, and let a computer find the answer that fits best.[3]
+The moment the rock breaks, it sends out **seismic waves** in every direction, and **seismic stations** all over the region record when they arrive.
 
-Once you have the depth, earthquakes fall into three types. From 0 to 70 km it's a **shallow earthquake**, from 70 to 300 km it's **intermediate**, and from 300 to 700 km it's a **deep earthquake**. Below that there are almost no earthquakes.[4] For the same size of earthquake, a shallower one is closer to us and its energy hasn't spread out yet, so the shaking is stronger. A deeper one has to send its waves a long way to reach the surface, so the shaking is weaker, but it's felt over a much wider area.
+The waves travel at different speeds. The faster P-wave arrives first and the slower S-wave arrives later, and the further away the earthquake, the bigger the gap between them. So from that gap alone, a single station can work out how far away the earthquake was.
 
-## Going further: the Hypocentre is really an estimate
+> **Rule of thumb:** for fairly nearby earthquakes, multiply the gap between the S-wave and P-wave arrivals (in seconds) by 8 and you get roughly the distance in kilometres.[3] A gap of 5 seconds means the quake was about 40 km away. For distant earthquakes the multiplier grows, and you need a proper travel-time table.
 
-Let's compare two earthquakes in Malaysia. The Segamat one was magnitude 4.1. Not big, but very shallow, and it left small cracks in nearby schools and even the walls of a hospital.[1][5] In February 2026, an earthquake of magnitude 7 or more struck off Sabah. That's about three magnitude units bigger than Segamat, but it happened more than 600 km underground. All of Sabah felt it, and some people in Sarawak and Peninsular Malaysia felt it too, but there were no casualties and no damage.[6][7]
+What one station can't tell you is the direction. Draw a circle around the station with that distance as the radius, and the earthquake is somewhere on that circle. A second station gives a second circle, and the two circles cross at two points. The third station's circle passes through one of them, and that's the epicentre.
 
-Different agencies also get different numbers for the same earthquake. MetMalaysia said 678 km deep and magnitude 6.8. USGS said 629 km deep and magnitude 7.1.[6][7] For the Segamat earthquake, MetMalaysia put the Epicentre west of the town, while USGS put it to the southeast, over ten kilometres apart.[1][8] That doesn't mean someone got it wrong. Use different stations, or assume a different wave speed underground, and you get a different answer. Every Hypocentre comes with an error margin, and if you want to know which fault caused an earthquake, you first need to know how accurate the Epicentre is.
+That's the classroom version, of course. Real earthquakes happen underground, not on paper, so there are actually **four unknowns**: longitude, latitude, depth and the time the quake started. In theory you need at least four stations. In practice, seismologists use tens or hundreds of stations and let a computer find the answer that fits all the observations best.[4][5]
 
-The biggest error is usually in the depth. Depth and origin time trade off against each other: a deeper Hypocentre that happens slightly earlier can make the waves reach the stations at almost the same times. The best fix is to have a station close to the Hypocentre.[3]
+### Three depth classes
 
-That's why you'll notice that the depth of so many shallow earthquakes is exactly 10 km. In Southeast Asia, from January to September 2026, the USGS catalogue has 921 shallow earthquakes (M4.5 and above), and 523 of them have a depth of exactly 10.0 km.[9] Sometimes this is a **fixed depth**: when there isn't enough data to pin the depth down, you put in a reasonable number for now.[10][11] In the USGS solution for the Segamat earthquake, the depth field literally says *operator assigned*, and its nearest station was more than 100 km away.[8] MetMalaysia hasn't officially said how it got its 10 km. But seeing 10 km doesn't necessarily mean it's really 10 km. Even my own earlier video just repeated the 10 km from the news.
+Once the depth is known, earthquakes are sorted into three groups:[6]
 
-On the other hand, for that 600-plus-km-deep Sabah earthquake, USGS used waveform modelling and got the depth down to an error of only about 2 km. The deepest one turned out to be the best constrained.[7]
+| Class | Depth |
+|---|---|
+| Shallow | 0–70 km |
+| Intermediate | 70–300 km |
+| Deep | 300–700 km |
 
-One more thing. A big earthquake isn't a single point. A whole stretch of fault breaks. In the 2004 Sumatra-Andaman earthquake, the rupture started at the Epicentre and ran north for more than a thousand kilometres, over about eight minutes.[12][13] For an earthquake like that, the Hypocentre is just the starting line, and the area around the Epicentre isn't necessarily where the shaking was strongest.[14]
+Below that, earthquakes all but disappear. And according to the USGS, every earthquake deeper than 70 km happens inside a slab of plate that has sunk into the mantle.[6]
 
-So next time the news tells you where the Epicentre is, ask one more question: how deep is it, and how well do they know it? The pin on the map is only the start of the story. The real story is buried underground.
+### Why depth matters
+
+For two earthquakes of the same size, the shallower one is closer to us, its energy hasn't had time to spread out, and the shaking is stronger. The deeper one has to send its waves a long way up, so the shaking is weaker but it's felt over a much wider area.
+
+## The deeper stuff: a hypocentre is an estimate
+
+Let's compare two Malaysian earthquakes.
+
+**Segamat, August 2025:** magnitude 4.1. Not big, but very shallow. Schools nearby, and even the walls of the hospital, ended up with minor cracks.[1][7]
+
+**Off Sabah, February 2026:** a magnitude 7-plus earthquake, three magnitude units bigger than Segamat, but more than 600 km underground. It was felt across Sabah and even by some people in Sarawak and the peninsula, yet caused no casualties or damage.[8][9]
+
+Interestingly, different agencies come up with different numbers for the same earthquake:
+
+| | MetMalaysia | USGS |
+|---|---|---|
+| Off Sabah (Feb 2026) | magnitude 6.8, 678 km deep | magnitude 7.1 (Mww), 629 km deep |
+| Segamat (Aug 2025) | epicentre about 5 km west of town | epicentre about 13 km east-south-east of Segamat |
+
+The two Segamat epicentres are more than ten kilometres apart.[1][10]
+
+That doesn't mean anyone got it wrong. Use different stations, or assume different wave speeds in the ground, and you'll get a different answer. **Every hypocentre comes with an uncertainty.** And those ten-odd kilometres matter: before you can say which fault caused an earthquake, you need to know how accurate the epicentre is.
+
+### Depth is the hardest part
+
+The biggest uncertainty is usually the depth, because depth and start time can trade off against each other. A hypocentre that's a bit deeper but started a bit earlier can produce almost the same arrival times at the stations, and the computer struggles to tell the two apart.[4]
+
+The best fix is having a station close to the hypocentre. The USGS rule of thumb is that depth is only well constrained when the nearest station is closer to the epicentre than the earthquake is deep.[11]
+
+> This is exactly the problem I deal with every day doing earthquake location at Kyoto University.
+
+> **Another trick: depth phases.** For distant earthquakes, seismologists also look for a **depth phase**. Some of the energy heads upwards first, bounces off the Earth's surface and then travels to the station. This reflected wave, called pP, arrives a little after the direct P-wave, and the delay depends almost entirely on depth. Measure the gap between pP and P and you get a much better depth.[6]
+
+### That "10 km"
+
+This is why so many shallow earthquakes have a depth of **exactly** 10 km. I checked the USGS catalogue: from January to September 2026, there were 921 shallow earthquakes in Southeast Asia (M4.5 and above, shallower than 40 km), and 523 of them had a depth of exactly 10.0 km.[12]
+
+Often that's a **fixed depth**: when there isn't enough data to pin down the depth, a reasonable default goes in instead.[11][13] In the USGS solution for Segamat, the depth field literally says *operator assigned*, meaning it was set by hand, because the nearest station used was more than 100 km away.[10] MetMalaysia hasn't said how it arrived at its 10 km.
+
+So a depth of 10 km doesn't necessarily mean 10 km. Even my own earlier video on Segamat repeated the news and said 10 km.
+
+### The deepest one was the most precise
+
+Flip it round, and the Sabah earthquake 600-odd kilometres down had its depth worked out by USGS from broadband waveform modelling to within about 2 km.[9] In very deep earthquakes the direct wave and the surface-reflected depth phase arrive well apart, so they're usually easier to tell apart and the depth comes out more precise.
+
+## Big earthquakes aren't points
+
+One more thing. A big earthquake isn't one point breaking, it's a whole stretch of fault.
+
+The 2004 Sumatra–Andaman earthquake started at its epicentre at the southern end and tore northwards for roughly 1,150 to 1,200 km, lasting about eight minutes.[14][15] GPS data showed that the bulk of the energy was released at least 200 km north of the epicentre.[16]
+
+For an earthquake like that, the hypocentre is just the starting line, and the area around the epicentre isn't necessarily where the shaking was worst.
+
+## Next time you see the news
+
+So next time the news gives you an epicentre, ask one more question: how deep was it, and how sure are they?
+
+The pin on the map is only the start of the story. The rest of it is buried underground.
+
+In the next episode I'll get into magnitude: Segamat was 4.1 and Sabah 7.1, a difference of just 3, so how much more energy is that? And what's the difference between the Richter scale and moment magnitude?
 
 ## References
 
-1. Bernama (2025-08-24). MetMalaysia: 4.1-magnitude quake strikes Segamat. https://www.bernama.com/en/general/news.php?id=2459992
+1. Bernama (24 August 2025). MetMalaysia: 4.1-magnitude quake strikes Segamat. https://www.bernama.com/en/general/news.php?id=2459992
 2. USGS FAQ. What does it mean that the earthquake occurred at a depth of 0 km? https://www.usgs.gov/faqs/what-does-it-mean-earthquake-occurred-a-depth-0-km-how-can-earthquake-have-a-negative-depth
-3. Stein, S. & Wysession, M. (2003). *An Introduction to Seismology, Earthquakes, and Earth Structure*. Blackwell.
-4. USGS. Determining the Depth of an Earthquake. https://www.usgs.gov/programs/earthquake-hazards/determining-depth-earthquake
-5. Malay Mail (2025-09-08). Segamat quakes leave cracks in schools, hospital and homes. https://www.malaymail.com/news/malaysia/2025/09/08/segamat-quakes-leave-cracks-in-schools-hospital-and-homes-says-ahmad-maslan-rm550000-needed-for-urgent-repairs/190461
-6. Bernama (2026-02-23). MetMalaysia: 6.8-magnitude quake off Sabah. https://www.bernama.com/tv/news.php?id=2526438
-7. USGS ComCat. M 7.1 – 57 km NNW of Kota Belud, Malaysia (us6000sasz). https://earthquake.usgs.gov/earthquakes/eventpage/us6000sasz
-8. USGS ComCat. M 4.0 – 13 km ESE of Segamat, Malaysia (us6000r3fi). https://earthquake.usgs.gov/earthquakes/eventpage/us6000r3fi
-9. USGS ComCat query (Southeast Asia 90–130°E, 10°S–20°N, January–September 2026, M≥4.5, depth < 40 km). https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2026-01-01&endtime=2026-10-01&minlatitude=-10&maxlatitude=20&minlongitude=90&maxlongitude=130&minmagnitude=4.5&maxdepth=40
-10. USGS FAQ. Why do so many earthquakes occur at a depth of 10 km? https://www.usgs.gov/faqs/why-do-so-many-earthquakes-occur-depth-10km
-11. GEOFON / GFZ. About the earthquake list (FAQ). https://geofon.gfz.de/eqinfo/faq/
-12. Ni, S., Kanamori, H. & Helmberger, D. (2005). Energy radiation from the Sumatra earthquake. *Nature* 434, 582. https://doi.org/10.1038/434582a
-13. Krüger, F. & Ohrnberger, M. (2005). Tracking the rupture of the Mw = 9.3 Sumatra earthquake over 1,150 km at teleseismic distance. *Nature* 435, 937–939. https://doi.org/10.1038/nature03696
-14. Vigny, C. et al. (2005). Insight into the 2004 Sumatra–Andaman earthquake from GPS measurements in southeast Asia. *Nature* 436, 201–206. https://doi.org/10.1038/nature03937
+3. IRIS. How are earthquakes located? https://dev.iris.edu/hq/inclass/fact-sheet/13 ; USGS / NOAA ITTI. Earthquake location (D ≈ 8 × (S−P)). https://nctr.pmel.noaa.gov/education/ITTI/seismic/EQ_location_USGS.pdf
+4. Stein, S. & Wysession, M. (2003). *An Introduction to Seismology, Earthquakes, and Earth Structure*. Blackwell.
+5. Kennett, B. L. N. Earthquake location. CMA Proceedings vol. 31, ANU. https://maths.anu.edu.au/files/CMAProcVol31-Kennett.pdf
+6. USGS. Determining the Depth of an Earthquake. https://www.usgs.gov/programs/earthquake-hazards/determining-depth-earthquake
+7. Malay Mail (8 September 2025). Segamat quakes leave cracks in schools, hospital and homes. https://www.malaymail.com/news/malaysia/2025/09/08/segamat-quakes-leave-cracks-in-schools-hospital-and-homes-says-ahmad-maslan-rm550000-needed-for-urgent-repairs/190461
+8. Bernama (23 February 2026). MetMalaysia: 6.8-magnitude quake off Sabah. https://www.bernama.com/tv/news.php?id=2526438
+9. USGS ComCat. M 7.1 – 57 km NNW of Kota Belud, Malaysia (us6000sasz). https://earthquake.usgs.gov/earthquakes/eventpage/us6000sasz
+10. USGS ComCat. M 4.0 – 13 km ESE of Segamat, Malaysia (us6000r3fi). https://earthquake.usgs.gov/earthquakes/eventpage/us6000r3fi
+11. USGS FAQ. Why do so many earthquakes occur at a depth of 10 km? https://www.usgs.gov/faqs/why-do-so-many-earthquakes-occur-depth-10km
+12. USGS ComCat query (Southeast Asia 90–130°E, 10°S–20°N, January–September 2026, M≥4.5, depth < 40 km). https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2026-01-01&endtime=2026-10-01&minlatitude=-10&maxlatitude=20&minlongitude=90&maxlongitude=130&minmagnitude=4.5&maxdepth=40
+13. GEOFON / GFZ. About the earthquake list (FAQ). https://geofon.gfz.de/eqinfo/faq/
+14. Ni, S., Kanamori, H. & Helmberger, D. (2005). Energy radiation from the Sumatra earthquake. *Nature* 434, 582. https://doi.org/10.1038/434582a
+15. Krüger, F. & Ohrnberger, M. (2005). Tracking the rupture of the Mw = 9.3 Sumatra earthquake over 1,150 km at teleseismic distance. *Nature* 435, 937–939. https://doi.org/10.1038/nature03696
+16. Vigny, C. et al. (2005). Insight into the 2004 Sumatra–Andaman earthquake from GPS measurements in southeast Asia. *Nature* 436, 201–206. https://doi.org/10.1038/nature03937
