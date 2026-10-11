@@ -7,11 +7,14 @@ import site from '../data/site.json';
 import facts from '../data/facts.json';
 import { getVideos } from '../lib/videos';
 import { getPostsForLang } from '../lib/posts';
-import { t, url, type Lang } from '../lib/i18n';
+import { t, url, asset, type Lang } from '../lib/i18n';
+import { getEntry } from 'astro:content';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const videos = (await getVideos()).slice(0, 4);
 const { posts, fallback } = await getPostsForLang(lang);
+// 「关于我」卡片的照片 = 关于页上传的照片（Pages CMS → 关于我）
+const aboutPhoto = (await getEntry('pages', `about-${lang}`))?.data.photo;
 const latestPosts = posts.slice(0, 3);
 const icons: Record<string, string> = {
   question: 'M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01',
@@ -110,7 +113,9 @@ const icons: Record<string, string> = {
   <section class="sec-light about">
     <div class="wrap">
       <div class="about-card">
-        <div class="ph avatar" aria-hidden="true">GS</div>
+        {aboutPhoto
+          ? <a class="avatar" href={url(lang, '/about')} tabindex="-1" aria-hidden="true"><img src={asset(aboutPhoto)} alt="" loading="lazy" /></a>
+          : <div class="ph avatar" aria-hidden="true">GS</div>}
         <div>
           <h2>{t(lang, 'aboutTitle')}</h2>
           <p>{t(lang, 'homeAboutText')}</p>
@@ -155,7 +160,9 @@ const icons: Record<string, string> = {
   .about { padding-bottom: 88px; }
   .about-card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: clamp(24px, 4vw, 40px); display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
   .about-card > div:last-child { flex: 1 1 380px; }
-  .avatar { flex: 0 0 120px; height: 120px; border-radius: 50%; border: 2px solid #D9A60B; font-family: var(--font-display); font-weight: 700; font-size: 32px; }
+  .avatar { flex: 0 0 120px; height: 120px; border-radius: 50%; border: 2px solid #D9A60B; font-family: var(--font-display); font-weight: 700; font-size: 32px; overflow: hidden; }
+  /* 关于页的照片：对准脸部、放大一点（照片是全身照） */
+  .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; transform: scale(1.8); transform-origin: 43% 42%; }
   .about-card h2 { margin: 0 0 12px; font-family: var(--font-cjk-serif); font-weight: 900; font-size: 28px; }
   .about-card p { margin: 0 0 12px; font-size: 17px; line-height: 1.85; color: var(--paper-body); }
   .about-card a { font-weight: 700; display: inline-block; padding: 8px 0; }

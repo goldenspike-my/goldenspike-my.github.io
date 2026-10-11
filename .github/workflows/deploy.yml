@@ -30,6 +30,7 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - run: npm ci
+      - run: node scripts/shrink-uploads.mjs   # 发布前把太大的照片缩小（不改动仓库里的原图）
       - run: npm run build
         env:
           SITE_URL: ${{ steps.pages.outputs.origin }}
