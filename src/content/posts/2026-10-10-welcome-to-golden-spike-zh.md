@@ -1,7 +1,7 @@
 ---
 title: 欢迎来到金釘子！
 slug: welcome-to-golden-spike
-date: 2026-10-10
+date: 2026-10-09
 category: geo
 lang: zh
 draft: false
