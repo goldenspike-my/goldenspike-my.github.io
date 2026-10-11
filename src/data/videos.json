@@ -1,6 +1,14 @@
 {
   "videos": [
     {
+      "youtubeId": "Y3Ae6ETuBGg",
+      "title": "新闻说的震中，其实不是地震发生的地方？",
+      "titleEn": "The epicentre isn't where an earthquake starts?",
+      "series": "seismology",
+      "date": "2026-10-11",
+      "format": "short"
+    },
+    {
       "youtubeId": "tCVqOF6OwoI",
       "title": "新闻说的“震中”，其实不是地震发生的地方？",
       "titleEn": "The epicentre isn't where an earthquake starts?",
