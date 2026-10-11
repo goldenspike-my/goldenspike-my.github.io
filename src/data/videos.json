@@ -1,6 +1,13 @@
 {
   "videos": [
     {
+      "youtubeId": "tCVqOF6OwoI",
+      "title": "新闻说的“震中”，其实不是地震发生的地方？",
+      "titleEn": "The epicentre isn't where an earthquake starts?",
+      "series": "seismology",
+      "date": "2026-10-11"
+    },
+    {
       "youtubeId": "PZyfQpTmghQ",
       "title": "石头回收计划：岩石循环",
       "titleEn": "The rock cycle: how Earth recycles stone",
