@@ -18,6 +18,7 @@ _Last updated: 2026-10-10 (site LIVE; Pages CMS connected)_
 - All fixed UI text lives in `src/data/ui.json` (66 keys, CMS section「网站文字」, ordered by page label); `t()` reads it. New text → add a key to ui.json + a field in the `ui` block of .pages.yml. Post images: `src/lib/rehype-figures.mjs` (alt-text keywords #小 #中 #左 #右). Monitor markers are drawn at lon −360/0/+360.
 - Logo (2026-10-11): channel logo M1 v2 from `youtube/brand/logo/final` → `public/logo-mark.svg` (nav), `favicon.svg/.ico`, `apple-touch-icon.png`, `og-default.png` (share image fallback). If the logo changes, re-copy those files.
 - Blog (2026-10-11): all old posts deleted; five video posts rewritten in zh + en (same slug) from the old scripts + episode 01, fact-checked, covers in `public/uploads/*-cover.jpg`. Formatting plugin `src/lib/rehype-blog.mjs` (callouts, [n] citations). The rule for every new video lives in the episode skill (publish.md item 11).
+- Analytics (2026-10-13): Cloudflare Web Analytics, token in `src/data/site.json` (`cloudflareAnalyticsToken`, editable in Pages CMS 网站设定); Base.astro adds the beacon only when the token is set. Verified sending (cdn-cgi/rum).
 - Claude CLI is installed at `%USERPROFILE%\.local\bin\claude.exe` but not on PATH.
 - Gotcha: when writing files via Bash heredocs in this environment, backslashes got eaten — use the Write/Edit tools for code with regex/escapes. Don't `npm ci` inside the Google Drive folder (super slow + syncs node_modules); build in a temp clone instead.
 
