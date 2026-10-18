@@ -1,0 +1,41 @@
+{
+  "title": "地震规模小测验",
+  "slug": "magnitude",
+  "description": "看完《只差三级，能量差多少？》，分得清 Richter Scale 和 Moment Magnitude 了吗？",
+  "lang": "zh",
+  "order": 6,
+  "youtubeId": "Ae6IBve_N10",
+  "draft": false,
+  "questions": [
+    {
+      "question": "地震规模每多一级，放出的能量大约大几倍？",
+      "options": ["2 倍", "10 倍", "32 倍"],
+      "answer": 3,
+      "explanation": "地震仪上的摆动大 10 倍，能量大约大 32 倍。多两级差不多一千倍，多三级三万多倍。"
+    },
+    {
+      "question": "Charles Richter 在 1935 年定下的规则是什么？",
+      "options": ["震中每远 100 公里，就少一级", "地震仪上的摆动每大 10 倍，就多一级", "每多摇一秒钟，就多一级"],
+      "answer": 2,
+      "explanation": "他把距离统一成 100 公里，再看摆动有多大，每大 10 倍就多一级。"
+    },
+    {
+      "question": "为什么大地震不再用 Richter Scale 来量？",
+      "options": ["大地震的摆动太小，看不到", "大约过了 6.5 级，摆动就不再跟着变大，像体重秤的指针卡在最大那一格", "Richter Scale 只能量海里的地震"],
+      "answer": 2,
+      "explanation": "地震再大，地震仪上的线也拉不开差距，大的和更大的会读出差不多的数字。"
+    },
+    {
+      "question": "Moment Magnitude 是把哪三样东西乘起来？",
+      "options": ["深度、距离、摇了多久", "断层接触的面积、滑动的距离、石头有多硬", "摆动的大小、地震站数量、震中位置"],
+      "answer": 2,
+      "explanation": "它直接算地底下那次滑动有多大，再换算成大家熟悉的级数。"
+    },
+    {
+      "question": "Sabah 那次地震，USGS 说 7.1 级，MetMalaysia 说 6.8 级，这代表什么？",
+      "options": ["其中一家算错了", "那天发生了两次地震", "用的测站和算法不同，差零点几很正常"],
+      "answer": 3,
+      "explanation": "不同机构用的地震站和算法不一样，所以看到规模时，也要看是谁算的。"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "title": "Earthquake Magnitude Quiz",
+  "slug": "magnitude",
+  "description": "Watched the episode on magnitude? See if you can tell the Richter Scale from Moment Magnitude.",
+  "lang": "en",
+  "order": 6,
+  "youtubeId": "Ae6IBve_N10",
+  "draft": false,
+  "questions": [
+    {
+      "question": "For each step up in magnitude, roughly how much more energy is released?",
+      "options": ["Twice as much", "10 times as much", "About 32 times as much"],
+      "answer": 3,
+      "explanation": "The wiggle on the seismogram gets 10 times bigger and the energy about 32 times. Two steps is about a thousand times, three steps over 30,000 times."
+    },
+    {
+      "question": "What rule did Charles Richter set in 1935?",
+      "options": ["Every 100 km further from the epicentre, the magnitude drops by one", "Every time the wiggle on the seismogram gets 10 times bigger, the magnitude goes up by one", "Every extra second of shaking adds one to the magnitude"],
+      "answer": 2,
+      "explanation": "He compared every quake at the same distance, 100 km, and read how big the wiggle was. Ten times bigger meant one step up."
+    },
+    {
+      "question": "Why isn't the Richter Scale used for big earthquakes any more?",
+      "options": ["The wiggles from big quakes are too small to see", "Above about magnitude 6.5 the wiggle stops growing, like a bathroom scale needle stuck at the last mark", "The Richter Scale only works for earthquakes at sea"],
+      "answer": 2,
+      "explanation": "Past a certain size the seismogram can't tell big from bigger, so the readings come out almost the same."
+    },
+    {
+      "question": "Moment Magnitude multiplies which three things together?",
+      "options": ["Depth, distance and how long the shaking lasted", "The contact area of the fault, how far it slipped and how stiff the rock is", "The size of the wiggle, the number of stations and the epicentre's position"],
+      "answer": 2,
+      "explanation": "It works out the size of the slip underground directly, then converts it into the familiar magnitude numbers."
+    },
+    {
+      "question": "For the Sabah earthquake, USGS said 7.1 and MetMalaysia said 6.8. What does that tell you?",
+      "options": ["One of them got it wrong", "There were two earthquakes that day", "They used different stations and methods, and a difference of a few tenths is normal"],
+      "answer": 3,
+      "explanation": "Agencies use different stations and calculations, so when you see a magnitude, check who worked it out."
+    }
+  ]
+}

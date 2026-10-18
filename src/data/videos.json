@@ -1,6 +1,21 @@
 {
   "videos": [
     {
+      "youtubeId": "iC9WHRGWEKA",
+      "title": "地震多一级，到底大多少？",
+      "titleEn": "One step up in magnitude. How much bigger?",
+      "series": "seismology",
+      "date": "2026-10-18",
+      "format": "short"
+    },
+    {
+      "youtubeId": "Ae6IBve_N10",
+      "title": "只差三级，能量差多少？地震规模怎么算",
+      "titleEn": "Only three magnitudes apart. How much more energy?",
+      "series": "seismology",
+      "date": "2026-10-18"
+    },
+    {
       "youtubeId": "Y3Ae6ETuBGg",
       "title": "新闻说的震中，其实不是地震发生的地方？",
       "titleEn": "The epicentre isn't where an earthquake starts?",
