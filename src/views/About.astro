@@ -8,6 +8,7 @@ const { lang } = Astro.props;
 const page = await getEntry('pages', `about-${lang}`);
 if (!page) throw new Error(`Missing src/content/pages/about-${lang}.md`);
 const { Content } = await render(page);
+const badges: string[] = ((site as { credlyBadges?: string[] }).credlyBadges ?? []).map((b) => b.trim()).filter(Boolean);
 ---
 <Base lang={lang} title={t(lang, 'about')} active="about">
   <section class="sec-light">
@@ -22,6 +23,21 @@ const { Content } = await render(page);
           {site.linkedinUrl && <a class="btn btn-ghost" href={site.linkedinUrl}>LinkedIn</a>}
           {site.email && <a class="btn btn-ghost" href={`mailto:${site.email}`}>Email</a>}
         </div>
+        {badges.length > 0 && (
+          /* Credly 徽章：ID 在 Pages CMS「网站设定 → Credly 徽章」里加 */
+          <div class="badges">
+            <span class="badges-title">{t(lang, 'badges')}</span>
+            <div class="badge-list">
+              {badges.map((id) => (
+                <div class="badge" data-iframe-width="150" data-iframe-height="270" data-share-badge-id={id}
+                  data-share-badge-host="https://www.credly.com">
+                  <a href={`https://www.credly.com/badges/${id}/public_url`} target="_blank" rel="noopener">Credly badge</a>
+                </div>
+              ))}
+            </div>
+            <script is:inline async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+          </div>
+        )}
       </div>
       <div class="text">
         <h1>{page.data.title}</h1>
@@ -35,6 +51,10 @@ const { Content } = await render(page);
   .photo-col { flex: 0 1 280px; display: flex; flex-direction: column; gap: 20px; }
   .photo { width: 100%; max-width: min(280px, 50vw); aspect-ratio: 1; border-radius: 50%; object-fit: cover; object-position: 45% 30%; border: 3px solid #D9A60B; font-family: var(--font-display); font-weight: 700; font-size: 56px; }
   .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .badges { display: flex; flex-direction: column; gap: 10px; }
+  .badges-title { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--accent); }
+  .badge-list { display: flex; flex-wrap: wrap; gap: 12px; }
+  .badge { min-width: 150px; }
   .text { flex: 999 1 440px; min-width: 0; max-width: 720px; }
   h1 { margin: 0 0 24px; font-family: var(--font-cjk-serif); font-weight: 900; font-size: clamp(30px, 4.5vw, 44px); color: #1A160C; }
   .prose { font-size: 18px; line-height: 1.95; color: var(--paper-body); }

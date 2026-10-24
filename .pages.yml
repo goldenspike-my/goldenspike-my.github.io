@@ -293,6 +293,11 @@ content:
       - { name: instagramUrl, label: Instagram 网址（可留空）, type: string }
       - { name: linkedinUrl, label: LinkedIn 网址（可留空）, type: string }
       - { name: cloudflareAnalyticsToken, label: Cloudflare 访客统计代码（Web Analytics 的 token，可留空）, type: string }
+      - name: credlyBadges
+        label: Credly 徽章（关于页）
+        description: 每一行放一个徽章 ID。在 Credly 按 Share → Embed，复制 data-share-badge-id 引号里的那串字
+        type: string
+        list: true
       - { name: email, label: 联络 Email（可留空）, type: string }
       - { name: heroTitle, label: 首页大标题（中文）, type: string }
       - { name: heroTitleEn, label: 首页大标题（英文）, type: string }
@@ -307,6 +312,12 @@ content:
     path: src/data/ui.json
     format: json
     fields:
+      - name: badges
+        label: "关于页 · 认证徽章标题"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
       - name: subscribe
         label: "按钮 · 订阅频道"
         type: object

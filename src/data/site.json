@@ -9,5 +9,8 @@
   "heroTitleEn": "Read the Earth Beneath Your Feet",
   "heroTagline": "Stories Written in Stone",
   "heroText": "用简单的中文，讲清楚岩石、地貌和地震。马大地质系毕业，现在在京大做地震研究，这里是我的科普频道和生活记录。",
-  "heroTextEn": "Geology and earthquakes, explained simply. I'm a University of Malaya geology graduate doing seismology research in Kyoto, and this is where I share the science and a bit of everyday life."
+  "heroTextEn": "Geology and earthquakes, explained simply. I'm a University of Malaya geology graduate doing seismology research in Kyoto, and this is where I share the science and a bit of everyday life.",
+  "credlyBadges": [
+    "1ff421ac-dbb0-4c6c-8f22-440a9c8b8cec"
+  ]
 }

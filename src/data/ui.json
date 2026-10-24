@@ -268,5 +268,9 @@
   "watchOnYoutube": {
     "zh": "在 YouTube 观看",
     "en": "Watch on YouTube"
+  },
+  "badges": {
+    "zh": "认证徽章",
+    "en": "Certifications"
   }
 }
