@@ -1,0 +1,61 @@
+{
+  "title": "P-wave and S-wave quiz",
+  "slug": "p-s-waves",
+  "description": "Watched 'Why does an earthquake shake up and down first, then side to side?' Can you tell a P-wave from an S-wave?",
+  "lang": "en",
+  "order": 7,
+  "youtubeId": "9fqKAyF-pe8",
+  "draft": false,
+  "questions": [
+    {
+      "question": "An earthquake sends out a P-wave and an S-wave at the same moment. Which one reaches you first?",
+      "options": [
+        "The S-wave, because it shakes harder",
+        "They arrive together",
+        "The P-wave"
+      ],
+      "answer": 3,
+      "explanation": "They set off together, but the P-wave is faster (about 6 km per second in the crust, against about 3.5 for the S-wave), so it gets there first."
+    },
+    {
+      "question": "Why does the push-and-pull P-wave travel faster than the sideways S-wave?",
+      "options": [
+        "Because the P-wave is stronger",
+        "Because rock is hard to squash and springs straight back, but is easier to push out of shape and slower to recover",
+        "Because the P-wave takes a shorter route"
+      ],
+      "answer": 2,
+      "explanation": "Think of a block of agar-agar: press it from the top and it hardly squashes, springing straight back; push it from the side and it tips easily and takes a while to settle. Rock is the same, only much stiffer."
+    },
+    {
+      "question": "Why does an earthquake often shake up and down first, then side to side?",
+      "options": [
+        "Because earthquakes always happen directly under your house",
+        "Because near the surface the waves travel almost straight up: the P-wave pushes along its direction of travel, so up and down, and the S-wave shakes across it, so side to side",
+        "Because the P-wave only travels along the surface"
+      ],
+      "answer": 2,
+      "explanation": "The waves climb from deep underground and arrive almost straight up from below. With travel pointing upwards, P pushes you up and down, while S, at right angles to it, sways you side to side."
+    },
+    {
+      "question": "If the P-wave and S-wave arrive about 35 seconds apart, roughly how far away was the earthquake?",
+      "options": [
+        "About 35 km",
+        "About 280 km",
+        "About 3,500 km"
+      ],
+      "answer": 2,
+      "explanation": "A simple rule used in Japan: each second of gap is about 8 km. 35 × 8 ≈ 280 km, close to the distance from KL to Penang. It's only a rule of thumb: the factor is about 6 to 8, depending on the region and the depth."
+    },
+    {
+      "question": "How can Japan's earthquake alert go off before the strong shaking?",
+      "options": [
+        "Because the alert predicts the earthquake",
+        "Because as soon as seismometers pick up the P-wave, computers do a quick estimate and send the alert electronically, ahead of the S-wave",
+        "Because the S-wave carries the alert"
+      ],
+      "answer": 2,
+      "explanation": "By the time the alert sounds, the earthquake has already happened. Electronic signals are far faster than the S-wave, so the alert can arrive a few seconds to a few tens of seconds early, though very close to the source it may come too late."
+    }
+  ]
+}

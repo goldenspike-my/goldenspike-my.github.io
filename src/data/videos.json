@@ -1,6 +1,21 @@
 {
   "videos": [
     {
+      "youtubeId": "c7xPRyjqZe0",
+      "title": "地震警报为什么能比摇晃先到？",
+      "titleEn": "How can an earthquake alert arrive before the shaking?",
+      "series": "seismology",
+      "date": "2026-10-24",
+      "format": "short"
+    },
+    {
+      "youtubeId": "9fqKAyF-pe8",
+      "title": "地震来的时候，为什么先上下震动，再左右摇晃？",
+      "titleEn": "Why does an earthquake shake up and down first, then side to side?",
+      "series": "seismology",
+      "date": "2026-10-25"
+    },
+    {
       "youtubeId": "iC9WHRGWEKA",
       "title": "地震多一级，到底大多少？",
       "titleEn": "One step up in magnitude. How much bigger?",
