@@ -1,13 +1,15 @@
 ---
 title: 读懂手上的一块 sandstone：一个放大镜、一瓶醋，看出它的身世
 slug: sand-to-stone
-description: 一块 sandstone 记得自己以前是沙。这篇教你自己读它：看颗粒、读波纹分辨是浪还是河、用一瓶醋看它用的是哪一种胶水，再讲为什么胶水要好几公里深才长，还有一块只花 150 天就长出来的石头。
+description: 一块 sandstone
+  记得自己以前是沙。这篇教你自己读它：看颗粒、读波纹分辨是浪还是河、用一瓶醋看它用的是哪一种胶水，再讲为什么胶水要好几公里深才长，还有一块只花 150
+  天就长出来的石头。
 date: 2026-11-01
 category: geo
 lang: zh
-cover: /uploads/sand-to-stone-cover.jpg
-youtubeId: lzDTcIIUmzw
+cover: /uploads/thumb-B.png
 coverAlt: 我拿着一块 sandstone 标本在讲话，左边大字写着“沙子怎么变成石头?”
+youtubeId: lzDTcIIUmzw
 tags:
   - 地质学
   - Sandstone
@@ -121,28 +123,29 @@ Machinchang 的沙在五亿多年前被埋下去、压紧、胶结成 sandstone�
 
 ## 参考资料
 
-1. Langkawi UNESCO Global Geopark, *The ancient rock wonders of Langkawi (Rock Formations)*. https://www.langkawigeopark.com.my/rock-formations/
-2. Universiti Teknologi PETRONAS (2014). *Sedimentology of Anak Datai of Machinchang Formation, Langkawi, Kedah*（本科论文）. https://utpedia.utp.edu.my/id/eprint/14092/
-3. University of Pittsburgh, GeoImages, *Ripples*. https://sites.pitt.edu/~cejones/GeoImages/5SedimentaryRocks/SedStructures/Ripples.html
-4. Earth Learning Idea, *Asymmetrical ripple marks*. https://www.earthlearningidea.com/PDF/Asymmetrical_Ripple_Marks.pdf
-5. MIT OpenCourseWare 12.110, *Sedimentary Geology* (2007), ch. 7 lecture notes（孔隙与压实）. https://ocw.mit.edu/courses/12-110-sedimentary-geology-spring-2007/
-6. AAPG Wiki, *Sandstone*. https://wiki.aapg.org/Sandstone
-7. Pakpour, M., Habibi, M., Møller, P. & Bonn, D. (2012). How to construct the perfect sandcastle. *Scientific Reports* 2, 549. https://doi.org/10.1038/srep00549
-8. Encyclopaedia Britannica, *Cementation (geology)*. https://www.britannica.com/science/cementation-geology
-9. Simon Fraser University, Earth Sciences 302, *Clastic diagenesis* lecture. https://www.sfu.ca/earth-sciences/courses/ugrad/webpages/302OLD/TheoryLecture4-ClasticDiagenesis.pdf
-10. USGS Water Science School, *Hardness of Water*. https://www.usgs.gov/water-science-school/science/hardness-water
-11. King, H. M., *The "Acid Test" for Carbonate Minerals and Carbonate Rocks*, geology.com. https://geology.com/minerals/acid-test.shtml
-12. Egeberg, P. K. & Bjørlykke, K. (1992). Quartz cementation in North Sea and Gulf Coast sandstones（摘要）. https://www.searchanddiscovery.com/abstracts/html/1992/annual/abstracts/0035b.htm
-13. Quinn, O. & Haszeldine, R. S. (2004). Onset of quartz cementation in North Sea sandstones（摘要）. https://www.searchanddiscovery.com/documents/abstracts/hedberg2004austin/short/quinn.htm
-14. Smithsonian QRIUS, *Sandstone*. https://qrius.si.edu/browse/object/10025153
-15. Vousdoukas, M. I., Velegrakis, A. F. & Plomaritis, T. A. (2007). Beachrock occurrence, characteristics, formation mechanisms and impacts. *Earth-Science Reviews* 85, 23–46. https://doi.org/10.1016/j.earscirev.2007.07.002
-16. Hibner, B. M., Cantine, M. D., Trower, E. J., Dodd, J. E. & Gomes, M. L. (2025). How to Make a Rock in 150 Days: Observations of Biofilms Promoting Rapid Beachrock Formation. *Geobiology* 23(1), e70009. https://par.nsf.gov/biblio/10570841
+1. Langkawi UNESCO Global Geopark, *The ancient rock wonders of Langkawi (Rock Formations)*. [https://www.langkawigeopark.com.my/rock-formations/](https://www.langkawigeopark.com.my/rock-formations/)
+2. Universiti Teknologi PETRONAS (2014). *Sedimentology of Anak Datai of Machinchang Formation, Langkawi, Kedah*（本科论文）. [https://utpedia.utp.edu.my/id/eprint/14092/](https://utpedia.utp.edu.my/id/eprint/14092/)
+3. University of Pittsburgh, GeoImages, *Ripples*. [https://sites.pitt.edu/~cejones/GeoImages/5SedimentaryRocks/SedStructures/Ripples.html](https://sites.pitt.edu/~cejones/GeoImages/5SedimentaryRocks/SedStructures/Ripples.html)
+4. Earth Learning Idea, *Asymmetrical ripple marks*. [https://www.earthlearningidea.com/PDF/Asymmetrical_Ripple_Marks.pdf](https://www.earthlearningidea.com/PDF/Asymmetrical_Ripple_Marks.pdf)
+5. MIT OpenCourseWare 12.110, *Sedimentary Geology* (2007), ch. 7 lecture notes（孔隙与压实）. [https://ocw.mit.edu/courses/12-110-sedimentary-geology-spring-2007/](https://ocw.mit.edu/courses/12-110-sedimentary-geology-spring-2007/)
+6. AAPG Wiki, *Sandstone*. [https://wiki.aapg.org/Sandstone](https://wiki.aapg.org/Sandstone)
+7. Pakpour, M., Habibi, M., Møller, P. & Bonn, D. (2012). How to construct the perfect sandcastle. *Scientific Reports* 2, 549. [https://doi.org/10.1038/srep00549](https://doi.org/10.1038/srep00549)
+8. Encyclopaedia Britannica, *Cementation (geology)*. [https://www.britannica.com/science/cementation-geology](https://www.britannica.com/science/cementation-geology)
+9. Simon Fraser University, Earth Sciences 302, *Clastic diagenesis* lecture. [https://www.sfu.ca/earth-sciences/courses/ugrad/webpages/302OLD/TheoryLecture4-ClasticDiagenesis.pdf](https://www.sfu.ca/earth-sciences/courses/ugrad/webpages/302OLD/TheoryLecture4-ClasticDiagenesis.pdf)
+10. USGS Water Science School, *Hardness of Water*. [https://www.usgs.gov/water-science-school/science/hardness-water](https://www.usgs.gov/water-science-school/science/hardness-water)
+11. King, H. M., *The "Acid Test" for Carbonate Minerals and Carbonate Rocks*, geology.com. [https://geology.com/minerals/acid-test.shtml](https://geology.com/minerals/acid-test.shtml)
+12. Egeberg, P. K. & Bjørlykke, K. (1992). Quartz cementation in North Sea and Gulf Coast sandstones（摘要）. [https://www.searchanddiscovery.com/abstracts/html/1992/annual/abstracts/0035b.htm](https://www.searchanddiscovery.com/abstracts/html/1992/annual/abstracts/0035b.htm)
+13. Quinn, O. & Haszeldine, R. S. (2004). Onset of quartz cementation in North Sea sandstones（摘要）. [https://www.searchanddiscovery.com/documents/abstracts/hedberg2004austin/short/quinn.htm](https://www.searchanddiscovery.com/documents/abstracts/hedberg2004austin/short/quinn.htm)
+14. Smithsonian QRIUS, *Sandstone*. [https://qrius.si.edu/browse/object/10025153](https://qrius.si.edu/browse/object/10025153)
+15. Vousdoukas, M. I., Velegrakis, A. F. & Plomaritis, T. A. (2007). Beachrock occurrence, characteristics, formation mechanisms and impacts. *Earth-Science Reviews* 85, 23–46. [https://doi.org/10.1016/j.earscirev.2007.07.002](https://doi.org/10.1016/j.earscirev.2007.07.002)
+16. Hibner, B. M., Cantine, M. D., Trower, E. J., Dodd, J. E. & Gomes, M. L. (2025). How to Make a Rock in 150 Days: Observations of Biofilms Promoting Rapid Beachrock Formation. *Geobiology* 23(1), e70009. [https://par.nsf.gov/biblio/10570841](https://par.nsf.gov/biblio/10570841)
 
 ## 图片来源
 
-- Machinchang：DerYang2004，CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Langkawi_(Gunung_Manchinchang).jpg
-- 波纹化石：Gordon Hatton，CC BY-SA 2.0. https://commons.wikimedia.org/wiki/File:Fossil_ripple_marks_in_sandstone_-_geograph.org.uk_-_6902167.jpg
-- 沙滩波纹：Stephan Sprinz，CC BY 4.0. https://commons.wikimedia.org/wiki/File:Rippel_im_Sand_am_Strand_Norderneys_01.jpg
-- 沙堡：Diego Delso，CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Playa_de_Levante,_Benidorm,_Espa%C3%B1a,_2014-07-02,_DD_03.JPG
-- Beachrock：Quim Gil，CC0. https://commons.wikimedia.org/wiki/File:Chrysi_beachrock_2.jpg
+- Machinchang：DerYang2004，CC BY-SA 4.0. [https://commons.wikimedia.org/wiki/File:Langkawi_(Gunung_Manchinchang).jpg](https://commons.wikimedia.org/wiki/File:Langkawi_(Gunung_Manchinchang).jpg)
+- 波纹化石：Gordon Hatton，CC BY-SA 2.0. [https://commons.wikimedia.org/wiki/File:Fossil_ripple_marks_in_sandstone_-_geograph.org.uk_-_6902167.jpg](https://commons.wikimedia.org/wiki/File:Fossil_ripple_marks_in_sandstone_-_geograph.org.uk_-_6902167.jpg)
+- 沙滩波纹：Stephan Sprinz，CC BY 4.0. [https://commons.wikimedia.org/wiki/File:Rippel_im_Sand_am_Strand_Norderneys_01.jpg](https://commons.wikimedia.org/wiki/File:Rippel_im_Sand_am_Strand_Norderneys_01.jpg)
+- 沙堡：Diego Delso，CC BY-SA 3.0. [https://commons.wikimedia.org/wiki/File:Playa_de_Levante,_Benidorm,_Espa%C3%B1a,_2014-07-02,_DD_03.JPG](https://commons.wikimedia.org/wiki/File:Playa_de_Levante,_Benidorm,_Espa%C3%B1a,_2014-07-02,_DD_03.JPG)
+- Beachrock：Quim Gil，CC0. [https://commons.wikimedia.org/wiki/File:Chrysi_beachrock_2.jpg](https://commons.wikimedia.org/wiki/File:Chrysi_beachrock_2.jpg)
 - Sandstone 标本：我自己拍的；影片画面为金釘子第 04 集。
+
