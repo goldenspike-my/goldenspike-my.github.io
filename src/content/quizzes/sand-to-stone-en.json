@@ -1,0 +1,61 @@
+{
+  "title": "How does sand turn into rock? Quiz",
+  "slug": "sand-to-stone",
+  "description": "After watching the episode on how loose sand becomes rock you can't break, do you know what glues the grains together?",
+  "lang": "en",
+  "order": 8,
+  "youtubeId": "lzDTcIIUmzw",
+  "draft": false,
+  "questions": [
+    {
+      "question": "How do we know the Machinchang rocks were once sand?",
+      "options": [
+        "Because they're soft and crumble in your hand",
+        "Because you can see the grains, and the rocks still carry ripple marks like today's beaches and traces of ancient creatures",
+        "Because they're by the sea"
+      ],
+      "answer": 2,
+      "explanation": "The rocks kept their own evidence: up close you can see the grains, the surfaces show ripples just like the ones on a beach today, and some still have the tracks and burrows of ancient animals. Over 500 million years ago, this was a great stretch of sand left by rivers and the sea."
+    },
+    {
+      "question": "You squeeze a handful of dry sand hard. What happens when you let go?",
+      "options": [
+        "It's turned into a small rock",
+        "It turns into mud",
+        "It still falls apart"
+      ],
+      "answer": 3,
+      "explanation": "Squeezing pushes the grains closer together, but nothing holds them, so they fall apart as soon as you open your hand. Add a little water and the sand holds its shape, but water is only a temporary glue: a sandcastle still collapses once it dries."
+    },
+    {
+      "question": "Where does the \"glue\" that turns sand into rock come from?",
+      "options": [
+        "Minerals that groundwater leaves between the grains, such as calcium carbonate",
+        "Salt left behind when seawater dries",
+        "The grains are squeezed so hard that they melt together"
+      ],
+      "answer": 1,
+      "explanation": "Buried sand sits soaked in groundwater. Minerals dissolved in the water slowly come out and grow into tiny crystals between the grains, locking them together. In a lot of sandstone the glue is calcium carbonate, the same stuff as the limescale in a kettle."
+    },
+    {
+      "question": "Limescale builds up in a kettle quite quickly. Why does the glue underground take so long?",
+      "options": [
+        "Because there's no water underground",
+        "Because limescale appears fast only because the water is boiled; nobody boils anything underground, so the glue grows slowly, kilometres down",
+        "Because the minerals underground are completely different from limescale"
+      ],
+      "answer": 2,
+      "explanation": "A kettle keeps heating the water, so the minerals come out fast. The glue between the grains forms several kilometres down and only grows slowly, over a very long time."
+    },
+    {
+      "question": "Why hasn't the sand we walk on at the beach usually turned to rock?",
+      "options": [
+        "Because seawater is too salty",
+        "Because beach sand is too fine",
+        "Because the waves keep moving it around, so it never gets buried and squeezed, and the glue never has time to grow"
+      ],
+      "answer": 3,
+      "explanation": "Sand has to be buried and squeezed first, then wait for groundwater to leave its glue, which often takes millions of years. There are exceptions, though: on some tropical beaches sand can be cemented into beachrock within a few decades."
+    }
+  ]
+}

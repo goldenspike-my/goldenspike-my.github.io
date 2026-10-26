@@ -1,6 +1,53 @@
 {
   "videos": [
     {
+      "youtubeId": "8nFchSoMsPE",
+      "title": "Batu Caves 为什么是空心的？",
+      "titleEn": "Why is Batu Caves hollow?",
+      "series": "landforms",
+      "date": "2026-11-05",
+      "format": "short"
+    },
+    {
+      "youtubeId": "PX90-JUHovw",
+      "title": "海啸是怎么来的？只是很大的浪吗？",
+      "titleEn": "How does a tsunami form? Is it just a really big wave?",
+      "series": "seismology",
+      "date": "2026-11-03",
+      "format": "short"
+    },
+    {
+      "youtubeId": "lzDTcIIUmzw",
+      "title": "沙子怎么变成敲都敲不破的石头？｜Sandstone",
+      "titleEn": "How does loose sand turn into rock you can't break with a hammer?",
+      "series": "rocks",
+      "date": "2026-11-01"
+    },
+    {
+      "youtubeId": "S6KS72XDTRs",
+      "title": "为什么有的石头一捏就碎，有的敲都敲不破？",
+      "titleEn": "Why do some rocks crumble in your hand while others won't break?",
+      "series": "rocks",
+      "date": "2026-10-31",
+      "format": "short"
+    },
+    {
+      "youtubeId": "rkdnkEe6OAo",
+      "title": "石油是怎么来的？为什么马来西亚的海底有？",
+      "titleEn": "Where does oil come from, and why is it under Malaysia's seabed?",
+      "series": "rocks",
+      "date": "2026-10-29",
+      "format": "short"
+    },
+    {
+      "youtubeId": "r6UebNeoRUA",
+      "title": "红树林海岸为什么会一直往海里长？",
+      "titleEn": "Why do some mangrove coasts keep growing out to sea?",
+      "series": "landforms",
+      "date": "2026-10-27",
+      "format": "short"
+    },
+    {
       "youtubeId": "c7xPRyjqZe0",
       "title": "地震警报为什么能比摇晃先到？",
       "titleEn": "How can an earthquake alert arrive before the shaking?",
