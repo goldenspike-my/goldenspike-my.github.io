@@ -1,10 +1,11 @@
 import { getCollection } from 'astro:content';
 import type { Lang } from './i18n';
 import { withUntranslated } from './twins';
+import { isReleased } from './release';
 
 /** Published posts, newest first */
 export async function getPosts(lang?: Lang) {
-  const all = await getCollection('posts', ({ data }) => !data.draft && (!lang || data.lang === lang));
+  const all = await getCollection('posts', ({ data }) => !data.draft && isReleased(data) && (!lang || data.lang === lang));
   return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 

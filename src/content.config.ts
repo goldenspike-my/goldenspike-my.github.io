@@ -16,6 +16,7 @@ const posts = defineCollection({
     youtubeId: z.string().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    publishAt: z.string().optional(),   // 排程："2026-11-01 20:00"（马来西亚时间）
   }),
 });
 
@@ -29,6 +30,7 @@ const quizzes = defineCollection({
     youtubeId: z.string().optional(),
     order: z.number().default(0),
     draft: z.boolean().default(false),
+    publishAt: z.string().optional(),
     questions: z.array(z.object({
       question: z.string(),
       options: z.array(z.string()).min(2),

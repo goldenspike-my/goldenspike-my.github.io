@@ -1,9 +1,10 @@
 import { getCollection } from 'astro:content';
 import type { Lang } from './i18n';
 import { withUntranslated } from './twins';
+import { isReleased } from './release';
 
 export async function getQuizzes(lang?: Lang) {
-  const all = await getCollection('quizzes', ({ data }) => !data.draft && (!lang || data.lang === lang));
+  const all = await getCollection('quizzes', ({ data }) => !data.draft && isReleased(data) && (!lang || data.lang === lang));
   return all.sort((a, b) => a.data.order - b.data.order);
 }
 

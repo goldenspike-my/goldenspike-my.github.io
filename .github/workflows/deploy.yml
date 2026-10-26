@@ -6,7 +6,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 22 * * *'   # 每天日本时间早上 7 点
+    - cron: '5 * * * *'    # 每小时重新生成一次：排程好的视频、博客、测验到点就出现
   workflow_dispatch:
 
 permissions:

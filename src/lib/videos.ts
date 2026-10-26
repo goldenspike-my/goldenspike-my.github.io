@@ -2,6 +2,7 @@
 // 再用 src/data/videos.json 补上系列分类和英文标题。
 import site from '../data/site.json';
 import manual from '../data/videos.json';
+import { NOW, parseRelease } from './release';
 
 export interface Video {
   id: string;          // YouTube video ID ('' if unknown)
@@ -14,7 +15,7 @@ export interface Video {
   format: 'video' | 'short';   // short = YouTube Short, shown in the「60秒看懂」section
 }
 
-type ManualVideo = { youtubeId?: string; title: string; titleEn?: string; series?: string; date?: string; format?: string };
+type ManualVideo = { youtubeId?: string; title: string; titleEn?: string; series?: string; date?: string; publishAt?: string; format?: string };
 
 function decode(s: string): string {
   return s.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
@@ -75,6 +76,13 @@ export function getVideos(): Promise<Video[]> {
     } else {
       videos = list.map((m) => toVideo(m.youtubeId || '', m.title, new Date(m.date || 0), m));
     }
+    // 排程：videos.json 写的发布时间还没到的，先不放上网站（RSS 本来就只有已公开的）
+    const released = (v: Video) => {
+      const m = byId.get(v.id);
+      const t = m ? (parseRelease(m.publishAt) ?? parseRelease(m.date)) : undefined;
+      return v.date.getTime() <= NOW.getTime() && (!t || t.getTime() <= NOW.getTime());
+    };
+    videos = videos.filter(released);
     return videos.sort((a, b) => b.date.getTime() - a.date.getTime());
   })();
   return cache;
