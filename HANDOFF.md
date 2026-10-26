@@ -19,6 +19,7 @@ _Last updated: 2026-10-10 (site LIVE; Pages CMS connected)_
 - Logo (2026-10-11): channel logo M1 v2 from `youtube/brand/logo/final` → `public/logo-mark.svg` (nav), `favicon.svg/.ico`, `apple-touch-icon.png`, `og-default.png` (share image fallback). If the logo changes, re-copy those files.
 - Blog (2026-10-11): all old posts deleted; five video posts rewritten in zh + en (same slug) from the old scripts + episode 01, fact-checked, covers in `public/uploads/*-cover.jpg`. Formatting plugin `src/lib/rehype-blog.mjs` (callouts, [n] citations). The rule for every new video lives in the episode skill (publish.md item 11).
 - Analytics (2026-10-13): Cloudflare Web Analytics, token in `src/data/site.json` (`cloudflareAnalyticsToken`, editable in Pages CMS 网站设定); Base.astro adds the beacon only when the token is set. Verified sending (cdn-cgi/rum).
+- Scheduled release (2026-10-26): `src/lib/release.ts` hides videos.json entries until 20:00 MYT on `date` (or `publishAt`), posts/quizzes until their `youtubeId` video is released (or own `publishAt`); deploy.yml cron hourly. Pages CMS has a 发布时间 field. Unlisted videos can't be detected without a YouTube API key.
 - Claude CLI is installed at `%USERPROFILE%\.local\bin\claude.exe` but not on PATH.
 - Gotcha: when writing files via Bash heredocs in this environment, backslashes got eaten — use the Write/Edit tools for code with regex/escapes. Don't `npm ci` inside the Google Drive folder (super slow + syncs node_modules); build in a temp clone instead.
 
