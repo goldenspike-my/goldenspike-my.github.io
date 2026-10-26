@@ -13,7 +13,7 @@ content:
     filename: "{year}-{month}-{day}-{fields.slug}-{fields.lang}.md"
     view:
       primary: title
-      fields: [title, date, category, lang, draft]
+      fields: [title, date, publishAt, category, lang, draft]
       sort: date
       order: desc
     fields:
@@ -68,6 +68,10 @@ content:
         label: 草稿（打勾就不会出现在网站上）
         type: boolean
         default: false
+      - name: publishAt
+        label: 发布时间（可留空）
+        description: 排程发布：到这个时间网站才会显示（马来西亚时间，例如 2026-11-01 20:00）。留空 = 跟对应的 YouTube 视频同时公开；没有视频就是「发布日期」当天晚上 8 点
+        type: string
       - name: body
         label: 正文
         type: rich-text
@@ -114,6 +118,10 @@ content:
         label: 草稿（打勾就不会出现在网站上）
         type: boolean
         default: false
+      - name: publishAt
+        label: 发布时间（可留空）
+        description: 排程发布：到这个时间网站才会显示（马来西亚时间，例如 2026-11-01 20:00）。留空 = 跟对应的 YouTube 视频同时公开；没有视频就是「发布日期」当天晚上 8 点
+        type: string
       - name: questions
         label: 题目
         type: object
@@ -217,7 +225,11 @@ content:
                 - { name: channel, label: 频道 }
                 - { name: other, label: 其他 }
           - name: date
-            label: 发布日期（只在抓不到 YouTube 时使用）
+            label: 发布日期（YYYY-MM-DD；排程中的视频，网站会等到这天晚上 8 点才显示）
+            type: string
+          - name: publishAt
+            label: 发布时间（可留空）
+            description: 如果不是晚上 8 点公开，填准确时间（马来西亚时间，例如 2026-11-01 21:30）
             type: string
           - name: format
             label: 类型（短片会放进视频页的「60秒看懂」专区；网站也会自动认出 YouTube Shorts）
