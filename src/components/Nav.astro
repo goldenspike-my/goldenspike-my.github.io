@@ -3,7 +3,9 @@ import { t, url, asset, switchLangPath, type Lang } from '../lib/i18n';
 interface Props { lang: Lang; active?: string; altHref?: string }
 const { lang, active, altHref } = Astro.props;
 const langHref = (to: Lang) => (to !== lang && altHref) ? altHref : switchLangPath(Astro.url.pathname, to);
-const links = [
+// 标本页还没有内容时，先不放进导航（页面本身还在，网址照样能开）
+const hasSpecimens = Object.keys(import.meta.glob('../content/specimens/**/*.md')).length > 0;
+const allLinks = [
   { key: 'home', path: '/' },
   { key: 'videos', path: '/videos' },
   { key: 'blog', path: '/blog' },
@@ -12,7 +14,7 @@ const links = [
   { key: 'gallery', path: '/gallery' },
   { key: 'about', path: '/about' },
 ] as const;
-const path = Astro.url.pathname;
+const links = allLinks.filter((l) => l.key !== 'gallery' || hasSpecimens);
 ---
 <header class="nav sec-dark">
   <div class="wrap nav-inner">

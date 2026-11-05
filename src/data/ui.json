@@ -272,5 +272,37 @@
   "badges": {
     "zh": "认证徽章",
     "en": "Certifications"
+  },
+  "latestQuake": {
+    "zh": "最新地震",
+    "en": "Latest quake"
+  },
+  "traceNote": {
+    "zh": "示意波形，振幅跟着规模变",
+    "en": "Illustrative trace, scaled to magnitude"
+  },
+  "latestEpisode": {
+    "zh": "最新一集",
+    "en": "Latest episode"
+  },
+  "questionCard": {
+    "zh": "问题卡",
+    "en": "Question card"
+  },
+  "traceReal": {
+    "zh": "{sta}（{site}）真实记录，距震央 {dist}°",
+    "en": "Real record at {sta} ({site}), {dist}° away"
+  },
+  "fromBlog": {
+    "zh": "来自博客",
+    "en": "From the blog"
+  },
+  "pMark": {
+    "zh": "P（估算）",
+    "en": "P (est.)"
+  },
+  "pEstimate": {
+    "zh": "P 为估算",
+    "en": "P is estimated"
   }
 }

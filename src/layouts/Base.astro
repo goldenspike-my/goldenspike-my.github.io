@@ -18,6 +18,8 @@ const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
 <html lang={lang === 'zh' ? 'zh-Hans' : 'en'}>
 <head>
   <meta charset="utf-8" />
+  <!-- 有 JavaScript 才把要「浮现」的东西先藏起来；没有 JS 就全部直接显示 -->
+  <script is:inline>document.documentElement.classList.add("js")</script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{fullTitle}</title>
   <meta name="description" content={desc} />
@@ -34,7 +36,7 @@ const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
   <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Manrope:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Manrope:wght@400;500;700&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
   <slot name="head" />
   {site.cloudflareAnalyticsToken && (
     /* 访客统计：Cloudflare Web Analytics（不用 cookie）。token 在 Pages CMS「网站设定」里填 */
@@ -46,5 +48,21 @@ const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
   <Nav lang={lang} active={active} altHref={altHref} />
   <main><slot /></main>
   <Footer lang={lang} />
+  <script>
+    // 滚动到画面里才浮现（data-reveal / .reveal-list）。已经滚过头的也一起显示，免得跳页时漏掉
+    let pending = [...document.querySelectorAll<HTMLElement>("[data-reveal], .reveal-list")];
+    const check = () => {
+      const line = innerHeight * 0.9;
+      pending = pending.filter((el) => {
+        if (el.getBoundingClientRect().top < line) { el.classList.add("in"); return false; }
+        return true;
+      });
+      if (!pending.length) { removeEventListener("scroll", onScroll); removeEventListener("resize", onScroll); }
+    };
+    const onScroll = () => check();   // 只有十几个元素，直接算就好
+    addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("resize", onScroll);
+    check();
+  </script>
 </body>
 </html>

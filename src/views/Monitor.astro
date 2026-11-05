@@ -104,7 +104,7 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
     // draw small ones first so big ones sit on top
     [...shown].sort((a, b) => a.mag - b.mag).forEach((q) => {
       const lon = q.lon < -30 ? q.lon + 360 : q.lon; // Pacific-centred: shift the Americas east
-      const popup = `<strong>M${q.mag.toFixed(1)}</strong><br>${escapeHtml(q.place)}<br>${new Date(q.time).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-GB')}<br>${ds.depth} ${Math.round(q.depth)} km<br><a href="${escapeHtml(q.url)}" target="_blank" rel="noopener">USGS ↗</a>`;
+      const popup = `<strong>M${q.mag.toFixed(1)}</strong><br>${escapeHtml(q.place)}<br>${new Date(q.time).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-GB', { timeZoneName: 'short' })}<br>${ds.depth} ${Math.round(q.depth)} km<br><a href="${escapeHtml(q.url)}" target="_blank" rel="noopener">USGS ↗</a>`;
       // 地图左右会重复出现好几个地球，每个地球都画一份，拖到哪里都看得到
       for (const shift of [-360, 0, 360]) {
         L.circleMarker([q.lat, lon + shift], {
@@ -127,7 +127,7 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
     try {
       cache[feed] ??= await fetchQuakes(feed);
       draw(cache[feed]!);
-      updated.textContent = `${ds.updated} ${new Date().toLocaleTimeString(lang === 'zh' ? 'zh-CN' : 'en-GB', { hour: '2-digit', minute: '2-digit' })}`;
+      updated.textContent = `${ds.updated} ${new Date().toLocaleTimeString(lang === 'zh' ? 'zh-CN' : 'en-GB', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}`;   // 加时区：马来西亚 GMT+8、日本 GMT+9 读者看得懂
     } catch {
       list.innerHTML = `<li class="qstatus">${ds.error}</li>`;
     }

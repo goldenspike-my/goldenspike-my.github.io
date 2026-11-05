@@ -1,27 +1,49 @@
 ---
 import { series as seriesNames, type Lang } from '../lib/i18n';
 import type { Video } from '../lib/videos';
-interface Props { video: Video; lang: Lang }
-const { video, lang } = Astro.props;
+// size：feature = 首页最新一集（大）；compact = 首页旁边的小卡（缩图在左）；不给 = 一般网格
+interface Props { video: Video; lang: Lang; size?: 'feature' | 'compact'; label?: string }
+const { video, lang, size, label } = Astro.props;
 const s = seriesNames[video.series as keyof typeof seriesNames] ?? seriesNames.other;
 const title = lang === 'en' && video.titleEn ? video.titleEn : video.title;
+// 大卡用高清缩图（maxresdefault 不一定有，所以用 sddefault）
+// 小卡用 mqdefault（本身就是 16:9，没有上下黑边，拉高裁切也不会露出黑边）
+const thumb = !video.id ? video.thumb
+  : size === 'feature' ? `https://i.ytimg.com/vi/${video.id}/sddefault.jpg`
+  : size === 'compact' ? `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`
+  : video.thumb;
 ---
-<a class:list={['vcard', { short: video.format === 'short' }]} href={video.href} data-series={video.series}>
-  {video.thumb
-    ? <img src={video.thumb} alt="" loading="lazy" width="480" height="270" />
-    : <div class="ph thumb-ph">YouTube</div>}
+<a class:list={['vcard', size, { short: video.format === 'short' }]} href={video.href} data-series={video.series}>
+  <span class="media">
+    {thumb
+      ? <img src={thumb} alt="" loading={size === 'feature' ? 'eager' : 'lazy'} width="480" height="270" />
+      : <div class="ph thumb-ph">YouTube</div>}
+  </span>
   <div class="body">
-    <span class="tag">{s.zh} · {s.en.toUpperCase()}</span>
+    <span class="tag">{label && <span class="badge">{label}</span>}{s.zh} · {s.en.toUpperCase()}</span>
     <span class="title">{title}</span>
   </div>
 </a>
 <style>
   .vcard { text-decoration: none; color: var(--fg); background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
   .vcard:hover { transform: translateY(-3px); border-color: var(--accent); opacity: 1; }
+  .media { position: relative; display: block; }
   .vcard img, .thumb-ph { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }  /* 裁掉 YouTube 缩图上下的黑边 */
   .short img, .short .thumb-ph { aspect-ratio: 9 / 16; }   /* Shorts: the vertical frame sits in the middle of hqdefault */
   .short .body { padding: 14px 14px 18px; }
   .short .title { font-size: 15px; }
   .body { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px; }
   .title { font-weight: 700; font-size: 18px; line-height: 1.5; }
+
+  /* 「最新一集」放在文字区，不盖住缩图上的标题 */
+  .badge { display: inline-block; background: var(--gold); color: #1A160C; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 5px; margin-right: 10px; letter-spacing: .04em; }
+  .feature .body { padding: 22px 26px 26px; gap: 10px; }
+  .feature .title { font-family: var(--font-cjk-serif); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.4; }
+
+  .compact { flex-direction: row; align-items: stretch; }
+  .compact .media { flex: 0 0 44%; }
+  .compact img, .compact .thumb-ph { height: 100%; object-position: left center; }   /* 缩图的大字在左边，裁切时保住它 */
+  .compact .body { padding: 12px 16px; justify-content: center; gap: 6px; }
+  .compact .title { font-size: 15px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .compact .tag { font-size: 11px; }
 </style>

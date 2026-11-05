@@ -1,11 +1,24 @@
 ---
 import site from '../data/site.json';
+import { getVideos } from '../lib/videos';
 import { t, url, type Lang } from '../lib/i18n';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const year = new Date().getFullYear();
+// 页尾也放最新一集（只算长视频）
+const latest = (await getVideos()).find((v) => v.format !== 'short');
+const latestTitle = latest ? (lang === 'en' && latest.titleEn ? latest.titleEn : latest.title) : '';
 ---
 <footer class="footer sec-darker">
+  <div class="strata" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="wrap footer-top">
+    {latest && (
+      <a class="latest" href={latest.href}>
+        <span class="tag">{t(lang, 'latestEpisode')}</span>
+        <span class="lt">{latestTitle} →</span>
+      </a>
+    )}
+  </div>
   <div class="wrap footer-inner">
     <div class="brand">
       <span class="name">金釘子 GoldenSpike</span>
@@ -22,8 +35,21 @@ const year = new Date().getFullYear();
   </div>
 </footer>
 <style>
-  .footer { border-top: 1px solid var(--dark-border); }
-  .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 24px; padding-bottom: 24px; font-size: 14px; color: var(--dark-muted); }
+  .footer { position: relative; }
+  /* 和首页一样的地层带，细一点 */
+  .strata { display: flex; flex-direction: column; height: 18px; }
+  .strata i { flex: 1; }
+  .strata i:nth-child(1) { flex-grow: 4; background: #2D2414; }
+  .strata i:nth-child(2) { flex-grow: 3; background: #4A3A22; }
+  .strata i:nth-child(3) { flex-grow: 1; background: var(--gold); }
+  .strata i:nth-child(4) { flex-grow: 3; background: #3B3020; }
+  .strata i:nth-child(5) { flex-grow: 5; background: #2A2418; }
+  .footer-top { padding-top: 32px; }
+  .latest { display: inline-flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--dark-text); }
+  .latest:hover { opacity: 1; }
+  .latest:hover .lt { color: var(--gold); }
+  .lt { font-family: var(--font-cjk-serif); font-weight: 700; font-size: clamp(18px, 2vw, 22px); line-height: 1.45; transition: color .2s; }
+  .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding-top: 20px; padding-bottom: 24px; margin-top: 24px; border-top: 1px solid var(--dark-border); font-size: 14px; color: var(--dark-muted); }
   .brand { display: flex; gap: 12px; flex-wrap: wrap; }
   .name { color: var(--dark-text); font-weight: 700; }
   .links { display: flex; flex-wrap: wrap; }

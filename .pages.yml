@@ -630,6 +630,54 @@ content:
         fields:
           - { name: zh, label: 中文, type: string }
           - { name: en, label: English, type: string }
+      - name: latestQuake
+        label: "首页大图下 · 最新地震标签"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: traceReal
+        label: "首页大图下 · 真实波形说明（{sta} {site} {dist} 会自动换成地震台和距离）"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: fromBlog
+        label: "首页大图照片上的小字（来自博客）"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: pMark
+        label: "首页波形 · P 波记号（提醒是估算的）"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: pEstimate
+        label: "首页波形下 · P 波是估算的说明"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: traceNote
+        label: "首页大图下 · 示意波形说明"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: latestEpisode
+        label: "首页 + 页尾 · 最新一集标签"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: questionCard
+        label: "首页 · 「你知道吗」卡片抬头"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
       - name: openMonitor
         label: "首页 · 打开地震监测按钮"
         type: object
