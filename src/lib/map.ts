@@ -85,19 +85,8 @@ export function createMap(o: MapOptions): Promise<MLMap> {
     attributionControl: { compact: true },
     // 中文地名用电脑自己的字体画，不必下载中文字形
     localIdeographFontFamily: "'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif",
-    cooperativeGestures: matchMedia('(pointer: coarse)').matches,   // 手机上要两指才移动地图，免得滑页面时卡住
-    // 保留上一张画好的地图：滑动页面时，部分浏览器会把地图下半部丢掉，变成一块黑色长方形
-    canvasContextAttributes: { preserveDrawingBuffer: true },
+    // 手机上：一指移动地图，两指放大缩小（不用 cooperativeGestures 的「两指才能移动」）
   });
-  // 页面滑动停下来时重画一次，万一还是有黑块也会马上补回来
-  let repaintQueued = false;
-  const repaint = () => {
-    if (repaintQueued) return;
-    repaintQueued = true;
-    setTimeout(() => { repaintQueued = false; map.triggerRepaint(); }, 120);
-  };
-  addEventListener('scroll', repaint, { passive: true });
-  map.on('remove', () => removeEventListener('scroll', repaint));
   map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
   // 样式一读好就开始画我们的资料（不等底图每一块都下载完，网速慢时也不会空白很久）
   return new Promise((resolve) => {

@@ -41,7 +41,8 @@ const links = allLinks.filter((l) => l.key !== 'gallery' || hasSpecimens);
 </header>
 
 <style>
-  .nav { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--dark-border); }
+  /* 背景故意留 3% 透明：完全不透明的话，没开「硬件加速」的 Chrome 滑动时会把下面的地图画成黑块 */
+  .nav { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--dark-border); background: rgba(26, 22, 12, 0.97); }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; }
   .logo { display: flex; align-items: center; gap: 10px; color: var(--dark-text); text-decoration: none; min-height: 44px; }
   .logo-mark { width: 36px; height: 36px; flex: none; }
