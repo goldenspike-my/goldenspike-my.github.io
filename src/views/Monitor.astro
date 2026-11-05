@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { t, type Lang } from '../lib/i18n';
+import { t, url, type Lang } from '../lib/i18n';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const feeds = [['day45', 'pastDay45'], ['week45', 'pastWeek45'], ['day25', 'pastDay25']] as const;
@@ -9,6 +9,10 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
 <Base lang={lang} title={t(lang, 'monitor')} active="monitor">
   <section class="sec-darker monitor-page">
     <div class="wrap">
+      <nav class="tabs" aria-label={t(lang, 'monitor')}>
+        <a class="chip active" href={url(lang, '/monitor')} aria-current="page">{t(lang, 'monitorTabLive')}</a>
+        <a class="chip" href={url(lang, '/malaysia-quakes')}>{t(lang, 'monitorTabMalaysia')}</a>
+      </nav>
       <div class="top">
         <div>
           <span class="kicker live">{t(lang, 'monitorKicker')}</span>
@@ -26,7 +30,8 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
       </div>
 
       <div class="panel" id="monitor" data-lang={lang} data-depth={t(lang, 'depth')} data-error={t(lang, 'loadError')}
-        data-empty={t(lang, 'noQuakes')} data-loading={t(lang, 'loading')} data-count={t(lang, 'quakesCount')} data-updated={t(lang, 'lastUpdated')}>
+        data-empty={t(lang, 'noQuakes')} data-loading={t(lang, 'loading')} data-count={t(lang, 'quakesCount')} data-updated={t(lang, 'lastUpdated')}
+        data-base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
         <div class="map-box"><div id="map" role="region" aria-label="Earthquake map"></div></div>
         <div class="list-box">
           <div class="list-head"><strong id="count">–</strong><span id="updated"></span></div>
@@ -40,6 +45,7 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
         <span><i style="background:#F2B90D"></i>5–6</span>
         <span><i style="background:#FF8A1F"></i>6–7</span>
         <span><i style="background:#FF4D2E"></i>7+</span>
+        <span class="plate"><i></i>{t(lang, 'plateBoundary')}</span>
         <span class="src">{t(lang, 'dataSource')}</span>
       </div>
     </div>
@@ -47,7 +53,8 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
 </Base>
 
 <style>
-  .monitor-page { padding: 56px 0 88px; }
+  .monitor-page { padding: 40px 0 88px; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 22px; flex-wrap: wrap; }
   .live { color: var(--cyan); }
   .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 28px; }
   .top h1 { margin-top: 10px; }
@@ -55,7 +62,7 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
   .controls { display: flex; flex-direction: column; gap: 10px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .panel { display: flex; flex-wrap: wrap; gap: 20px; }
-  .map-box { flex: 3 1 560px; min-width: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #0E0C06; }
+  .map-box { position: relative; flex: 3 1 560px; min-width: 0; border-radius: 14px; background: #0C0A06; }   /* 圆角外框在 global.css 的 .map-box::after */
   #map { height: clamp(360px, 60vh, 600px); }
   .list-box { flex: 1 1 300px; min-width: 0; background: var(--dark); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: flex; flex-direction: column; max-height: clamp(360px, 60vh, 600px); }
   .list-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--muted); }
@@ -63,33 +70,44 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
   .list-box .qlist { overflow-y: auto; padding-right: 4px; }
   .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; font-size: 13px; color: var(--muted); align-items: center; }
   .legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+  .legend .plate i { border-radius: 0; height: 0; width: 18px; border-top: 2px dashed var(--cyan); background: none; vertical-align: 3px; }
   .legend .src { margin-left: auto; }
-  :global(.leaflet-container) { background: #0E0C06; font-family: var(--font-sans); }
-  :global(.leaflet-popup-content-wrapper), :global(.leaflet-popup-tip) { background: var(--dark-card); color: var(--dark-text); }
-  :global(.leaflet-popup-content a) { color: var(--gold); }
-  :global(.leaflet-control-attribution) { background: rgba(19,16,8,.8) !important; color: #A89A72; }
-  :global(.leaflet-control-attribution a) { color: #CBBC90; }
 </style>
 
 <script>
-  import 'leaflet/dist/leaflet.css';
-  import L from 'leaflet';
-  import { fetchQuakes, inRegion, magColor, quakeItemHtml, escapeHtml, REGIONS, type FeedKey, type RegionKey, type Quake } from '../lib/quakes';
+  import { createMap, addPlates, maplibregl, escapeHtml, firstSymbolLayer } from '../lib/map';
+  import { fetchQuakes, inRegion, magColor, quakeItemHtml, REGIONS, type FeedKey, type RegionKey, type Quake } from '../lib/quakes';
 
   const el = document.getElementById('monitor')!;
   const ds = el.dataset as Record<string, string>;
   const lang = ds.lang;
-  // 南北方向锁住（不会拖出地图外的灰色区域）；东西方向可以一直拖
-  const map = L.map('map', {
-    worldCopyJump: true, minZoom: 2,
-    maxBounds: [[-85, -1080], [85, 1080]], maxBoundsViscosity: 1,
-  }).setView([10, 170], 2);
-  // 底图：Esri 深灰色地图（免费、不需要 API key）
-  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
-    maxZoom: 10,
-  }).addTo(map);
-  const layer = L.layerGroup().addTo(map);
+  const locale = lang === 'zh' ? 'zh-CN' : 'en-GB';
+  const WORLD = { center: [170, 10] as [number, number], zoom: 1.2 };   // 太平洋放中间：环太平洋地震带看得最清楚
+
+  const mapReady = createMap({ container: 'map', lang, ...WORLD, minZoom: 0.8 }).then(async (map) => {
+    await addPlates(map, ds.base).catch(() => {});
+    map.addSource('quakes', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
+    map.addLayer({
+      id: 'quakes', type: 'circle', source: 'quakes',
+      paint: {
+        // 规模越大，圈越大（跟旧地图一样：半径 ≈ 0.55 × 规模²）
+        'circle-radius': ['max', 4, ['*', 0.55, ['get', 'mag'], ['get', 'mag']]],
+        'circle-color': ['get', 'color'], 'circle-opacity': 0.85,
+        'circle-stroke-color': '#1A160C', 'circle-stroke-width': 1,
+      },
+      layout: { 'circle-sort-key': ['get', 'mag'] },   // 大的画在上面
+    }, firstSymbolLayer(map));
+    const popup = new maplibregl.Popup({ closeButton: true, maxWidth: '260px' });
+    map.on('click', 'quakes', (e) => {
+      const p = e.features![0].properties as any;
+      popup.setLngLat((e.features![0].geometry as any).coordinates).setHTML(
+        `<strong>M${Number(p.mag).toFixed(1)}</strong><br>${escapeHtml(p.place)}<br>${new Date(p.time).toLocaleString(locale, { timeZoneName: 'short' })}<br>${ds.depth} ${Math.round(p.depth)} km<br><a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">USGS ↗</a>`,
+      ).addTo(map);
+    });
+    map.on('mouseenter', 'quakes', () => { map.getCanvas().style.cursor = 'pointer'; });
+    map.on('mouseleave', 'quakes', () => { map.getCanvas().style.cursor = ''; });
+    return map;
+  });
 
   let feed: FeedKey = 'day45';
   let region: RegionKey = 'global';
@@ -98,36 +116,29 @@ const regions = [['global', 'global'], ['japan', 'japan'], ['seasia', 'seasia']]
   const count = document.getElementById('count')!;
   const updated = document.getElementById('updated')!;
 
-  function draw(quakes: Quake[]) {
+  async function draw(quakes: Quake[]) {
     const shown = quakes.filter((q) => inRegion(q, region));
-    layer.clearLayers();
-    // draw small ones first so big ones sit on top
-    [...shown].sort((a, b) => a.mag - b.mag).forEach((q) => {
-      const lon = q.lon < -30 ? q.lon + 360 : q.lon; // Pacific-centred: shift the Americas east
-      const popup = `<strong>M${q.mag.toFixed(1)}</strong><br>${escapeHtml(q.place)}<br>${new Date(q.time).toLocaleString(lang === 'zh' ? 'zh-CN' : 'en-GB', { timeZoneName: 'short' })}<br>${ds.depth} ${Math.round(q.depth)} km<br><a href="${escapeHtml(q.url)}" target="_blank" rel="noopener">USGS ↗</a>`;
-      // 地图左右会重复出现好几个地球，每个地球都画一份，拖到哪里都看得到
-      for (const shift of [-360, 0, 360]) {
-        L.circleMarker([q.lat, lon + shift], {
-          radius: Math.max(4, q.mag * q.mag * 0.55), color: '#1A160C', weight: 1,
-          fillColor: magColor(q.mag), fillOpacity: 0.85,
-        }).bindPopup(popup).addTo(layer);
-      }
-    });
     count.textContent = `${shown.length} ${ds.count}`;
     list.innerHTML = shown.length
       ? shown.map((q) => quakeItemHtml(q, lang, ds.depth)).join('')
       : `<li class="qstatus">${ds.empty}</li>`;
+    const map = await mapReady;
+    (map.getSource('quakes') as any).setData({
+      type: 'FeatureCollection',
+      features: shown.map((q) => ({ type: 'Feature', geometry: { type: 'Point', coordinates: [q.lon, q.lat] },
+        properties: { mag: q.mag, place: q.place, time: q.time, depth: q.depth, url: q.url, color: magColor(q.mag) } })),
+    });
     const box = REGIONS[region];
-    if (box) map.fitBounds([[box[0], box[1]], [box[2], box[3]]]);
-    else map.setView([10, 170], 2);
+    if (box) map.fitBounds([[box[1], box[0]], [box[3], box[2]]], { padding: 20, duration: 900 });
+    else map.easeTo({ ...WORLD, duration: 900 });
   }
 
   async function load() {
     list.innerHTML = `<li class="qstatus">${ds.loading}</li>`;
     try {
       cache[feed] ??= await fetchQuakes(feed);
-      draw(cache[feed]!);
-      updated.textContent = `${ds.updated} ${new Date().toLocaleTimeString(lang === 'zh' ? 'zh-CN' : 'en-GB', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}`;   // 加时区：马来西亚 GMT+8、日本 GMT+9 读者看得懂
+      await draw(cache[feed]!);
+      updated.textContent = `${ds.updated} ${new Date().toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' })}`;   // 加时区：马来西亚 GMT+8、日本 GMT+9 读者看得懂
     } catch {
       list.innerHTML = `<li class="qstatus">${ds.error}</li>`;
     }

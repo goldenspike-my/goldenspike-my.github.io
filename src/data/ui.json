@@ -304,5 +304,189 @@
   "pEstimate": {
     "zh": "P 为估算",
     "en": "P is estimated"
+  },
+  "spikes": {
+    "zh": "金钉子",
+    "en": "Golden Spikes"
+  },
+  "monitorTabLive": {
+    "zh": "全球即时地震",
+    "en": "Live worldwide"
+  },
+  "monitorTabMalaysia": {
+    "zh": "马来西亚地震",
+    "en": "Malaysia"
+  },
+  "plateBoundary": {
+    "zh": "板块边界",
+    "en": "Plate boundary"
+  },
+  "myKicker": {
+    "zh": "马来西亚地震",
+    "en": "Earthquakes in Malaysia"
+  },
+  "myTitle": {
+    "zh": "马来西亚会不会地震？",
+    "en": "Does Malaysia get earthquakes?"
+  },
+  "myLead": {
+    "zh": "会，只是比较少，而且通常不大。西马的地震主要来自两个地方：苏门答腊外海的大地震，还有我们脚下的老断层。东马的沙巴离板块边界更近，地震也多得多。",
+    "en": "Yes, just not often, and usually not big ones. West Malaysia feels quakes from two places: big earthquakes off Sumatra, and old faults right under our feet. Sabah, in East Malaysia, is closer to plate boundaries and gets a lot more."
+  },
+  "myHistory": {
+    "zh": "M5 以上（1976 年至今）",
+    "en": "M5+ since 1976"
+  },
+  "myRecent": {
+    "zh": "最近 30 天",
+    "en": "Last 30 days"
+  },
+  "myEvents": {
+    "zh": "值得记住的地震",
+    "en": "Quakes worth remembering"
+  },
+  "myMagScale": {
+    "zh": "规模",
+    "en": "Magnitude"
+  },
+  "myCountHist": {
+    "zh": "次 M5 以上地震",
+    "en": "M5+ earthquakes"
+  },
+  "myReadMore": {
+    "zh": "读相关文章",
+    "en": "Read the post"
+  },
+  "myHistNote": {
+    "zh": "地图上的点来自 USGS，网站每小时更新一次。西马本地的地震多半太小，USGS 没有收录，最完整的纪录要看大马气象局（MetMalaysia）。觉得有地震时，也可以到 MetMalaysia 网站查最新公告。",
+    "en": "Dots come from USGS and the site refreshes every hour. Most local quakes in the peninsula are too small for USGS to list, so MetMalaysia has the fullest record. If you think you felt one, MetMalaysia is also where the latest announcements go up."
+  },
+  "depthShallow": {
+    "zh": "浅（0–70 km）",
+    "en": "Shallow (0–70 km)"
+  },
+  "depthMid": {
+    "zh": "中（70–300 km）",
+    "en": "Intermediate (70–300 km)"
+  },
+  "depthDeep": {
+    "zh": "深（300 km 以上）",
+    "en": "Deep (300 km +)"
+  },
+  "gsKicker": {
+    "zh": "频道名字的由来",
+    "en": "Where our name comes from"
+  },
+  "gsTitle": {
+    "zh": "全世界的金钉子",
+    "en": "Golden spikes of the world"
+  },
+  "gsLead": {
+    "zh": "地质年代表上的每一条分界，都钉在地球某处真实的岩层上。这里是目前所有已经批准的金钉子，点一下就能看到它在哪里、靠什么认出来。",
+    "en": "Every boundary on the geologic time scale is pinned to a real layer of rock somewhere on Earth. These are all the golden spikes ratified so far. Tap one to see where it is and how geologists recognise it."
+  },
+  "gsGlobe": {
+    "zh": "地球",
+    "en": "Globe"
+  },
+  "gsFlat": {
+    "zh": "平面",
+    "en": "Flat map"
+  },
+  "gsStatCount": {
+    "zh": "已批准的金钉子",
+    "en": "Ratified spikes"
+  },
+  "gsStatCountries": {
+    "zh": "分布的国家",
+    "en": "Countries"
+  },
+  "gsStatTop": {
+    "zh": "最多的国家",
+    "en": "Most spikes"
+  },
+  "gsStatNearest": {
+    "zh": "离吉隆坡最近",
+    "en": "Nearest to Kuala Lumpur"
+  },
+  "gsStatNewest": {
+    "zh": "最新钉下的",
+    "en": "Newest"
+  },
+  "gsPick": {
+    "zh": "点地图上的金色圆点，或在下面的时间轴选一个纪，就能看到那根金钉子的资料。",
+    "en": "Tap a gold dot on the map, or pick a period on the timeline below, to see that golden spike."
+  },
+  "gsMarker": {
+    "zh": "靠什么认出这条分界",
+    "en": "How the boundary is recognised"
+  },
+  "gsOriginal": {
+    "zh": "（ICS 原文）",
+    "en": ""
+  },
+  "gsLevel": {
+    "zh": "钉在哪一层",
+    "en": "Where the spike sits"
+  },
+  "gsRatified": {
+    "zh": "批准年份",
+    "en": "Ratified"
+  },
+  "gsRefs": {
+    "zh": "参考资料",
+    "en": "Reference"
+  },
+  "gsBegan": {
+    "zh": "开始于",
+    "en": "Began"
+  },
+  "gsTimeline": {
+    "zh": "地质年代时间轴",
+    "en": "Geologic timeline"
+  },
+  "gsOld": {
+    "zh": "← 较老",
+    "en": "← older"
+  },
+  "gsNew": {
+    "zh": "较新 →",
+    "en": "younger →"
+  },
+  "gsSource": {
+    "zh": "资料：International Commission on Stratigraphy（ICS）GSSP 表，2026 年 11 月整理；颜色是国际年代地层表的官方配色。",
+    "en": "Data: International Commission on Stratigraphy (ICS) GSSP table, compiled November 2026. Colours follow the official International Chronostratigraphic Chart."
+  },
+  "gsLangkawi": {
+    "zh": "Langkawi：马来西亚最老的岩层（不是金钉子）",
+    "en": "Langkawi: Malaysia's oldest rocks (not a golden spike)"
+  },
+  "gsTableTitle": {
+    "zh": "全部金钉子一览",
+    "en": "Every golden spike"
+  },
+  "gsColStage": {
+    "zh": "阶",
+    "en": "Stage"
+  },
+  "gsColPeriod": {
+    "zh": "纪",
+    "en": "Period"
+  },
+  "gsColAge": {
+    "zh": "开始于",
+    "en": "Began"
+  },
+  "gsColPlace": {
+    "zh": "地点",
+    "en": "Location"
+  },
+  "gsReadPost": {
+    "zh": "读：金钉子是什么？",
+    "en": "Read: what is a golden spike?"
+  },
+  "gsTakeQuiz": {
+    "zh": "做个小测验",
+    "en": "Take the quiz"
   }
 }

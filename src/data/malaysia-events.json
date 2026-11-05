@@ -1,0 +1,170 @@
+{
+  "events": [
+    {
+      "id": "johor-1922",
+      "date": "1922-01-31",
+      "dateText": {
+        "zh": "1922 年 1 月 31 日、2 月 7 日",
+        "en": "31 Jan and 7 Feb 1922"
+      },
+      "mag": "~5.4 / ~5.0",
+      "title": {
+        "zh": "柔佛的两次地震",
+        "en": "Two earthquakes in Johor"
+      },
+      "text": {
+        "zh": "那时候还没有现代地震仪，规模是研究人员翻旧报纸、档案，从各地「感觉到多大」倒推回去的。当年有零星损坏的记录。",
+        "en": "There were no modern seismometers then. Researchers worked the magnitudes out from old newspapers and archives, using how strongly people in different towns felt the shaking. Minor damage was reported at the time."
+      },
+      "link": "/blog/segamat-earthquake",
+      "source": "Martin et al. (2020), Seismological Research Letters 91(5)"
+    },
+    {
+      "id": "lahad-datu-1976",
+      "date": "1976-07-26",
+      "dateText": {
+        "zh": "1976 年 7 月 26 日",
+        "en": "26 Jul 1976"
+      },
+      "lat": 4.956,
+      "lon": 118.308,
+      "mag": "M6.2",
+      "title": {
+        "zh": "沙巴拿笃附近",
+        "en": "Near Lahad Datu, Sabah"
+      },
+      "text": {
+        "zh": "USGS 记录里马来西亚陆地附近规模最大的浅层地震之一。东马沙巴比西马活跃得多，因为它更靠近菲律宾和苏拉威西一带的板块边界。",
+        "en": "One of the largest shallow earthquakes near Malaysian land in the USGS record. Sabah is much more active than the peninsula because it sits closer to the plate boundaries around the Philippines and Sulawesi."
+      },
+      "link": "https://earthquake.usgs.gov/earthquakes/eventpage/usp0000hhh",
+      "source": "USGS usp0000hhh"
+    },
+    {
+      "id": "kenyir-1984",
+      "date": "1984-01-01",
+      "dateText": {
+        "zh": "1984–1988 年",
+        "en": "1984–1988"
+      },
+      "lat": 5,
+      "lon": 102.7,
+      "mag": "ML 2.4–4.6",
+      "title": {
+        "zh": "肯逸湖蓄水时的地震",
+        "en": "Quakes while Kenyir Lake filled"
+      },
+      "text": {
+        "zh": "登嘉楼的肯逸水库蓄水那几年记录到一串小地震。大量的水压在地面上，又渗进地下把孔隙水压抬高，附近的断层就比较容易滑动。这叫水库诱发地震。",
+        "en": "A run of small earthquakes was recorded while the Kenyir reservoir in Terengganu was filling. The weight of the water, and water seeping down and raising the pore pressure, made nearby faults more likely to slip. These are called reservoir-induced earthquakes."
+      },
+      "link": "/blog/malaysia-sleeping-giant",
+      "source": "Nazaruddin & Duerrast (2021), SN Applied Sciences 3, 693"
+    },
+    {
+      "id": "sumatra-2004",
+      "date": "2004-12-26",
+      "dateText": {
+        "zh": "2004 年 12 月 26 日",
+        "en": "26 Dec 2004"
+      },
+      "lat": 3.295,
+      "lon": 95.982,
+      "mag": "M9.1",
+      "title": {
+        "zh": "苏门答腊—安达曼大地震",
+        "en": "Sumatra–Andaman earthquake"
+      },
+      "text": {
+        "zh": "震中不在马来西亚，但海啸在槟城、浮罗交怡和吉打夺走了 68 条人命。东南亚各地的 GPS 站都量到地面被整片推动，离震中近的移动了 10 厘米以上。",
+        "en": "The epicentre was far from Malaysia, but the tsunami killed 68 people in Penang, Langkawi and Kedah. GPS stations across Southeast Asia recorded the ground being shifted, the nearer ones by 10 cm or more."
+      },
+      "link": "/blog/malaysia-sleeping-giant",
+      "source": "USGS; Vigny et al. (2005), Nature 436"
+    },
+    {
+      "id": "bukit-tinggi-2007",
+      "date": "2007-11-30",
+      "dateText": {
+        "zh": "2007–2009 年",
+        "en": "2007–2009"
+      },
+      "lat": 3.35,
+      "lon": 101.82,
+      "mag": "ML 2.5–3.5",
+      "title": {
+        "zh": "武吉丁宜的一连串小地震",
+        "en": "The Bukit Tinggi swarm"
+      },
+      "text": {
+        "zh": "在雪兰莪和彭亨交界，三年里记录到大约 22 次小地震。研究人员认为，苏门答腊 2004 年以后接连几次大地震改变了区域的应力，把半岛上沉睡的老断层叫醒了一部分。",
+        "en": "About 22 small earthquakes in three years on the Selangor–Pahang border. Researchers think the string of great Sumatran earthquakes after 2004 changed stresses across the region and woke up some of the peninsula's old faults."
+      },
+      "link": "/blog/malaysia-sleeping-giant",
+      "source": "Nazaruddin & Duerrast (2021), SN Applied Sciences 3, 693"
+    },
+    {
+      "id": "ranau-2015",
+      "date": "2015-06-05",
+      "dateText": {
+        "zh": "2015 年 6 月 5 日",
+        "en": "5 Jun 2015"
+      },
+      "lat": 5.9867,
+      "lon": 116.5409,
+      "mag": "M6.0",
+      "title": {
+        "zh": "沙巴兰瑙地震",
+        "en": "Ranau earthquake, Sabah"
+      },
+      "text": {
+        "zh": "震中在神山（京那巴鲁山）脚下。摇晃引发大规模山崩，18 人在山上罹难，大部分是来自新加坡的小学师生。山顶的「驴耳峰」也断了一边。",
+        "en": "The epicentre was at the foot of Mount Kinabalu. The shaking set off huge rockfalls and 18 people died on the mountain, most of them pupils and teachers from a Singapore primary school. One of the summit's Donkey's Ears peaks broke off."
+      },
+      "link": "https://earthquake.usgs.gov/earthquakes/eventpage/us20002m5s",
+      "source": "USGS us20002m5s; MetMalaysia gives Mw 5.9"
+    },
+    {
+      "id": "segamat-2025",
+      "date": "2025-08-24",
+      "dateText": {
+        "zh": "2025 年 8 月 24 日",
+        "en": "24 Aug 2025"
+      },
+      "lat": 2.4785,
+      "lon": 102.936,
+      "mag": "M4.1",
+      "title": {
+        "zh": "昔加末地震",
+        "en": "Segamat earthquakes"
+      },
+      "text": {
+        "zh": "星期天早上 6 点 13 分，很多昔加末人被摇醒。接下来一个星期还有好几次小余震。规模不大，但震源浅，所以感觉很明显，一些老建筑的裂缝也被拉大了。",
+        "en": "At 6.13 on a Sunday morning, a lot of people in Segamat were woken by their house shaking, and several smaller quakes followed that week. It wasn't big, but it was shallow, so it was clearly felt and some older buildings' cracks opened up."
+      },
+      "link": "/blog/segamat-earthquake",
+      "source": "MetMalaysia via Bernama; USGS us6000r3fi"
+    },
+    {
+      "id": "kota-belud-2026",
+      "date": "2026-02-22",
+      "dateText": {
+        "zh": "2026 年 2 月 22 日",
+        "en": "22 Feb 2026"
+      },
+      "lat": 6.8541,
+      "lon": 116.2942,
+      "mag": "M7.1",
+      "title": {
+        "zh": "沙巴外海的深层地震",
+        "en": "A deep quake off Sabah"
+      },
+      "text": {
+        "zh": "规模很大，但震源在地下大约 629 公里。地震波要走那么远才到地面，能量已经散掉很多，所以 USGS 估计的影响很低。这种深度的地震，来自很久以前沉进地幔的古老板块。",
+        "en": "A big one, but about 629 km down. By the time the waves reached the surface much of the energy had spread out, and USGS rated the expected impact as low. Quakes this deep happen in old slabs of plate that sank into the mantle long ago."
+      },
+      "link": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000sasz",
+      "source": "USGS us6000sasz"
+    }
+  ]
+}

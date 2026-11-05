@@ -1,0 +1,294 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntry, render } from 'astro:content';
+import { t, url, type Lang } from '../lib/i18n';
+import data from '../data/gssps.json';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const zh = lang === 'zh';
+
+// 说明文字：src/content/pages/golden-spikes-zh.md / -en.md（Pages CMS 可以改）
+const page = await getEntry('pages', `golden-spikes-${lang}`);
+const Content = page ? (await render(page)).Content : null;
+
+const spikes = data.gssps;
+// 时间轴：从老到新排的「纪」
+const periods: { name: string; zh: string; color: string; count: number }[] = [];
+for (const g of [...spikes].reverse()) {
+  const p = periods.find((x) => x.name === g.period);
+  if (p) p.count++; else periods.push({ name: g.period, zh: g.periodZh, color: g.periodColor, count: 1 });
+}
+// 小统计
+const byCountry = new Map<string, { en: string; zh: string; n: number }>();
+for (const g of spikes) {
+  const c = byCountry.get(g.country) ?? { en: g.country, zh: g.countryZh, n: 0 };
+  c.n++; byCountry.set(g.country, c);
+}
+const top = [...byCountry.values()].sort((a, b) => b.n - a.n)[0];
+const KL = [3.139, 101.687];
+const km = (lat: number, lon: number) => {
+  const r = Math.PI / 180, a = Math.sin((lat - KL[0]) * r / 2) ** 2 + Math.cos(KL[0] * r) * Math.cos(lat * r) * Math.sin((lon - KL[1]) * r / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(a));
+};
+const nearest = spikes.map((g) => ({ g, d: km(g.lat, g.lon) })).sort((a, b) => a.d - b.d)[0];
+const newest = [...spikes].sort((a, b) => b.ratified - a.ratified)[0];
+const stageName = (g: (typeof spikes)[number]) => (zh ? `${g.stageZh}` : g.stage);
+const fmtAge = (g: (typeof spikes)[number]) => (g.ageMa < 0.1 ? (zh ? `${Math.round(g.ageMa * 1e6).toLocaleString()} 年前` : `${Math.round(g.ageMa * 1e6).toLocaleString('en')} years ago`) : (zh ? `${g.ageText} 百万年前` : `${g.ageText} million years ago`));
+const clientData = spikes.map((g) => ({ ...g, name: stageName(g), ageLabel: fmtAge(g) }));
+// 马来西亚没有金钉子，但 Langkawi 的 Machinchang Formation 是我们最老的岩层（位置为示意）
+const langkawi = { lat: 6.40, lon: 99.68, label: t(lang, 'gsLangkawi') };
+---
+<Base lang={lang} title={t(lang, 'gsTitle')} description={t(lang, 'gsLead')} active="spikes">
+  <section class="sec-darker gs-page">
+    <div class="wrap">
+      <div class="top">
+        <div>
+          <span class="kicker">{t(lang, 'gsKicker')}</span>
+          <h1 class="page-title">{t(lang, 'gsTitle')}</h1>
+          <p class="sub">{t(lang, 'gsLead')}</p>
+        </div>
+        <div class="chips" role="group" aria-label="Projection" id="proj-chips">
+          <button class="chip" type="button" data-proj="globe" aria-pressed="true">{t(lang, 'gsGlobe')}</button>
+          <button class="chip" type="button" data-proj="mercator" aria-pressed="false">{t(lang, 'gsFlat')}</button>
+        </div>
+      </div>
+
+      <dl class="stats">
+        <div><dt>{t(lang, 'gsStatCount')}</dt><dd>{spikes.length}</dd></div>
+        <div><dt>{t(lang, 'gsStatCountries')}</dt><dd>{byCountry.size}</dd></div>
+        <div><dt>{t(lang, 'gsStatTop')}</dt><dd>{zh ? top.zh : top.en} <small>× {top.n}</small></dd></div>
+        <div><dt>{t(lang, 'gsStatNearest')}</dt><dd>{zh ? nearest.g.countryZh : nearest.g.country} · {stageName(nearest.g)} <small>≈ {Math.round(nearest.d / 10) * 10} km</small></dd></div>
+        <div><dt>{t(lang, 'gsStatNewest')}</dt><dd>{stageName(newest)} <small>{newest.ratified}</small></dd></div>
+      </dl>
+
+      <div class="panel" id="gs" data-lang={lang} data-base={import.meta.env.BASE_URL.replace(/\/$/, '')}
+        data-l-marker={t(lang, 'gsMarker')} data-l-level={t(lang, 'gsLevel')} data-l-ratified={t(lang, 'gsRatified')} data-l-refs={t(lang, 'gsRefs')}
+        data-l-original={t(lang, 'gsOriginal')} data-l-began={t(lang, 'gsBegan')}>
+        <div class="map-box"><div id="map" role="region" aria-label={t(lang, 'gsTitle')}></div></div>
+        <aside class="card" id="card" aria-live="polite">
+          <p class="hint">{t(lang, 'gsPick')}</p>
+        </aside>
+      </div>
+
+      <div class="timeline" role="group" aria-label={t(lang, 'gsTimeline')} id="timeline">
+        <button type="button" class="tl-all" data-period="" aria-pressed="true">{t(lang, 'all')} <span>{spikes.length}</span></button>
+        <div class="tl-bar">
+          {periods.map((p) => (
+            <button type="button" class="tl-seg" data-period={p.name} aria-pressed="false" style={`--c:${p.color}; flex-grow:${p.count + 2}`} title={`${zh ? p.zh : p.name} · ${p.count}`}>
+              <span class="tl-name">{zh ? p.zh : p.name}</span><span class="tl-n">{p.count}</span>
+            </button>
+          ))}
+        </div>
+        <p class="tl-axis"><span>{t(lang, 'gsOld')}</span><span>{t(lang, 'gsNew')}</span></p>
+      </div>
+      <p class="src">{t(lang, 'gsSource')}</p>
+    </div>
+  </section>
+
+  <section class="sec-light">
+    <div class="wrap lower">
+      {Content && <article class="prose"><Content /></article>}
+      <h2 class="table-title">{t(lang, 'gsTableTitle')}</h2>
+      <div class="table-wrap">
+        <table class="spikes">
+          <thead><tr><th>{t(lang, 'gsColStage')}</th><th>{t(lang, 'gsColPeriod')}</th><th>{t(lang, 'gsColAge')}</th><th>{t(lang, 'gsColPlace')}</th><th>{t(lang, 'gsRatified')}</th></tr></thead>
+          <tbody>
+            {spikes.map((g) => (
+              <tr>
+                <td><button type="button" class="row-btn" data-id={g.id}><i style={`background:${g.color}`}></i>{stageName(g)}{zh && <span class="en"> {g.stage}</span>}</button></td>
+                <td>{zh ? g.periodZh : g.period}</td>
+                <td class="num">{fmtAge(g)}</td>
+                <td>{zh ? `${g.countryZh} · ` : ''}{g.location}</td>
+                <td class="num">{g.ratified}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="links">
+        <a class="btn btn-gold" href={url(lang, '/blog/what-is-a-golden-spike')}>{t(lang, 'gsReadPost')}</a>
+        <a class="btn btn-ghost" href={url(lang, '/quiz/golden-spike')}>{t(lang, 'gsTakeQuiz')}</a>
+      </p>
+    </div>
+  </section>
+  <script type="application/json" id="gs-data" set:html={JSON.stringify({ spikes: clientData, langkawi })}></script>
+</Base>
+
+<style>
+  .gs-page { padding: 56px 0 56px; }
+  .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 24px; }
+  .top h1 { margin-top: 10px; }
+  .sub { color: var(--muted); margin: 10px 0 0; max-width: 640px; font-size: 17px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 0 0 24px; }
+  .stats div { background: var(--dark); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+  .stats dt { font-size: 12px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+  .stats dd { margin: 4px 0 0; font-weight: 700; font-size: 18px; color: var(--gold); }
+  .stats small { color: var(--muted); font-weight: 500; font-size: 13px; }
+  .panel { display: flex; flex-wrap: wrap; gap: 20px; }
+  .map-box { position: relative; flex: 3 1 560px; min-width: 0; border-radius: 14px; background: #0C0A06; }   /* 圆角外框在 global.css 的 .map-box::after */
+  #map { height: clamp(420px, 66vh, 640px); }
+  .card { flex: 1 1 300px; min-width: 0; background: var(--dark); border: 1px solid var(--line); border-radius: 14px; padding: 20px; max-height: clamp(420px, 66vh, 640px); overflow-y: auto; }
+  .card .hint { color: var(--muted); margin: 0; }
+  .card :global(.c-swatch) { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: 0; }
+  .card :global(.c-period) { font-size: 13px; color: var(--muted); margin: 0; }
+  .card :global(h2) { margin: 6px 0 2px; font-size: 26px; color: var(--gold); }
+  .card :global(.c-en) { margin: 0; color: var(--muted); font-size: 14px; }
+  .card :global(.c-age) { margin: 12px 0; font-size: 17px; }
+  .card :global(dl) { margin: 0; }
+  .card :global(dt) { margin-top: 14px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .card :global(dd) { margin: 4px 0 0; font-size: 14px; }
+  .card :global(dd a) { display: block; }
+  .timeline { margin-top: 18px; display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; align-items: stretch; }
+  .tl-all { grid-row: 1; min-height: 52px; padding: 0 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--fg); font-weight: 700; }
+  .tl-all[aria-pressed="true"] { background: var(--gold); color: #1A160C; border-color: var(--gold); }
+  .tl-all span { font-weight: 500; opacity: .75; }
+  .tl-bar { display: flex; gap: 2px; min-width: 0; border-radius: 10px; overflow: hidden; }
+  .tl-seg { flex: 1 1 0; min-width: 0; min-height: 52px; border: 0; padding: 4px 2px; background: var(--c); color: #1A160C; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.15; opacity: .78; transition: opacity .2s, transform .2s; }
+  .tl-seg:hover { opacity: 1; }
+  .tl-seg[aria-pressed="true"] { opacity: 1; box-shadow: inset 0 -4px 0 #1A160C; }
+  .tl-name { font-size: 12px; font-weight: 700; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tl-n { font-size: 11px; }
+  .tl-axis { grid-column: 2; display: flex; justify-content: space-between; margin: 0; font-size: 12px; color: var(--muted); }
+  .src { margin: 14px 0 0; font-size: 12px; color: var(--muted); }
+  @media (max-width: 720px) {
+    .timeline { grid-template-columns: 1fr; }
+    .tl-bar { overflow-x: auto; }
+    .tl-seg { flex: 0 0 auto; min-width: 64px; }
+    .tl-axis { grid-column: 1; }
+  }
+  .lower { padding: 64px 24px 88px; }
+  .prose { max-width: 760px; margin: 0 auto 48px; color: var(--paper-body); font-size: 17px; line-height: 1.8; }
+  .prose :global(h2) { font-size: 26px; margin: 40px 0 12px; color: var(--paper-text); }
+  .prose :global(h2:first-child) { margin-top: 0; }
+  .prose :global(blockquote) { margin: 20px 0; padding: 12px 18px; border-left: 4px solid var(--gold); background: #FBF7EC; }
+  .table-title { font-size: 26px; margin: 0 0 16px; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--paper-border); border-radius: 12px; background: var(--paper-card); }
+  .spikes { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .spikes th, .spikes td { padding: 8px 12px; border-bottom: 1px solid var(--paper-border); text-align: left; vertical-align: top; }
+  .spikes th { position: sticky; top: 0; background: #FBF7EC; font-size: 13px; }
+  .spikes .num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .row-btn { background: none; border: 0; padding: 0; color: var(--paper-text); font-weight: 700; text-align: left; min-height: 28px; display: inline-flex; align-items: center; flex-wrap: wrap; }
+  .row-btn:hover { color: var(--gold-deep); }
+  .row-btn i { width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; flex: none; outline: 1px solid rgba(0,0,0,.15); }
+  .row-btn .en { font-weight: 500; color: var(--paper-muted); margin-left: 6px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+</style>
+
+<script>
+  import { createMap, maplibregl, escapeHtml } from '../lib/map';
+  import type { Map as MLMap } from 'maplibre-gl';
+
+  const root = document.getElementById('gs')!;
+  const ds = root.dataset as Record<string, string>;
+  const lang = ds.lang;
+  const D = JSON.parse(document.getElementById('gs-data')!.textContent || '{}');
+  const spikes: any[] = D.spikes;
+  const card = document.getElementById('card')!;
+
+  const fc = {
+    type: 'FeatureCollection',
+    features: spikes.map((g, i) => ({ type: 'Feature', id: i, geometry: { type: 'Point', coordinates: [g.lon, g.lat] }, properties: { id: g.id, color: g.color, period: g.period, name: g.name } })),
+  };
+
+  function showCard(g: any) {
+    const refs = (g.refs as { url: string; text: string }[]).map((r) => `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${escapeHtml(r.text)} ↗</a>`).join('');
+    const place = lang === 'zh' && g.countryZh ? `${escapeHtml(g.countryZh)} · ${escapeHtml(g.location)}` : escapeHtml(g.location);
+    card.innerHTML = `
+      <p class="c-period"><span class="c-swatch" style="background:${g.color}"></span>${escapeHtml(lang === 'zh' ? g.periodZh : g.period)}${g.epoch ? ` · ${escapeHtml(g.epoch)}` : ''}</p>
+      <h2>${escapeHtml(g.name)}</h2>
+      ${lang === 'zh' ? `<p class="c-en">${escapeHtml(g.stage)}</p>` : ''}
+      <p class="c-age">${escapeHtml(ds.lBegan)} <strong>${escapeHtml(g.ageLabel)}</strong></p>
+      <p>${place}</p>
+      <dl>
+        <dt>${escapeHtml(ds.lMarker)}${ds.lOriginal ? ` <small>${escapeHtml(ds.lOriginal)}</small>` : ''}</dt><dd>${escapeHtml(g.marker)}</dd>
+        <dt>${escapeHtml(ds.lLevel)}</dt><dd>${escapeHtml(g.level)}</dd>
+        <dt>${escapeHtml(ds.lRatified)}</dt><dd>${g.ratified}</dd>
+        <dt>${escapeHtml(ds.lRefs)}</dt><dd>${refs}</dd>
+      </dl>`;
+  }
+
+  let map: MLMap;
+  let selected: number | null = null;
+  function select(i: number, fly = true) {
+    if (selected != null) map.setFeatureState({ source: 'gssp', id: selected }, { on: false });
+    selected = i;
+    map.setFeatureState({ source: 'gssp', id: i }, { on: true });
+    showCard(spikes[i]);
+    if (fly) map.flyTo({ center: [spikes[i].lon, spikes[i].lat], zoom: Math.max(map.getZoom(), 4.2), duration: 1600 });
+  }
+
+  createMap({ container: 'map', lang, center: [40, 30], zoom: 1.4, globe: true, minZoom: 0.6, maxZoom: 9 }).then((m) => {
+    map = m;
+    map.addSource('gssp', { type: 'geojson', data: fc as any, attribution: 'GSSPs: ICS' });
+    // 外圈金色光晕 + 里面填该时代在国际地层表上的颜色
+    map.addLayer({ id: 'gssp-glow', type: 'circle', source: 'gssp', paint: {
+      'circle-radius': ['case', ['boolean', ['feature-state', 'on'], false], 16, 9], 'circle-color': '#F2B90D', 'circle-opacity': 0.18, 'circle-blur': 0.6,
+    } });
+    map.addLayer({ id: 'gssp', type: 'circle', source: 'gssp', paint: {
+      'circle-radius': ['interpolate', ['linear'], ['zoom'], 1, 4.5, 6, 8],
+      'circle-color': ['get', 'color'], 'circle-stroke-color': ['case', ['boolean', ['feature-state', 'on'], false], '#FFFFFF', '#F2B90D'],
+      'circle-stroke-width': ['case', ['boolean', ['feature-state', 'on'], false], 3, 1.6],
+    } });
+    map.addLayer({ id: 'gssp-label', type: 'symbol', source: 'gssp', minzoom: 4.5, layout: {
+      'text-field': ['get', 'name'], 'text-font': ['Noto Sans Bold'], 'text-size': 12, 'text-offset': [0, 1.2], 'text-anchor': 'top', 'text-optional': true,
+    }, paint: { 'text-color': '#F2B90D', 'text-halo-color': '#0C0A06', 'text-halo-width': 1.6 } });
+    // Langkawi：不是金钉子，用空心青色圈分开
+    const lk = D.langkawi;
+    map.addSource('langkawi', { type: 'geojson', data: { type: 'Feature', geometry: { type: 'Point', coordinates: [lk.lon, lk.lat] }, properties: { label: lk.label } } as any });
+    map.addLayer({ id: 'langkawi', type: 'circle', source: 'langkawi', paint: { 'circle-radius': 7, 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': '#00C8D2', 'circle-stroke-width': 2 } });
+    map.addLayer({ id: 'langkawi-label', type: 'symbol', source: 'langkawi', minzoom: 3, layout: { 'text-field': ['get', 'label'], 'text-font': ['Noto Sans Regular'], 'text-size': 12, 'text-offset': [0, 1.2], 'text-anchor': 'top', 'text-max-width': 12 }, paint: { 'text-color': '#7FE3E8', 'text-halo-color': '#0C0A06', 'text-halo-width': 1.6 } });
+
+    const tip = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 10 });
+    map.on('mousemove', 'gssp', (e) => {
+      map.getCanvas().style.cursor = 'pointer';
+      const f = e.features![0];
+      tip.setLngLat((f.geometry as any).coordinates).setText(String((f.properties as any).name)).addTo(map);
+    });
+    map.on('mouseleave', 'gssp', () => { map.getCanvas().style.cursor = ''; tip.remove(); });
+    map.on('click', 'gssp', (e) => select(Number(e.features![0].id), false));
+
+    // 慢慢转的地球，碰到就停
+    let spin = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stop = () => { spin = false; };
+    ['mousedown', 'touchstart', 'wheel'].forEach((ev) => map.on(ev as any, stop));
+    const rotate = () => {
+      if (!spin || map.getProjection()?.type !== 'globe' || map.getZoom() > 3) return;
+      const c = map.getCenter(); c.lng -= 6;
+      map.easeTo({ center: c, duration: 1000, easing: (n) => n });
+    };
+    map.on('moveend', rotate);
+    rotate();
+
+    // 时间轴：只看某一个纪
+    const segs = document.querySelectorAll<HTMLButtonElement>('#timeline button');
+    segs.forEach((b) => b.addEventListener('click', () => {
+      stop();
+      segs.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      const p = b.dataset.period;
+      const filter: any = p ? ['==', ['get', 'period'], p] : null;
+      for (const l of ['gssp', 'gssp-glow', 'gssp-label']) map.setFilter(l, filter);
+      if (p) {
+        const pts = spikes.filter((g) => g.period === p);
+        const lons = pts.map((g) => g.lon), lats = pts.map((g) => g.lat);
+        if (pts.length === 1) map.flyTo({ center: [lons[0], lats[0]], zoom: 4, duration: 1200 });
+        else map.fitBounds([[Math.min(...lons), Math.min(...lats)], [Math.max(...lons), Math.max(...lats)]], { padding: 60, maxZoom: 5, duration: 1200 });
+      }
+    }));
+
+    // 投影：地球 / 平面
+    const pc = document.querySelectorAll<HTMLButtonElement>('#proj-chips .chip');
+    pc.forEach((b) => b.addEventListener('click', () => {
+      pc.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      map.setProjection({ type: b.dataset.proj as any });
+    }));
+
+    // 下面表格的名字 → 跳回地图
+    document.querySelectorAll<HTMLButtonElement>('.row-btn').forEach((b) => b.addEventListener('click', () => {
+      stop();
+      const i = spikes.findIndex((g) => g.id === b.dataset.id);
+      document.getElementById('map')!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      select(i);
+    }));
+  });
+</script>

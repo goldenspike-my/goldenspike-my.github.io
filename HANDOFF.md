@@ -23,6 +23,12 @@ _Last updated: 2026-10-10 (site LIVE; Pages CMS connected)_
 - Claude CLI is installed at `%USERPROFILE%\.local\bin\claude.exe` but not on PATH.
 - Gotcha: when writing files via Bash heredocs in this environment, backslashes got eaten — use the Write/Edit tools for code with regex/escapes. Don't `npm ci` inside the Google Drive folder (super slow + syncs node_modules); build in a temp clone instead.
 
+## Maps + two new pages (2026-11-05)
+- **Leaflet → MapLibre GL JS v6** (WebGL vector maps, 3D globe). Shared setup in `src/lib/map.ts`: our own dark brown/gold style on OpenFreeMap vector tiles (free, no key) + Natural Earth shaded relief; Chinese labels from `name:zh-Hans`. v6 needs `setWorkerUrl` with the `?url` worker import (already done). Data layers are added on `style.load`, not `load` (which waits for every tile).
+- Plate boundaries: `public/data/plates.json` (Bird 2003 PB2002 via fraxen/tectonicplates, ODC-BY, rounded to 0.01°).
+- **/golden-spikes** (nav「金钉子」): `src/data/gssps.json` = 82 ratified GSSPs from the ICS table (fetched 2026-11-05) + fixes listed in its `_fixes` (Valanginian/Wuliuan added, Aeronian/Dapingian longitudes, Ediacaran year, Guangxi spelling). Chinese stage names are common translations; he should check them. Prose in `src/content/pages/golden-spikes-{zh,en}.md`.
+- **/malaysia-quakes** (tab on the monitor page): M5+ since 1976 fetched from USGS **at build time** (`src/lib/quake-history.ts`, refreshes with the hourly deploy), "last 30 days" fetched live, timeline in `src/data/malaysia-events.json`, prose in `src/content/pages/malaysia-quakes-{zh,en}.md`. All editable in Pages CMS.
+
 ## About the user
 - Malaysian geology graduate (University of Malaya), now doing seismology research at Kyoto University.
 - Runs the YouTube channel 金釘子 / GoldenSpike (https://www.youtube.com/@goldenspike_my, channel ID `UC274wKcP3WEGx5zWVIMGZMA`): geology/seismology education for Malaysian Chinese viewers + travel vlogs.
@@ -45,12 +51,12 @@ Hosting: **GitHub Pages** (free). Posting: **Pages CMS** (app.pagescms.org) so h
 - Recommended repo name: `<username>.github.io` (base path `/`; images inserted in post bodies use `/uploads/...` and would break under a sub-path).
 
 ## What's built (status: complete, tested locally, NOT yet deployed)
-- **Astro 5.18.2** static site, `leaflet 1.9.4`. `npm install` → `npm run dev` (http://localhost:4321) / `npm run build`.
+- **Astro 5.18.2** static site, `maplibre-gl 6` (was leaflet until 2026-11-05). `npm install` → `npm run dev` (http://localhost:4321) / `npm run build`.
 - Structure:
   - `src/views/*.astro` page bodies (Home, Videos, BlogList, Post, Monitor, QuizList, Quiz, Gallery, About); `src/pages/**` are thin zh + `en/` wrappers.
   - `src/lib/i18n.ts` all UI strings (zh/en), `url()`/`asset()` helpers (respect BASE_URL), categories/series/specimen types.
   - `src/lib/videos.ts` fetches the YouTube RSS at build time; merges with `src/data/videos.json` (series + English titles). Falls back to videos.json if RSS fails (it fails in sandboxes; works on GitHub Actions).
-  - `src/lib/quakes.ts` + `QuakeList.astro` + `Monitor.astro`: live USGS GeoJSON in the browser (4.5_day, 4.5_week, 2.5_day), region filters (global/Japan/SE Asia), Pacific-centred Leaflet map on CARTO dark tiles. USGS CORS confirmed working in a real browser.
+  - `src/lib/quakes.ts` + `QuakeList.astro` + `Monitor.astro`: live USGS GeoJSON in the browser (4.5_day, 4.5_week, 2.5_day), region filters (global/Japan/SE Asia), Pacific-centred map (MapLibre since 2026-11-05, see top). USGS CORS confirmed working in a real browser.
   - Content collections (`src/content.config.ts`): `posts` (md), `quizzes` (json; `answer` is 1-based), `specimens` (md, empty so far), `pages` (about-zh.md / about-en.md).
   - `src/data/site.json` (hero text, links), `facts.json` (flip cards).
   - `src/styles/global.css`: colour tokens + `.sec-dark` / `.sec-darker` / `.sec-light` section themes (components read `--fg`, `--muted`, `--accent`, `--card`, `--line`, `--ph`).

@@ -108,3 +108,28 @@ html.js .reveal-list.in .qitem { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html.js [data-reveal], html.js .reveal-list .qitem { opacity: 1; transform: none; transition: none; }
 }
+
+/* ---------- 地图（MapLibre）：弹出框、按钮、版权文字配合深色主题 ---------- */
+.maplibregl-map { font-family: var(--font-sans); background: #0C0A06; }
+.maplibregl-popup-content { background: var(--dark-card); color: var(--dark-text); border: 1px solid var(--dark-border); border-radius: 10px; padding: 12px 30px 12px 14px; font-size: 14px; line-height: 1.5; box-shadow: 0 8px 24px rgba(0,0,0,.45); }
+.maplibregl-popup-content a { color: var(--gold); }
+.maplibregl-popup-close-button { color: var(--dark-muted); font-size: 20px; width: 30px; height: 30px; }
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip, .maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip, .maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip { border-top-color: var(--dark-card); }
+.maplibregl-popup-anchor-top .maplibregl-popup-tip, .maplibregl-popup-anchor-top-left .maplibregl-popup-tip, .maplibregl-popup-anchor-top-right .maplibregl-popup-tip { border-bottom-color: var(--dark-card); }
+.maplibregl-popup-anchor-left .maplibregl-popup-tip { border-right-color: var(--dark-card); }
+.maplibregl-popup-anchor-right .maplibregl-popup-tip { border-left-color: var(--dark-card); }
+.maplibregl-ctrl-attrib, .maplibregl-ctrl-attrib.maplibregl-compact { background: rgba(19,16,8,.85) !important; color: #A89A72; }
+.maplibregl-ctrl-attrib a { color: #CBBC90; }
+.maplibregl-ctrl-attrib-button { filter: invert(.85); }
+.maplibregl-ctrl-group { background: var(--dark-card); border: 1px solid var(--dark-border); }
+.maplibregl-ctrl-group button + button { border-top-color: var(--dark-border); }
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon { filter: invert(.88) sepia(.3); }
+.maplibregl-cooperative-gesture-screen { font-family: var(--font-sans); }
+
+/* 地图圆角外框：不要用 overflow:hidden 去裁地图（Chrome 滑动页面时会把 WebGL 地图下半部变黑），
+   改成在地图上面盖一个外框，四个角用页面底色补上 */
+.map-box::after {
+  content: ''; position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 0 0 14px var(--bg, #131008);
+}
