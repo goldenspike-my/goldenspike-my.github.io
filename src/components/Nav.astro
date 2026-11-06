@@ -13,8 +13,8 @@ const allLinks = [
   { key: 'monitor', path: '/monitor' },
   { key: 'quiz', path: '/quiz' },
   { key: 'gallery', path: '/gallery' },
-  { key: 'about', path: '/about' },
 ] as const;
+// 「关于」放在页尾和首页的关于卡，导航少一项比较不挤
 const links = allLinks.filter((l) => l.key !== 'gallery' || hasSpecimens);
 ---
 <header class="nav sec-dark">

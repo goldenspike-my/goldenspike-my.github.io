@@ -20,6 +20,10 @@
   --paper-body: #2B2416;
   --paper-muted: #5E5440;
 
+  /* 地层带的七种岩层颜色（首页 hero 和页尾共用，由上到下） */
+  --stratum-1: #2D2414; --stratum-2: #4A3A22; --stratum-3: #6B5332; --stratum-4: #5C4A1C;
+  --stratum-5: #3B3020; --stratum-6: #5A4A33; --stratum-7: #2A2418;
+
   --font-sans: 'Manrope', 'Noto Sans SC', system-ui, sans-serif;
   --font-serif: 'Playfair Display', 'Noto Serif SC', serif;
   --font-cjk-serif: 'Noto Serif SC', 'Playfair Display', serif;
@@ -62,7 +66,8 @@ button { font: inherit; cursor: pointer; }
 
 .kicker { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: .14em; color: var(--accent); text-transform: uppercase; }
 .sec-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 36px; }
-.sec-head h2, .page-title { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 4vw, 38px); }
+/* 大标题跟 Logo、文章标题一样用宋体（Noto Serif SC），按钮和介面文字才用无衬线 */
+.sec-head h2, .page-title { margin: 0; font-family: var(--font-cjk-serif); font-weight: 900; line-height: 1.25; font-size: clamp(30px, 4vw, 38px); }
 .sec-head p { margin: 6px 0 0; color: var(--muted); }
 .sec-head > a { font-weight: 700; padding: 12px 0; text-decoration: none; }
 

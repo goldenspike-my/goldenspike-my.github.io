@@ -7,6 +7,8 @@ category: geo
 lang: en
 cover: /uploads/golden-spike-cover.jpg
 coverAlt: Thumbnail of the channel introduction video, with me looking at a rock through a hand lens
+heroImage: /uploads/blog/photo-klonk.jpg
+heroImageAlt: The Silurian–Devonian boundary section at Klonk, Czech Republic
 youtubeId: Hd8secgROVU
 tags:
   - golden spike

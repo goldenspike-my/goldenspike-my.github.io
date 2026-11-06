@@ -5,6 +5,7 @@ import PostCard from '../components/PostCard.astro';
 import QuakeList from '../components/QuakeList.astro';
 import site from '../data/site.json';
 import facts from '../data/facts.json';
+import gssps from '../data/gssps.json';
 import { getVideos } from '../lib/videos';
 import { getPostsForLang } from '../lib/posts';
 import { tracePath } from '../lib/trace';
@@ -20,17 +21,21 @@ const { posts, fallback } = await getPostsForLang(lang);
 // 「关于我」卡片的照片 = 关于页上传的照片（Pages CMS → 关于我）
 const aboutPhoto = (await getEntry('pages', `about-${lang}`))?.data.photo;
 const latestPosts = posts.slice(0, 3);
-// 首页大图：每次打开随机挑一篇博客的照片（文章里第一张 .jpg 照片；以后的新文章也会自动加进来）
-const heroPool = posts.map((p) => {
-  const m = (p.body || '').match(/!\[([^\]]*)\]\(([^)\s]+\.jpe?g)/i);
-  const src = m?.[2] ?? p.data.cover;
-  return src ? { src: asset(src), alt: m?.[1] || p.data.coverAlt || p.data.title, title: p.data.title, href: url(p.data.lang, `/blog/${slugOf(p)}`) } : null;
-}).filter((x) => x !== null);
+// 首页大图：只从文章「首页大图」栏位（heroImage，Pages CMS 里挑的真实岩石／野外照片）随机挑；
+// 示意图、人像、有字的缩略图不会跑进来。一张都没挑的话，才退回用文章封面
+const toHero = (p: (typeof posts)[number], src: string, alt?: string) =>
+  ({ src: asset(src), alt: alt || p.data.title, title: p.data.title, href: url(p.data.lang, `/blog/${slugOf(p)}`) });
+const picked = posts.filter((p) => p.data.heroImage).map((p) => toHero(p, p.data.heroImage!, p.data.heroImageAlt));
+const heroPool = picked.length ? picked
+  : posts.filter((p) => p.data.cover).slice(0, 1).map((p) => toHero(p, p.data.cover!, p.data.coverAlt));
 // 地层带的波形：网站生成时抓到的真实地震记录；抓不到就用示意波形
 const real = await getRealTrace();
 const traceNote = real
   ? t(lang, 'traceReal').replace('{sta}', `${real.net}.${real.sta}`).replace('{site}', real.site).replace('{dist}', String(real.dist))
   : t(lang, 'traceNote');
+// 「全世界的金钉子」那一条：数字在网站生成时算好
+const spikeCount = gssps.gssps.length;
+const spikeCountries = new Set(gssps.gssps.map((g) => g.country)).size;
 const icons: Record<string, string> = {
   question: 'M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01',
   wave: 'M2 12h3l2-6 4 12 3-9 2 3h6',
@@ -42,7 +47,7 @@ const icons: Record<string, string> = {
   <section class="hero sec-darker">
     <div class="hero-inner wrap">
       <div class="hero-text">
-        <span class="kicker rise" style="--d:0">Geology · Seismology · Kyoto</span>
+        <span class="kicker rise" style="--d:0">{t(lang, 'heroKicker')}</span>
         <h1 class="rise" style="--d:1">{lang === 'zh' ? site.heroTitle : site.heroTitleEn}<em>{site.heroTagline}</em></h1>
         <p class="rise" style="--d:2">{lang === 'zh' ? site.heroText : site.heroTextEn}</p>
         <div class="hero-btns rise" style="--d:3">
@@ -87,13 +92,13 @@ const icons: Record<string, string> = {
     <figure class="seis-fig">
     <div class="seis">
     <div class="strata" aria-hidden="true">
-      <div style="flex-grow:18;background:#2D2414"></div>
-      <div style="flex-grow:9;background:#4A3A22"></div>
-      <div style="flex-grow:5;background:#6B5332"></div>
-      <div style="flex-grow:1.5;background:#5C4A1C"></div>
-      <div style="flex-grow:12;background:#3B3020"></div>
-      <div style="flex-grow:7;background:#5A4A33"></div>
-      <div style="flex-grow:14;background:#2A2418"></div>
+      <div style="flex-grow:18;background:var(--stratum-1)"></div>
+      <div style="flex-grow:9;background:var(--stratum-2)"></div>
+      <div style="flex-grow:5;background:var(--stratum-3)"></div>
+      <div style="flex-grow:1.5;background:var(--stratum-4)"></div>
+      <div style="flex-grow:12;background:var(--stratum-5)"></div>
+      <div style="flex-grow:7;background:var(--stratum-6)"></div>
+      <div style="flex-grow:14;background:var(--stratum-7)"></div>
     </div>
     <svg class="trace" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
       <path id="trace-path" d={real ? envelopePath(real.env) : tracePath(5)} />
@@ -144,6 +149,20 @@ const icons: Record<string, string> = {
     </div>
   </section>
 
+  <!-- 全世界的金钉子（深色）：频道名字的由来，带去金钉子地图 -->
+  <section class="section sec-dark spikes-band">
+    <div class="wrap spikes-inner">
+      <div class="spikes-text" data-reveal>
+        <span class="kicker">{t(lang, 'homeSpikesKicker')}</span>
+        <h2>{t(lang, 'homeSpikesTitle').replace('{n}', String(spikeCount))}</h2>
+        <p>{t(lang, 'homeSpikesText').replace('{c}', String(spikeCountries))}</p>
+        <a class="btn btn-gold" href={url(lang, '/golden-spikes')}>{t(lang, 'homeSpikesCta')} →</a>
+      </div>
+      <a class="spikes-map" href={url(lang, '/golden-spikes')} data-reveal style="--i:1" tabindex="-1">
+        <img src={asset('golden-spikes-map.svg')} alt={t(lang, 'homeSpikesAlt')} width="720" height="300" loading="lazy" />
+      </a>
+    </div>
+  </section>
   <!-- 地震监测预告（更深色） -->
   <section class="section sec-darker monitor">
     <div class="wrap monitor-inner">
@@ -161,7 +180,6 @@ const icons: Record<string, string> = {
   <section class="section sec-light">
     <div class="wrap center">
       <h2 class="page-title" data-reveal>{t(lang, 'dyk')}</h2>
-      <p class="muted">{t(lang, 'dykSub')}</p>
       <div class="flip-grid">
         {facts.facts.map((f, i) => (
           <button class="flip" type="button" aria-pressed="false" data-reveal style={`--i:${i + 1}`}>
@@ -280,6 +298,12 @@ const icons: Record<string, string> = {
     .specimen-label { left: -10px; }
   }
   @media (max-width: 640px) {
+    .specimen { max-width: 260px; width: 72%; }
+    /* 照片变小了，标签也跟着缩：标题最多两行，不要把标本整个盖掉 */
+    .specimen-label { bottom: 14px; max-width: 78%; padding: 8px 12px 7px; }
+    .sl-cap { font-size: 14px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .sl-go { font-size: 12px; }
+    .hero-inner { padding-top: 40px; gap: 28px; }
     .seis-cap { padding-top: 12px; }
     .qc-note { flex-basis: 100%; }
   }
@@ -296,10 +320,20 @@ const icons: Record<string, string> = {
   .vfeature :global(.media) { overflow: hidden; }
   .vfeature :global(.media img) { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
   .vfeature :global(.vcard:hover .media img) { transform: scale(1.06); }
+  /* ---------- 全世界的金钉子 ---------- */
+  .spikes-band { border-top: 1px solid var(--line); }
+  .spikes-inner { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(32px, 5vw, 64px); align-items: center; }
+  .spikes-text { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .spikes-text h2 { margin: 0; font-family: var(--font-cjk-serif); font-weight: 900; font-size: clamp(30px, 4vw, 40px); line-height: 1.25; }
+  .spikes-text p { margin: 0; font-size: 17px; line-height: 1.8; color: var(--muted); text-wrap: pretty; }
+  .spikes-map { display: block; border: 1px solid var(--line); border-radius: 14px; background: var(--darker); padding: clamp(12px, 2vw, 24px); transition: border-color .2s; }
+  .spikes-map:hover { border-color: var(--gold); opacity: 1; }
+  .spikes-map img { width: 100%; height: auto; }
+  @media (max-width: 860px) { .spikes-inner { grid-template-columns: 1fr; } }
   .monitor { border-top: 1px solid #2D2414; border-bottom: 1px solid #2D2414; }
   .monitor-inner { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
   .monitor-text { flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-  .monitor-text h2 { margin: 0; font-family: var(--font-display); font-size: clamp(30px, 4vw, 38px); }
+  .monitor-text h2 { margin: 0; font-family: var(--font-cjk-serif); font-weight: 900; line-height: 1.25; font-size: clamp(30px, 4vw, 38px); }
   .monitor-text p { margin: 0; font-size: 17px; line-height: 1.8; color: var(--muted); }
   .live { color: var(--cyan); }
   .monitor-list { flex: 2 1 480px; min-width: 0; }

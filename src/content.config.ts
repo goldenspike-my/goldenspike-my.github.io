@@ -13,6 +13,8 @@ const posts = defineCollection({
     lang: z.enum(['zh', 'en']).default('zh'),
     cover: z.string().optional(),
     coverAlt: z.string().optional(),
+    heroImage: z.string().optional(),      // 首页大图：真实的岩石／野外照片（不要示意图、人像、有字的缩略图）
+    heroImageAlt: z.string().optional(),
     youtubeId: z.string().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),

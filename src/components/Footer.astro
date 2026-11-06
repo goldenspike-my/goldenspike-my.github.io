@@ -39,11 +39,11 @@ const latestTitle = latest ? (lang === 'en' && latest.titleEn ? latest.titleEn :
   /* 和首页一样的地层带，细一点 */
   .strata { display: flex; flex-direction: column; height: 18px; }
   .strata i { flex: 1; }
-  .strata i:nth-child(1) { flex-grow: 4; background: #2D2414; }
-  .strata i:nth-child(2) { flex-grow: 3; background: #4A3A22; }
+  .strata i:nth-child(1) { flex-grow: 4; background: var(--stratum-1); }
+  .strata i:nth-child(2) { flex-grow: 3; background: var(--stratum-2); }
   .strata i:nth-child(3) { flex-grow: 1; background: var(--gold); }
-  .strata i:nth-child(4) { flex-grow: 3; background: #3B3020; }
-  .strata i:nth-child(5) { flex-grow: 5; background: #2A2418; }
+  .strata i:nth-child(4) { flex-grow: 3; background: var(--stratum-5); }
+  .strata i:nth-child(5) { flex-grow: 5; background: var(--stratum-7); }
   .footer-top { padding-top: 32px; }
   .latest { display: inline-flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--dark-text); }
   .latest:hover { opacity: 1; }

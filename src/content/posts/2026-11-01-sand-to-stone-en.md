@@ -8,6 +8,8 @@ lang: en
 cover: /uploads/sand-to-stone-cover.jpg
 youtubeId: lzDTcIIUmzw
 coverAlt: Me holding a sandstone sample, with "How does sand turn into rock?" written in Chinese on the left
+heroImage: /uploads/blog/ep04-sample.jpg
+heroImageAlt: My sandstone sample, number 11
 tags:
   - Geology
   - Sandstone

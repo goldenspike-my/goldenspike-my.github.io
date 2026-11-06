@@ -9,6 +9,8 @@ category: geo
 lang: zh
 cover: /uploads/thumb-B.png
 coverAlt: 我拿着一块 sandstone 标本在讲话，左边大字写着“沙子怎么变成石头?”
+heroImage: /uploads/blog/ep04-sample.jpg
+heroImageAlt: 我的 sandstone 标本，标号 11
 youtubeId: lzDTcIIUmzw
 tags:
   - 地质学

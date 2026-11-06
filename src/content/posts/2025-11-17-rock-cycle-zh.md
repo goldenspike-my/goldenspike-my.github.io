@@ -7,6 +7,8 @@ category: geo
 lang: zh
 cover: /uploads/rock-cycle-cover.jpg
 coverAlt: 「石头回收计划」影片缩略图：火山、峡谷和一个循环箭头
+heroImage: /uploads/blog/photo-batu-caves.jpg
+heroImageAlt: Batu Caves 的石灰岩山壁
 youtubeId: PZyfQpTmghQ
 tags:
   - Rock Cycle

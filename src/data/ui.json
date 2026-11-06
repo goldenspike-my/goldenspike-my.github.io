@@ -306,8 +306,8 @@
     "en": "P is estimated"
   },
   "spikes": {
-    "zh": "金钉子",
-    "en": "Golden Spikes"
+    "zh": "金钉子地图",
+    "en": "Spike Map"
   },
   "monitorTabLive": {
     "zh": "全球即时地震",
@@ -488,5 +488,29 @@
   "gsTakeQuiz": {
     "zh": "做个小测验",
     "en": "Take the quiz"
+  },
+  "heroKicker": {
+    "zh": "地质 · 地震 · 京都",
+    "en": "Geology · Seismology · Kyoto"
+  },
+  "homeSpikesKicker": {
+    "zh": "频道名字的由来",
+    "en": "Where the name comes from"
+  },
+  "homeSpikesTitle": {
+    "zh": "全世界 {n} 根金钉子",
+    "en": "{n} golden spikes around the world"
+  },
+  "homeSpikesText": {
+    "zh": "地质年代表上每一条分界，都钉在地球某处真实的岩层上。它们分布在 {c} 个国家，马来西亚一根也没有，但 Langkawi（青色圈）有我们最老的岩层。",
+    "en": "Every boundary in the geological time scale is pinned to a real rock layer somewhere on Earth. They sit in {c} countries. Malaysia has none, but Langkawi (cyan ring) holds our oldest rocks."
+  },
+  "homeSpikesCta": {
+    "zh": "打开金钉子地图",
+    "en": "Open the spike map"
+  },
+  "homeSpikesAlt": {
+    "zh": "世界地图：板块边界的细线上，82 个金点标出每一根金钉子的位置",
+    "en": "World map: thin plate-boundary lines with a gold dot for every golden spike"
   }
 }

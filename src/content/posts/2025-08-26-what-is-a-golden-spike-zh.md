@@ -7,6 +7,8 @@ category: geo
 lang: zh
 cover: /uploads/golden-spike-cover.jpg
 coverAlt: 频道介绍影片的缩略图：我拿着放大镜在看一块石头
+heroImage: /uploads/blog/photo-klonk.jpg
+heroImageAlt: 捷克 Klonk 的志留纪／泥盆纪界线剖面
 youtubeId: Hd8secgROVU
 tags:
   - 金钉子

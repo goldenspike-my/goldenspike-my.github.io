@@ -56,6 +56,13 @@ content:
       - name: coverAlt
         label: 封面图说明（给看不到图片的读者）
         type: string
+      - name: heroImage
+        label: 首页大图（可留空）
+        description: 放一张真实的岩石、标本或野外照片，首页会随机轮播。不要用示意图、人像或有大字的缩略图。留空 = 这篇不进首页轮播
+        type: image
+      - name: heroImageAlt
+        label: 首页大图说明
+        type: string
       - name: youtubeId
         label: 对应的 YouTube 视频 ID
         description: 视频网址 watch?v= 后面那一串，例如 dQw4w9WgXcQ。没有就留空。

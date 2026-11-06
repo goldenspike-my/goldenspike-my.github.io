@@ -7,6 +7,8 @@ category: geo
 lang: en
 cover: /uploads/rock-cycle-cover.jpg
 coverAlt: Thumbnail of the rock cycle video, with a volcano, a canyon and a circular arrow
+heroImage: /uploads/blog/photo-batu-caves.jpg
+heroImageAlt: The limestone cliffs of Batu Caves
 youtubeId: PZyfQpTmghQ
 tags:
   - rock cycle
