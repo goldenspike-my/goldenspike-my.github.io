@@ -1,6 +1,14 @@
 {
   "videos": [
     {
+      "youtubeId": "3YZiO59rIZ0",
+      "title": "名古屋地震 2026.11.08 · 01:04 JST · M5.7",
+      "titleEn": "Nagoya earthquake, 8 Nov 2026, 01:04 JST, M5.7",
+      "series": "seismology",
+      "format": "short",
+      "date": "2026-11-09"
+    },
+    {
       "youtubeId": "8nFchSoMsPE",
       "title": "Batu Caves 为什么是空心的？",
       "titleEn": "Why is Batu Caves hollow?",
