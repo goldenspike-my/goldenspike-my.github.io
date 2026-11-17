@@ -1,6 +1,70 @@
 {
   "videos": [
     {
+      "youtubeId": "GLL0USA3Zpk",
+      "title": "Langkawi Geopark 到底是什么？",
+      "titleEn": "What exactly is the Langkawi Geopark?",
+      "series": "landforms",
+      "format": "short",
+      "date": "2026-12-03"
+    },
+    {
+      "youtubeId": "SXPA7uSKakY",
+      "title": "日本为什么那么多地震？",
+      "titleEn": "Why does Japan have so many earthquakes?",
+      "series": "seismology",
+      "format": "short",
+      "date": "2026-12-01"
+    },
+    {
+      "youtubeId": "PGZn7Vriw1s",
+      "title": "地震真的可以预测吗？",
+      "titleEn": "Can earthquakes really be predicted?",
+      "series": "seismology",
+      "format": "short",
+      "date": "2026-11-26"
+    },
+    {
+      "youtubeId": "FtFy-8dTsHk",
+      "title": "神山山顶尖尖的石头是怎么来的？",
+      "titleEn": "How did Mount Kinabalu get its jagged peaks?",
+      "series": "landforms",
+      "format": "short",
+      "date": "2026-11-24"
+    },
+    {
+      "youtubeId": "B67JreLsVfo",
+      "title": "瀑布是怎么形成的？",
+      "titleEn": "How do waterfalls form?",
+      "series": "landforms",
+      "format": "short",
+      "date": "2026-11-19"
+    },
+    {
+      "youtubeId": "sKFI2lFiEMU",
+      "title": "2015 年 Kinabalu 地震到底发生了什么？",
+      "titleEn": "What really happened in the 2015 Kinabalu earthquake?",
+      "series": "seismology",
+      "format": "short",
+      "date": "2026-11-17",
+      "publishAt": "2026-11-17 21:30"
+    },
+    {
+      "youtubeId": "QsooAgLxcmk",
+      "title": "大理石上弯弯的花纹是怎么来的？",
+      "titleEn": "Where do the wavy lines in marble come from?",
+      "series": "rocks",
+      "format": "short",
+      "date": "2026-12-05"
+    },
+    {
+      "youtubeId": "wCR1Q01t2sI",
+      "title": "粗粗灰灰的石灰岩，怎么变成又滑又亮的大理石？",
+      "titleEn": "How does rough grey limestone become smooth, shiny marble?",
+      "series": "rocks",
+      "date": "2026-12-06"
+    },
+    {
       "youtubeId": "LeohxVpjyPs",
       "title": "一百多年前被地震抬高的地面，现在还看得到吗？",
       "titleEn": "The ground an earthquake lifted over a century ago: can you still see it?",

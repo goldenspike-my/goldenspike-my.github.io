@@ -17,12 +17,13 @@ tags:
   - Kinta Valley
 draft: false
 publishAt: "2026-12-06 20:00"
+youtubeId: wCR1Q01t2sI
 ---
 A lot of Malaysian living rooms have a marble table or marble floor tiles. The shop sold it as marble, but what a geologist means by marble isn't always the same thing.
 
 This episode is about how Ipoh's rough grey limestone hills became smooth, shiny marble. Here I want to come at it from the other side: if you have a piece of "marble" at home, how can you tell what it really is, and where it might have come from?
 
-If you'd like the one-minute answer first, watch the episode's short, "Where do the wavy lines in marble come from?".
+If you'd like the one-minute answer first, watch the episode's short, "[Where do the wavy lines in marble come from?](https://youtube.com/shorts/QsooAgLxcmk)".
 
 ## Marble in the shop and marble in geology
 
