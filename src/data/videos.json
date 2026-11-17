@@ -1,6 +1,21 @@
 {
   "videos": [
     {
+      "youtubeId": "LeohxVpjyPs",
+      "title": "一百多年前被地震抬高的地面，现在还看得到吗？",
+      "titleEn": "The ground an earthquake lifted over a century ago: can you still see it?",
+      "series": "seismology",
+      "date": "2026-11-22",
+      "publishAt": "2026-11-22 20:00"
+    },
+    {
+      "youtubeId": "IyI2hw4sFj0",
+      "title": "爱知游记",
+      "titleEn": "Aichi travel diary",
+      "series": "vlog",
+      "date": "2026-11-15"
+    },
+    {
       "youtubeId": "lVCnjouBZ38",
       "title": "静冈县西部地震 2026.11.08 · 01:04 JST · M5.7",
       "titleEn": "Western Shizuoka earthquake, 8 Nov 2026, 01:04 JST, M5.7",

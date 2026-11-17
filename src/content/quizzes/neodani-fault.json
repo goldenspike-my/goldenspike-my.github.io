@@ -1,0 +1,42 @@
+{
+  "title": "根尾谷断层小测验",
+  "slug": "neodani-fault",
+  "description": "看完《一百多年前被地震抬高的地面，现在还看得到吗？》，你记得水鳥的断层是怎么动的吗？",
+  "lang": "zh",
+  "order": 9,
+  "youtubeId": "LeohxVpjyPs",
+  "publishAt": "2026-11-22 20:00",
+  "draft": false,
+  "questions": [
+    {
+      "question": "1891 年濃尾地震，水鳥这边的地面大约被抬高了多少？",
+      "options": [
+        "差不多 1 米",
+        "差不多 6 米",
+        "差不多 20 米"
+      ],
+      "answer": 2,
+      "explanation": "断层把地面往上推了差不多 6 米，大约两层楼高。"
+    },
+    {
+      "question": "水鳥的断层是怎么移动的？",
+      "options": [
+        "只有往上",
+        "只有往旁边",
+        "往上约 6 米，同时往旁边约 4 米"
+      ],
+      "answer": 3,
+      "explanation": "它是 oblique fault，上下和水平两个方向都有移动。"
+    },
+    {
+      "question": "一百多年后，在外面看这条断层，最像什么？",
+      "options": [
+        "一条很明显的大裂缝",
+        "一片长满草的斜面",
+        "什么都看不到了"
+      ],
+      "answer": 2,
+      "explanation": "落差还在，可是长满了植物，没有人标出来的话，走过也不会注意。"
+    }
+  ]
+}

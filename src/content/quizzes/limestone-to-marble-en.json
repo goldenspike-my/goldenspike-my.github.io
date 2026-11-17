@@ -1,0 +1,61 @@
+{
+  "title": "How does limestone become marble? Quiz",
+  "slug": "limestone-to-marble",
+  "description": "After watching the episode on how Ipoh's rough grey limestone became smooth, shiny marble, do you know what baked it?",
+  "lang": "en",
+  "order": 9,
+  "draft": false,
+  "questions": [
+    {
+      "question": "How did Ipoh's limestone hills form in the first place?",
+      "options": [
+        "From lava that erupted and cooled",
+        "Shells of tiny sea creatures and very fine mud piled up layer by layer on the seabed, then were pressed together",
+        "River sand stuck together by a natural glue"
+      ],
+      "answer": 2,
+      "explanation": "Hundreds of millions of years ago the Ipoh area was a sea. Shells and fine mud, mostly made of calcite, settled on the seabed, piled up layer by layer and were pressed together into limestone."
+    },
+    {
+      "question": "Does limestone have to melt and cool again to become marble?",
+      "options": [
+        "Yes, it has to melt into magma first",
+        "No. Buried deep underground and heated and squeezed, its calcite grains slowly grow again and lock together",
+        "No, it just has to sit in water for a long time"
+      ],
+      "answer": 2,
+      "explanation": "It never gets hot enough to melt, but with heat and pressure the calcite grains slowly regrow and lock together like a jigsaw. The gaps disappear and the rock turns dense and shiny, just as ice cubes in the freezer stick into one block without melting."
+    },
+    {
+      "question": "What happens if you put a drop of vinegar on limestone and on marble?",
+      "options": [
+        "Only the limestone fizzes",
+        "Nothing happens to either",
+        "Both give off tiny bubbles"
+      ],
+      "answer": 3,
+      "explanation": "Both are made of calcite, so both fizz with an acid like vinegar. That's how you can tell they are really the same stuff."
+    },
+    {
+      "question": "What heated Ipoh's limestone into marble?",
+      "options": [
+        "Magma rising from deep underground that slowly cooled into granite right next to it",
+        "Hundreds of millions of years of hot Ipoh sun",
+        "The machines used in the old tin mines"
+      ],
+      "answer": 1,
+      "explanation": "More than 200 million years ago, huge masses of hot magma cooled slowly into granite beneath and beside the limestone. Over that long time the limestone was like something left next to a big oven, and it slowly turned into marble."
+    },
+    {
+      "question": "Why are shell fossils so hard to find in the hills around Ipoh?",
+      "options": [
+        "The area was never under the sea",
+        "People have dug them all out",
+        "When the rock was heated, the fossils grew into crystals too"
+      ],
+      "answer": 3,
+      "explanation": "Ordinary limestone often shows bits of shell, but Ipoh's hills were heated, and the fossils grew into the crystals along with everything else, so they can hardly be recognised now."
+    }
+  ],
+  "publishAt": "2026-12-06 20:00"
+}

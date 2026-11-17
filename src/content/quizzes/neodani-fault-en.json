@@ -1,0 +1,42 @@
+{
+  "title": "Neodani Fault quiz",
+  "slug": "neodani-fault",
+  "description": "After watching \"The ground an earthquake lifted over a century ago: can you still see it?\", do you remember how the fault at Midori moved?",
+  "lang": "en",
+  "order": 9,
+  "youtubeId": "LeohxVpjyPs",
+  "publishAt": "2026-11-22 20:00",
+  "draft": false,
+  "questions": [
+    {
+      "question": "How far did the 1891 Nōbi earthquake lift the ground at Midori?",
+      "options": [
+        "About 1 metre",
+        "About 6 metres",
+        "About 20 metres"
+      ],
+      "answer": 2,
+      "explanation": "The fault pushed the ground up by about 6 metres, roughly two storeys."
+    },
+    {
+      "question": "How did the fault at Midori move?",
+      "options": [
+        "Only upwards",
+        "Only sideways",
+        "About 6 m up and about 4 m sideways at the same time"
+      ],
+      "answer": 3,
+      "explanation": "It is an oblique fault, with both vertical and horizontal movement."
+    },
+    {
+      "question": "More than a century later, what does the fault look like from outside?",
+      "options": [
+        "A big, obvious crack",
+        "A grassy slope",
+        "Nothing is left to see"
+      ],
+      "answer": 2,
+      "explanation": "The step is still there, but it is covered in plants; without a sign you could walk past it."
+    }
+  ]
+}
