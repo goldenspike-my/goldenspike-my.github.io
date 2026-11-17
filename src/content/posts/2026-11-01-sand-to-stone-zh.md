@@ -149,5 +149,6 @@ Machinchang 的沙在五亿多年前被埋下去、压紧、胶结成 sandstone�
 - 沙滩波纹：Stephan Sprinz，CC BY 4.0. [https://commons.wikimedia.org/wiki/File:Rippel_im_Sand_am_Strand_Norderneys_01.jpg](https://commons.wikimedia.org/wiki/File:Rippel_im_Sand_am_Strand_Norderneys_01.jpg)
 - 沙堡：Diego Delso，CC BY-SA 3.0. [https://commons.wikimedia.org/wiki/File:Playa_de_Levante,_Benidorm,_Espa%C3%B1a,_2014-07-02,_DD_03.JPG](https://commons.wikimedia.org/wiki/File:Playa_de_Levante,_Benidorm,_Espa%C3%B1a,_2014-07-02,_DD_03.JPG)
 - Beachrock：Quim Gil，CC0. [https://commons.wikimedia.org/wiki/File:Chrysi_beachrock_2.jpg](https://commons.wikimedia.org/wiki/File:Chrysi_beachrock_2.jpg)
+- 封面里的热水壶水垢：Alexander Davronov，CC BY-SA 4.0. [https://commons.wikimedia.org/wiki/File:Limescale_from_the_Kettle.jpg](https://commons.wikimedia.org/wiki/File:Limescale_from_the_Kettle.jpg)
 - Sandstone 标本：我自己拍的；影片画面为金釘子第 04 集。
 

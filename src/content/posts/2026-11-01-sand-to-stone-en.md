@@ -147,4 +147,5 @@ Next episode, we'll keep talking about rocks.
 - Beach ripples: Stephan Sprinz, CC BY 4.0. https://commons.wikimedia.org/wiki/File:Rippel_im_Sand_am_Strand_Norderneys_01.jpg
 - Sandcastle: Diego Delso, CC BY-SA 3.0. https://commons.wikimedia.org/wiki/File:Playa_de_Levante,_Benidorm,_Espa%C3%B1a,_2014-07-02,_DD_03.JPG
 - Beachrock: Quim Gil, CC0. https://commons.wikimedia.org/wiki/File:Chrysi_beachrock_2.jpg
+- Kettle limescale in the cover image: Alexander Davronov, CC BY-SA 4.0. https://commons.wikimedia.org/wiki/File:Limescale_from_the_Kettle.jpg
 - Sandstone sample: my own photo; video frames from GoldenSpike episode 04.
