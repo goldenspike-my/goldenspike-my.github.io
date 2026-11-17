@@ -5,8 +5,8 @@ description: 地震规模不是一把尺量出来的。这篇教你读懂新闻�
 date: 2026-10-18
 category: geo
 lang: zh
-cover: /uploads/reading-magnitude-cover.png
-coverAlt: 四个方块代表 4 到 7 级地震的能量，面积每级大 32 倍，4 级小到只剩一个点，7 级是一整面墙
+cover: /uploads/reading-magnitude-cover.jpg
+coverAlt: "2004 年苏门答腊—安达曼地震裂开一千多公里的地图，旁边写着“9.1 级 有多大?”；右边是我"
 youtubeId: Ae6IBve_N10
 tags:
   - 地震

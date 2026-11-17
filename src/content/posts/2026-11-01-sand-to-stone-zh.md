@@ -7,8 +7,8 @@ description: 一块 sandstone
 date: 2026-11-01
 category: geo
 lang: zh
-cover: /uploads/thumb-B.png
-coverAlt: 我拿着一块 sandstone 标本在讲话，左边大字写着“沙子怎么变成石头?”
+cover: /uploads/sand-to-stone-cover.jpg
+coverAlt: "热水壶的水垢和我的 sandstone 标本并排，上面写着“跟水垢同一种东西”"
 heroImage: /uploads/blog/ep04-sample.jpg
 heroImageAlt: 我的 sandstone 标本，标号 11
 youtubeId: lzDTcIIUmzw

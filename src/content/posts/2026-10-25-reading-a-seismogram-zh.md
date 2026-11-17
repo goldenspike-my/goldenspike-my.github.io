@@ -7,7 +7,7 @@ category: geo
 lang: zh
 cover: /uploads/reading-a-seismogram-cover.jpg
 youtubeId: 9fqKAyF-pe8
-coverAlt: Ipoh 地震仪记录的 Sabah 7.1 级地震，先是一段绿色的小摆动（P），隔了一大段之后才是金色的大摆动（S）
+coverAlt: "Ipoh 地震仪记录的 Sabah 7.1 级地震：先是小小的 P，隔了一段才是大大的 S；右边是我"
 tags:
   - 地震
   - P-wave

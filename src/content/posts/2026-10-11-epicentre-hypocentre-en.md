@@ -7,9 +7,8 @@ description: The "epicentre" in the news is just a point on the surface. Here's
 date: 2026-10-11
 category: geo
 lang: en
-cover: /uploads/epicentre-hypocentre-cover.png
-coverAlt: A cross-section through rock layers, with a pin on the surface marking
-  the epicentre and a red dot directly below marking the hypocentre
+cover: /uploads/epicentre-hypocentre-cover.jpg
+coverAlt: "A cross-section of the ground: the pin on the surface is the epicentre the news gives, the red dot right below it is where the quake starts, and I'm on the right"
 youtubeId: tCVqOF6OwoI
 tags:
   - earthquakes

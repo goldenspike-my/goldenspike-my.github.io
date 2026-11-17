@@ -5,8 +5,8 @@ description: 地震新闻里的「震中」只是地面上的一个点。这篇�
 date: 2026-10-11
 category: geo
 lang: zh
-cover: /uploads/epicentre-hypocentre-cover.png
-coverAlt: 地层剖面图：地面上的图钉是 Epicentre，正下方地底的红点是 Hypocentre
+cover: /uploads/epicentre-hypocentre-cover.jpg
+coverAlt: "地层剖面：地面上的图钉是新闻说的震中，红点在它正下方的地底；右边是我"
 youtubeId: tCVqOF6OwoI
 tags:
   - 地震

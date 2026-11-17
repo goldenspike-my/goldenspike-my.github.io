@@ -7,7 +7,7 @@ category: geo
 lang: en
 cover: /uploads/reading-a-seismogram-cover.jpg
 youtubeId: 9fqKAyF-pe8
-coverAlt: The Sabah magnitude 7.1 earthquake recorded in Ipoh. A small green wiggle (P) comes first, then after a long gap a much bigger gold one (S)
+coverAlt: "The Sabah magnitude 7.1 earthquake recorded in Ipoh: a small P first, then after a gap a much bigger S, with me on the right"
 tags:
   - Earthquake
   - P-wave

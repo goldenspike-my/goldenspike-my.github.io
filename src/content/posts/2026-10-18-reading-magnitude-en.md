@@ -5,8 +5,8 @@ description: Magnitude isn't read off a single ruler. Here's how to make sense o
 date: 2026-10-18
 category: geo
 lang: en
-cover: /uploads/reading-magnitude-cover.png
-coverAlt: Four squares for the energy of magnitude 4 to 7 earthquakes; each step is 32 times the area, so magnitude 4 is a dot and magnitude 7 a wall
+cover: /uploads/reading-magnitude-cover.jpg
+coverAlt: "Map of the 1,000+ km rupture of the 2004 Sumatra–Andaman earthquake, with “How big is a 9.1?” written in Chinese, and me on the right"
 youtubeId: Ae6IBve_N10
 tags:
   - Earthquakes

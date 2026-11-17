@@ -105,15 +105,15 @@
     },
     {
       "youtubeId": "lzDTcIIUmzw",
-      "title": "沙子怎么变成敲都敲不破的石头？｜Sandstone",
-      "titleEn": "How does loose sand turn into rock you can't break with a hammer?",
+      "title": "沙子怎么变成敲都敲不破的石头？",
+      "titleEn": "How does loose sand become rock you can't even break with a hammer?",
       "series": "rocks",
       "date": "2026-11-01"
     },
     {
       "youtubeId": "S6KS72XDTRs",
       "title": "为什么有的石头一捏就碎，有的敲都敲不破？",
-      "titleEn": "Why do some rocks crumble in your hand while others won't break?",
+      "titleEn": "Why do some rocks crumble in your fingers while others won't break under a hammer?",
       "series": "rocks",
       "date": "2026-10-31",
       "format": "short"
@@ -129,7 +129,7 @@
     {
       "youtubeId": "r6UebNeoRUA",
       "title": "红树林海岸为什么会一直往海里长？",
-      "titleEn": "Why do some mangrove coasts keep growing out to sea?",
+      "titleEn": "Why do mangrove coasts keep growing out into the sea?",
       "series": "landforms",
       "date": "2026-10-27",
       "format": "short"
@@ -145,37 +145,37 @@
     {
       "youtubeId": "9fqKAyF-pe8",
       "title": "地震来的时候，为什么先上下震动，再左右摇晃？",
-      "titleEn": "Why does an earthquake shake up and down first, then side to side?",
+      "titleEn": "Why does an earthquake shake you up and down first, then side to side?",
       "series": "seismology",
       "date": "2026-10-25"
     },
     {
       "youtubeId": "iC9WHRGWEKA",
       "title": "地震多一级，到底大多少？",
-      "titleEn": "One step up in magnitude. How much bigger?",
+      "titleEn": "One magnitude up: how much bigger is the earthquake?",
       "series": "seismology",
       "date": "2026-10-18",
       "format": "short"
     },
     {
       "youtubeId": "Ae6IBve_N10",
-      "title": "只差三级，能量差多少？地震规模怎么算",
-      "titleEn": "Only three magnitudes apart. How much more energy?",
+      "title": "地震只差三级，能量到底差多少？",
+      "titleEn": "Three magnitudes apart: how much more energy is that?",
       "series": "seismology",
       "date": "2026-10-18"
     },
     {
       "youtubeId": "Y3Ae6ETuBGg",
-      "title": "新闻说的震中，其实不是地震发生的地方？",
-      "titleEn": "The epicentre isn't where an earthquake starts?",
+      "title": "Epicentre 和 Hypocentre 差在哪里？",
+      "titleEn": "Epicentre and hypocentre: what's the difference?",
       "series": "seismology",
       "date": "2026-10-11",
       "format": "short"
     },
     {
       "youtubeId": "tCVqOF6OwoI",
-      "title": "新闻说的“震中”，其实不是地震发生的地方？",
-      "titleEn": "The epicentre isn't where an earthquake starts?",
+      "title": "新闻说的震中，其实不是地震发生的地方？",
+      "titleEn": "Is the epicentre on the news really where the earthquake happened?",
       "series": "seismology",
       "date": "2026-10-11"
     },
