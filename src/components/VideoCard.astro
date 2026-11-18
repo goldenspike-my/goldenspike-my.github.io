@@ -2,8 +2,9 @@
 import { series as seriesNames, type Lang } from '../lib/i18n';
 import type { Video } from '../lib/videos';
 // size：feature = 首页最新一集（大）；compact = 首页旁边的小卡（缩图在左）；不给 = 一般网格
-interface Props { video: Video; lang: Lang; size?: 'feature' | 'compact'; label?: string }
-const { video, lang, size, label } = Astro.props;
+// postHref：这支视频有博客文章的话，卡片改连到文章（文章里有视频、图文和测验）；没有就照旧去 YouTube
+interface Props { video: Video; lang: Lang; size?: 'feature' | 'compact'; label?: string; postHref?: string }
+const { video, lang, size, label, postHref } = Astro.props;
 const s = seriesNames[video.series as keyof typeof seriesNames] ?? seriesNames.other;
 const title = lang === 'en' && video.titleEn ? video.titleEn : video.title;
 // 大卡用高清缩图（maxresdefault 不一定有，所以用 sddefault）
@@ -13,7 +14,7 @@ const thumb = !video.id ? video.thumb
   : size === 'compact' ? `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`
   : video.thumb;
 ---
-<a class:list={['vcard', size, { short: video.format === 'short' }]} href={video.href} data-series={video.series}>
+<a class:list={['vcard', size, { short: video.format === 'short' }]} href={postHref ?? video.href} data-series={video.series}>
   <span class="media">
     {thumb
       ? <img src={thumb} alt="" loading={size === 'feature' ? 'eager' : 'lazy'} width="480" height="270" />

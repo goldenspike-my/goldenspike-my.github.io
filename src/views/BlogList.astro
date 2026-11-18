@@ -18,29 +18,70 @@ const { posts, fallback } = await getPostsForLang(lang);
             <button class="chip" type="button" data-filter={k} aria-pressed="false">{categories[k][lang]}</button>)}
         </div>
       </div>
+      {/* 搜索：找标题、简介和标签里的字。从文章的标签点进来时（网址带 ?tag=），这里会出现那个标签 */}
+      <div class="find">
+        <label class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <span class="sr-only">{t(lang, 'searchPosts')}</span>
+          <input id="post-search" type="search" placeholder={t(lang, 'searchPosts')} autocomplete="off" />
+        </label>
+        <button class="chip active-tag" id="active-tag" type="button" hidden>
+          <span id="active-tag-name"></span><span aria-hidden="true">×</span><span class="sr-only">{t(lang, 'clearTag')}</span>
+        </button>
+      </div>
       {fallback && <p class="note">{t(lang, 'enFallback')}</p>}
       {posts.length
         ? <div class="grid-wide" id="post-grid">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
         : <p class="note">{t(lang, 'noPosts')}</p>}
-      <p class="note" id="empty-filter" hidden>{t(lang, 'noPosts')}</p>
+      <p class="note" id="empty-filter" hidden>{t(lang, 'noMatch')}</p>
     </div>
   </section>
 </Base>
 <style>
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .note { color: var(--muted); }
+  .find { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: -12px 0 28px; }
+  .search { flex: 1 1 260px; max-width: 420px; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 16px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+  .search:focus-within { border-color: var(--accent); }
+  .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 16px; color: var(--fg); }
+  .active-tag { gap: 8px; border-color: var(--accent); color: var(--accent); font-weight: 700; }
 </style>
 <script>
+  // 三个条件一起算：分类（上面的按钮）、搜索的字、标签（网址里的 ?tag=）
   const chips = document.querySelectorAll<HTMLButtonElement>('.chips .chip');
-  chips.forEach((c) => c.addEventListener('click', () => {
-    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
-    const f = c.dataset.filter;
+  const search = document.getElementById('post-search') as HTMLInputElement | null;
+  const tagBtn = document.getElementById('active-tag');
+  const tagName = document.getElementById('active-tag-name');
+  let category = 'all';
+  const tagShown = (new URLSearchParams(location.search).get('tag') || '').trim();   // 显示用（保留大小写）
+  let tag = tagShown.toLowerCase();
+
+  function apply() {
+    const words = (search?.value || '').toLowerCase().split(/\s+/).filter(Boolean);
     let shown = 0;
     document.querySelectorAll<HTMLElement>('#post-grid [data-category]').forEach((card) => {
-      card.hidden = f !== 'all' && card.dataset.category !== f;
-      if (!card.hidden) shown++;
+      const text = card.dataset.text || '';
+      const ok = (category === 'all' || card.dataset.category === category)
+        && (!tag || (card.dataset.tags || '').split('|').includes(tag))
+        && words.every((w) => text.includes(w));
+      card.hidden = !ok;
+      if (ok) shown++;
     });
     const empty = document.getElementById('empty-filter');
     if (empty) empty.hidden = shown > 0;
+    if (tagBtn && tagName) { tagBtn.hidden = !tag; tagName.textContent = `#${tagShown}`; }
+  }
+
+  chips.forEach((c) => c.addEventListener('click', () => {
+    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+    category = c.dataset.filter || 'all';
+    apply();
   }));
+  search?.addEventListener('input', apply);
+  tagBtn?.addEventListener('click', () => {
+    tag = '';
+    history.replaceState(null, '', location.pathname);
+    apply();
+  });
+  apply();
 </script>

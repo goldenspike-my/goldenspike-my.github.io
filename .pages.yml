@@ -1139,3 +1139,45 @@ content:
         fields:
           - { name: zh, label: 中文, type: string }
           - { name: en, label: English, type: string }
+      - name: enHint
+        label: "页面顶部 · 给英文浏览器的提示（只有英文）"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: searchPosts
+        label: "博客页 · 搜索框"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: noMatch
+        label: "博客页 · 搜索不到文章"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: clearTag
+        label: "博客页 · 取消标签"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: postQuizKicker
+        label: "文章页 · 文末测验的小标题"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: notFound
+        label: "404 页 · 找不到这一页"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }
+      - name: backHome
+        label: "404 页 · 回到首页按钮"
+        type: object
+        fields:
+          - { name: zh, label: 中文, type: string }
+          - { name: en, label: English, type: string }

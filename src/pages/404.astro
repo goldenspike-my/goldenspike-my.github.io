@@ -1,13 +1,17 @@
 ---
 import Base from '../layouts/Base.astro';
-import { url } from '../lib/i18n';
+import { t, url } from '../lib/i18n';
 ---
-<Base lang="zh" title="404">
+<Base lang="zh" title="404" noindex>
+  <!-- 网址是 /en/ 开头的话，转去英文版的 404（GitHub Pages 只有一个 404 页，所以在这里分流） -->
+  <script is:inline slot="head" define:vars={{ en: url('en', '/'), to: url('en', '/404') }}>
+    if (location.pathname === en || location.pathname.indexOf(en + '/') === 0) location.replace(to + '/');
+  </script>
   <section class="sec-light" style="padding:120px 0;text-align:center">
     <div class="wrap">
       <h1 class="page-title">404</h1>
-      <p style="color:var(--muted)">找不到这一页。This page does not exist.</p>
-      <a class="btn btn-gold" href={url('zh', '/')}>回到首页 Home</a>
+      <p style="color:var(--muted)">{t('zh', 'notFound')}</p>
+      <a class="btn btn-gold" href={url('zh', '/')}>{t('zh', 'backHome')}</a>
     </div>
   </section>
 </Base>

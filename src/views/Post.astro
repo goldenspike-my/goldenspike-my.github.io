@@ -3,6 +3,8 @@ import Base from '../layouts/Base.astro';
 import { render, type CollectionEntry } from 'astro:content';
 import site from '../data/site.json';
 import { getPosts } from '../lib/posts';
+import { getQuizzes } from '../lib/quizzes';
+import { imageSize } from '../lib/image-size.mjs';
 import { slugOf, findTwin } from '../lib/twins';
 import { categories, formatDate, readingTime, t, url, asset, type Lang } from '../lib/i18n';
 interface Props { post: CollectionEntry<'posts'>; lang: Lang }
@@ -17,8 +19,12 @@ const cat = categories[d.category];
 const twin = findTwin(post, await getPosts());
 const otherLang: Lang = lang === 'zh' ? 'en' : 'zh';
 const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, '/blog');
+// 这篇文章的测验：同一支视频（youtubeId）的测验，没有才找同名（slug）的
+const quizzes = await getQuizzes(d.lang);
+const quiz = (d.youtubeId && quizzes.find((q) => q.data.youtubeId === d.youtubeId)) || quizzes.find((q) => slugOf(q) === slugOf(post));
+const coverSize = await imageSize(d.cover);
 ---
-<Base lang={lang} title={d.title} description={d.description} active="blog" image={d.cover} altHref={altHref}>
+<Base lang={lang} title={d.title} description={d.description} active="blog" image={d.cover} altHref={altHref} type="article">
   <div class="sec-light">
     <div class="wrap layout">
       <article class="article" lang={d.lang === 'zh' ? 'zh-Hans' : 'en'}>
@@ -31,7 +37,7 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
           {d.description && <p class="dek">{d.description}</p>}
           <div class="meta"><span>金釘子</span><span>{formatDate(d.date, lang)}</span><span>{mins} {t(lang, 'minRead')}</span>{twin && <a class="twin" href={altHref} lang={otherLang}>{t(lang, 'readOtherLang')}</a>}</div>
         </header>
-        {d.cover && <img class="cover" src={asset(d.cover)} alt={d.coverAlt || ''} />}
+        {d.cover && <img class="cover" src={asset(d.cover)} alt={d.coverAlt || ''} {...coverSize} fetchpriority="high" />}
         {toc.length > 1 && (
           /* 手机上侧栏会跑到文章最后，所以在文章开头放一份目录（只在窄屏显示） */
           <details class="toc-mobile" open>
@@ -40,7 +46,16 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
           </details>
         )}
         <div class="prose"><Content /></div>
-        {d.tags.length > 0 && <div class="tags">{d.tags.map((tag) => <span>#{tag}</span>)}</div>}
+        {quiz && (
+          /* 文末：这篇文章的小测验 */
+          <a class="quiz-cta" href={url(d.lang, `/quiz/${slugOf(quiz)}`)}>
+            <span class="tag">{t(lang, 'postQuizKicker')}</span>
+            <span class="qc-title">{quiz.data.title}</span>
+            <span class="qc-go">{quiz.data.questions.length} {t(lang, 'questions')} · {t(lang, 'start')} →</span>
+          </a>
+        )}
+        {/* 标签可以点：去博客页，只列出同一个标签的文章 */}
+        {d.tags.length > 0 && <div class="tags">{d.tags.map((tag) => <a href={`${url(d.lang, '/blog')}?tag=${encodeURIComponent(tag)}`}>#{tag}</a>)}</div>}
       </article>
 
       <aside class="side">
@@ -93,9 +108,15 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
   .meta { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; color: #6E6350; }
   .meta .twin { color: var(--accent); font-weight: 700; text-decoration: none; }
   .meta .twin:hover { text-decoration: underline; }
-  .cover { width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+  .cover { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 24px; border-top: 1px solid var(--line); }
-  .tags span { background: #ECE5D4; color: #4A4130; padding: 8px 14px; border-radius: 999px; font-size: 14px; }
+  .tags a { background: #ECE5D4; color: #4A4130; padding: 8px 14px; border-radius: 999px; font-size: 14px; text-decoration: none; }
+  .tags a:hover { background: #E2D6B8; opacity: 1; }
+  /* 文末的小测验卡 */
+  .quiz-cta { display: flex; flex-direction: column; gap: 8px; padding: 22px 24px; background: var(--paper-card); border: 1px solid var(--line); border-left: 4px solid #D9A60B; border-radius: 0 12px 12px 0; text-decoration: none; color: var(--paper-text); transition: border-color .2s; }
+  .quiz-cta:hover { border-color: #D9A60B; opacity: 1; }
+  .qc-title { font-family: var(--font-cjk-serif); font-weight: 700; font-size: 21px; line-height: 1.45; }
+  .qc-go { font-weight: 700; font-size: 15px; color: var(--accent); }
 
   .side { flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 28px; position: sticky; top: 96px; }
   @media (max-width: 900px) { .side { position: static; } }
@@ -109,6 +130,13 @@ const altHref = twin ? url(otherLang, `/blog/${slugOf(twin)}`) : url(otherLang, 
     .article, .side { flex: none; width: 100%; max-width: 760px; }
     .toc-mobile { display: block; }
     .side .toc-side { display: none; }
+    /* 窄屏：视频排到标题下面（从视频卡点进来的人马上看得到视频），其他照原来的顺序。
+       做法：文章和侧栏的外框「隐形」，里面每一块直接排成一列，再用 order 调顺序 */
+    .layout { gap: 28px; }
+    .article, .side { display: contents; }
+    .article > *, .side > * { width: 100%; max-width: 760px; order: 2; }
+    .article > .crumbs, .article > .head { order: 0; }
+    .side > .video-box { order: 1; }
   }
   .video-box { border-radius: 14px; overflow: hidden; }
   .embed { position: relative; aspect-ratio: 16 / 9; }

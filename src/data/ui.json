@@ -512,5 +512,32 @@
   "homeSpikesAlt": {
     "zh": "世界地图：板块边界的细线上，82 个金点标出每一根金钉子的位置",
     "en": "World map: thin plate-boundary lines with a gold dot for every golden spike"
+  },
+  "enHint": {
+    "en": "Read this site in English →"
+  },
+  "searchPosts": {
+    "zh": "搜索文章",
+    "en": "Search posts"
+  },
+  "noMatch": {
+    "zh": "找不到符合的文章，换个关键词试试。",
+    "en": "No posts match. Try another word."
+  },
+  "clearTag": {
+    "zh": "取消这个标签",
+    "en": "Clear this tag"
+  },
+  "postQuizKicker": {
+    "zh": "读完了，考考自己",
+    "en": "Finished reading? Test yourself"
+  },
+  "notFound": {
+    "zh": "找不到这一页。",
+    "en": "This page does not exist."
+  },
+  "backHome": {
+    "zh": "回到首页",
+    "en": "Back to home"
   }
 }

@@ -6,6 +6,8 @@
 //   没写关键词      → 整行宽度、置中
 // 例：图片说明写「吉隆坡的石灰岩山 #小 #右」
 
+import { imageSize } from './image-size.mjs';
+
 const KEYWORDS = {
   '小': 'small', small: 'small',
   '中': 'medium', medium: 'medium',
@@ -29,16 +31,19 @@ const isImg = (n) => n && n.type === 'element' && n.tagName === 'img';
 const isBlank = (n) => n.type === 'text' && !n.value.trim();
 const isBr = (n) => n.type === 'element' && n.tagName === 'br';
 
-function toFigure(img) {
+async function toFigure(img) {
   const { classes, caption } = parseAlt(img.properties.alt);
   img.properties.alt = caption;
   img.properties.loading = 'lazy';
+  // 写上宽高，图片载入时文章不会往下跳
+  const size = await imageSize(img.properties.src);
+  if (size.width) { img.properties.width = size.width; img.properties.height = size.height; }
   const children = [img];
   if (caption) children.push({ type: 'element', tagName: 'figcaption', properties: {}, children: [{ type: 'text', value: caption }] });
   return { type: 'element', tagName: 'figure', properties: { className: ['fig', ...classes] }, children };
 }
 
-function walk(node) {
+async function walk(node) {
   if (!node.children) return;
   const out = [];
   for (const child of node.children) {
@@ -46,11 +51,11 @@ function walk(node) {
     if (child.type === 'element' && child.tagName === 'p') {
       const meaningful = child.children.filter((c) => !isBlank(c) && !isBr(c));
       if (meaningful.length && meaningful.every(isImg)) {
-        meaningful.forEach((img) => out.push(toFigure(img)));
+        for (const img of meaningful) out.push(await toFigure(img));
         continue;
       }
     }
-    walk(child);
+    await walk(child);
     out.push(child);
   }
   node.children = out;

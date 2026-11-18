@@ -14,7 +14,8 @@ const DIR = 'public/uploads';
 const MAX = 1600;
 let saved = 0;
 
-for (const name of readdirSync(DIR)) {
+// recursive：连子文件夹（例如 uploads/blog）里的照片也一起处理
+for (const name of readdirSync(DIR, { recursive: true })) {
   if (!/\.(jpe?g|png|webp)$/i.test(name)) continue;
   const path = `${DIR}/${name}`;
   const before = statSync(path).size;

@@ -10,7 +10,8 @@ const cat = categories[d.category];
 const href = url(d.lang, `/blog/${slugOf(post)}`);
 const mins = readingTime(post.body || '');
 ---
-<a class:list={['pcard', variant]} href={href} data-category={d.category}>
+<a class:list={['pcard', variant]} href={href} data-category={d.category}
+  data-tags={d.tags.join('|').toLowerCase()} data-text={`${d.title} ${d.description} ${d.tags.join(' ')}`.toLowerCase()}>
   {variant === 'text'
     ? <span class="core" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
     : d.cover

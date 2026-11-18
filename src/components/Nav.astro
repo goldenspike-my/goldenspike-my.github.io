@@ -24,19 +24,20 @@ const links = allLinks.filter((l) => l.key !== 'gallery' || hasSpecimens);
       <span class="logo-zh">金釘子</span>
       <span class="logo-en">GOLDEN SPIKE</span>
     </a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      <span class="sr-only">{t(lang, 'menu')}</span>
-    </button>
     <nav id="site-menu" class="menu" aria-label="Main">
       {links.map((l) => (
         <a href={url(lang, l.path)} aria-current={active === l.key ? 'page' : undefined}>{t(lang, l.key)}</a>
       ))}
-      <div class="lang" role="group" aria-label="Language">
-        <a href={langHref('zh')} aria-current={lang === 'zh' ? 'true' : undefined} lang="zh">中文</a>
-        <a href={langHref('en')} aria-current={lang === 'en' ? 'true' : undefined} lang="en">EN</a>
-      </div>
     </nav>
+    <!-- 语言切换放在选单外面：手机上不用打开选单也看得到 EN -->
+    <div class="lang" role="group" aria-label="Language">
+      <a href={langHref('zh')} aria-current={lang === 'zh' ? 'true' : undefined} lang="zh">中文</a>
+      <a href={langHref('en')} aria-current={lang === 'en' ? 'true' : undefined} lang="en">EN</a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <span class="sr-only">{t(lang, 'menu')}</span>
+    </button>
   </div>
 </header>
 
@@ -48,10 +49,10 @@ const links = allLinks.filter((l) => l.key !== 'gallery' || hasSpecimens);
   .logo-mark { width: 36px; height: 36px; flex: none; }
   .logo-zh { font-family: var(--font-cjk-serif); font-weight: 900; font-size: 21px; }
   .logo-en { font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: .12em; }
-  .menu { display: flex; align-items: center; gap: 2px; }
+  .menu { display: flex; align-items: center; gap: 2px; margin-left: auto; }
   .menu > a { color: var(--dark-text); text-decoration: none; padding: 12px; font-size: 15px; font-weight: 500; white-space: nowrap; }
   .menu > a[aria-current="page"] { color: var(--gold); }
-  .lang { display: flex; border: 1px solid var(--dark-border); border-radius: 8px; overflow: hidden; margin-left: 8px; }
+  .lang { display: flex; border: 1px solid var(--dark-border); border-radius: 8px; overflow: hidden; flex: none; }
   .lang a { display: flex; align-items: center; padding: 0 14px; min-height: 40px; color: var(--dark-muted); text-decoration: none; font-weight: 700; font-size: 14px; }
   .lang a[aria-current="true"] { background: var(--gold); color: #1A160C; }
   .menu-btn { display: none; background: transparent; color: var(--dark-text); border: 1px solid var(--dark-border); border-radius: 8px; width: 44px; height: 44px; align-items: center; justify-content: center; }
@@ -61,9 +62,17 @@ const links = allLinks.filter((l) => l.key !== 'gallery' || hasSpecimens);
     .menu { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; background: var(--dark); border-bottom: 1px solid var(--dark-border); padding: 8px 16px 16px; }
     .menu.open { display: flex; }
     .menu > a { padding: 14px 8px; border-bottom: 1px solid #2D2414; font-size: 16px; }
-    .lang { margin: 12px 0 0; align-self: flex-start; }
+    .lang { margin-left: auto; }
+    .lang a { padding: 0 12px; min-height: 44px; }
   }
-  @media (max-width: 400px) { .logo-en { display: none; } }
+  /* 窄屏：「GOLDEN SPIKE」缩小叠在「金釘子」下面，省下来的位置给语言切换 */
+  @media (max-width: 520px) {
+    .logo { display: grid; grid-template-columns: auto auto; column-gap: 10px; row-gap: 3px; align-content: center; }
+    .logo-mark { grid-row: 1 / span 2; align-self: center; }
+    .logo-zh { font-size: 19px; line-height: 1.1; }
+    .logo-en { font-size: 9px; line-height: 1; letter-spacing: .1em; }
+  }
+  @media (max-width: 340px) { .logo-en { display: none; } }
 </style>
 
 <script>

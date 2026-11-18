@@ -3,16 +3,22 @@ import '../styles/global.css';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import site from '../data/site.json';
-import { switchLangPath, asset, t, type Lang } from '../lib/i18n';
+import { switchLangPath, asset, t, url, type Lang } from '../lib/i18n';
 // altHref：另一种语言的对应页面（例如文章的英文版）；没给就用同一路径
-interface Props { lang: Lang; title?: string; description?: string; active?: string; image?: string; altHref?: string }
-const { lang, title, description, active, image, altHref } = Astro.props;
+// type：文章页写 'article'，分享时平台会当成文章；noindex：不想被搜索引擎收录的页（404）
+interface Props { lang: Lang; title?: string; description?: string; active?: string; image?: string; altHref?: string; type?: 'website' | 'article'; noindex?: boolean }
+const { lang, title, description, active, image, altHref, type = 'website', noindex = false } = Astro.props;
 const siteName = t(lang, 'siteName');
 const fullTitle = title ? `${title} · ${siteName}` : siteName;
 const desc = description || t(lang, 'siteDescription');
 const path = Astro.url.pathname;
 // 分享连结时的预览图：文章封面，没有就用频道 Logo
 const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
+// 这一页的「正式网址」（结尾统一带 /，跟 GitHub Pages 实际给的一样），搜索引擎才不会把同一页算成两页
+const withSlash = (p: string) => (p.endsWith('/') ? p : `${p}/`);
+const abs = (p: string) => new URL(withSlash(p), Astro.site).href;
+const zhHref = lang === 'zh' ? path : (altHref ?? switchLangPath(path, 'zh'));
+const enHref = lang === 'en' ? path : (altHref ?? switchLangPath(path, 'en'));
 ---
 <!doctype html>
 <html lang={lang === 'zh' ? 'zh-Hans' : 'en'}>
@@ -28,8 +34,20 @@ const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
   <link rel="icon" type="image/svg+xml" href={asset('favicon.svg')} />
   <link rel="apple-touch-icon" href={asset('apple-touch-icon.png')} />
   <meta name="theme-color" content="#1A160C" />
-  <link rel="alternate" hreflang="zh-Hans" href={new URL(lang === 'zh' ? path : (altHref ?? switchLangPath(path, 'zh')), Astro.site)} />
-  <link rel="alternate" hreflang="en" href={new URL(lang === 'en' ? path : (altHref ?? switchLangPath(path, 'en')), Astro.site)} />
+  {noindex
+    ? <meta name="robots" content="noindex" />
+    : <Fragment>
+        <link rel="canonical" href={abs(path)} />
+        <link rel="alternate" hreflang="zh-Hans" href={abs(zhHref)} />
+        <link rel="alternate" hreflang="en" href={abs(enHref)} />
+        <link rel="alternate" hreflang="x-default" href={abs(zhHref)} />
+      </Fragment>}
+  <link rel="alternate" type="application/rss+xml" title={`${siteName} · ${t(lang, 'blog')}`} href={url(lang, '/rss.xml')} />
+  <link rel="sitemap" href={asset('sitemap.xml')} />
+  <meta property="og:type" content={type} />
+  <meta property="og:url" content={abs(path)} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : 'en_GB'} />
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={desc} />
   <meta property="og:image" content={ogImage} />
@@ -45,6 +63,26 @@ const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
   )}
 </head>
 <body>
+  {lang === 'zh' && !noindex && (
+    /* 浏览器语言不是中文的访客：顶上出现一行「Read this site in English」，可以关掉（关了就记住） */
+    <div class="en-hint" id="en-hint" lang="en" hidden>
+      <a href={enHref}>{t('en', 'enHint')}</a>
+      <button type="button" aria-label={t('en', 'close')}>×</button>
+    </div>
+    <script is:inline>
+      (function () {
+        var bar = document.getElementById('en-hint'); if (!bar) return;
+        var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+        var readsChinese = Array.prototype.some.call(langs, function (l) { return /^zh/i.test(l); });
+        var closed = false; try { closed = localStorage.getItem('gs-en-hint') === 'off'; } catch (e) {}
+        if (readsChinese || closed) return;
+        bar.hidden = false;
+        bar.querySelector('button').addEventListener('click', function () {
+          bar.hidden = true; try { localStorage.setItem('gs-en-hint', 'off'); } catch (e) {}
+        });
+      })();
+    </script>
+  )}
   <Nav lang={lang} active={active} altHref={altHref} />
   <main><slot /></main>
   <Footer lang={lang} />
@@ -66,3 +104,9 @@ const ogImage = new URL(asset(image || 'og-default.png'), Astro.site).href;
   </script>
 </body>
 </html>
+<style>
+  .en-hint { display: flex; align-items: center; justify-content: center; gap: 4px; background: var(--gold); color: #1A160C; font-size: 15px; font-weight: 700; padding: 0 8px; }
+  .en-hint a { color: inherit; text-decoration: none; padding: 10px 8px; }
+  .en-hint a:hover { text-decoration: underline; opacity: 1; }
+  .en-hint button { background: transparent; border: 0; color: inherit; font-size: 20px; line-height: 1; width: 40px; height: 40px; border-radius: 6px; }
+</style>

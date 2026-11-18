@@ -7,7 +7,7 @@ import site from '../data/site.json';
 import facts from '../data/facts.json';
 import gssps from '../data/gssps.json';
 import { getVideos } from '../lib/videos';
-import { getPostsForLang } from '../lib/posts';
+import { getPostsForLang, postLinksByVideo } from '../lib/posts';
 import { tracePath } from '../lib/trace';
 import { getRealTrace, envelopePath } from '../lib/seismogram';
 import { slugOf } from '../lib/twins';
@@ -17,6 +17,7 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const videos = (await getVideos()).filter((v) => v.format !== 'short').slice(0, 4);   // shorts live on the videos page
 const [featured, ...moreVideos] = videos;
+const postLinks = await postLinksByVideo(lang);   // 有文章的视频，卡片连到文章
 const { posts, fallback } = await getPostsForLang(lang);
 // 「关于我」卡片的照片 = 关于页上传的照片（Pages CMS → 关于我）
 const aboutPhoto = (await getEntry('pages', `about-${lang}`))?.data.photo;
@@ -128,8 +129,8 @@ const icons: Record<string, string> = {
       </div>
       {featured && (
         <div class="vfeature" data-reveal style="--i:1">
-          <VideoCard video={featured} lang={lang} size="feature" label={t(lang, 'latestEpisode')} />
-          <div class="vmore">{moreVideos.map((v) => <VideoCard video={v} lang={lang} size="compact" />)}</div>
+          <VideoCard video={featured} lang={lang} size="feature" label={t(lang, 'latestEpisode')} postHref={postLinks.get(featured.id)} />
+          <div class="vmore">{moreVideos.map((v) => <VideoCard video={v} lang={lang} size="compact" postHref={postLinks.get(v.id)} />)}</div>
         </div>
       )}
     </div>

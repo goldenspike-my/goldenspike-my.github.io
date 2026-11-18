@@ -3,10 +3,12 @@ import Base from '../layouts/Base.astro';
 import VideoCard from '../components/VideoCard.astro';
 import site from '../data/site.json';
 import { getVideos } from '../lib/videos';
+import { postLinksByVideo } from '../lib/posts';
 import { t, series as seriesNames, type Lang } from '../lib/i18n';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const all = await getVideos();
+const postLinks = await postLinksByVideo(lang);   // 有文章的视频，卡片连到文章
 const videos = all.filter((v) => v.format !== 'short');
 const shorts = all.filter((v) => v.format === 'short');
 const used = [...new Set(videos.map((v) => v.series))];
@@ -29,7 +31,7 @@ const shortGroups = (Object.keys(seriesNames) as (keyof typeof seriesNames)[])
           {chips.map((k) => <button class="chip" type="button" data-filter={k} aria-pressed="false">{seriesNames[k][lang]}</button>)}
         </div>
       )}
-      <div class="grid" id="video-grid">{videos.map((v) => <VideoCard video={v} lang={lang} />)}</div>
+      <div class="grid" id="video-grid">{videos.map((v) => <VideoCard video={v} lang={lang} postHref={postLinks.get(v.id)} />)}</div>
     </div>
   </section>
   {shortGroups.length > 0 && (

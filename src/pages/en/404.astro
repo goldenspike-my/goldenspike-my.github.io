@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import { t, url } from '../../lib/i18n';
+---
+<Base lang="en" title="404" noindex>
+  <section class="sec-light" style="padding:120px 0;text-align:center">
+    <div class="wrap">
+      <h1 class="page-title">404</h1>
+      <p style="color:var(--muted)">{t('en', 'notFound')}</p>
+      <a class="btn btn-gold" href={url('en', '/')}>{t('en', 'backHome')}</a>
+    </div>
+  </section>
+</Base>
