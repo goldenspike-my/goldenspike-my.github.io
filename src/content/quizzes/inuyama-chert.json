@@ -1,0 +1,41 @@
+{
+  "title": "犬山 chert 小测验",
+  "slug": "inuyama-chert",
+  "description": "看完《犬山城下面的石头，以前是在深海的海底？》，你记得这些石头是怎么来到城堡下面的吗？",
+  "lang": "zh",
+  "order": 10,
+  "publishAt": "2026-11-29 20:00",
+  "draft": false,
+  "questions": [
+    {
+      "question": "犬山河边这种一层一层的石头叫什么？",
+      "options": [
+        "砂岩 sandstone",
+        "chert",
+        "花岗岩 granite"
+      ],
+      "answer": 2,
+      "explanation": "它主要是深海里很小的生物死了以后，骨骼沉到海底一层一层堆起来的。"
+    },
+    {
+      "question": "深海的 chert 是怎么来到犬山的？",
+      "options": [
+        "海水退了，海底就露出来",
+        "河流从山上把它冲下来",
+        "跟着海洋板块到海沟，被刮下来堆到大陆边"
+      ],
+      "answer": 3,
+      "explanation": "海洋板块往大陆下面钻，上面的 chert 被刮下来，经过很长的时间变成陆地。"
+    },
+    {
+      "question": "灭绝那个时期的 chert 跟平常的有什么不同？",
+      "options": [
+        "平常是红色，那一层是黑色",
+        "平常是黑色，那一层是白色",
+        "颜色一样，只是比较厚"
+      ],
+      "answer": 1,
+      "explanation": "颜色跟里面的铁有关，所以科学家认为当时的深海可能缺氧。"
+    }
+  ]
+}

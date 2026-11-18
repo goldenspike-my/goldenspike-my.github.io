@@ -1,0 +1,41 @@
+{
+  "title": "Inuyama chert quiz",
+  "slug": "inuyama-chert",
+  "description": "After watching \"The rocks under Inuyama Castle were once on the deep-sea floor?\", do you remember how they got there?",
+  "lang": "en",
+  "order": 10,
+  "publishAt": "2026-11-29 20:00",
+  "draft": false,
+  "questions": [
+    {
+      "question": "What are the thin, layered rocks by the river at Inuyama called?",
+      "options": [
+        "Sandstone",
+        "Chert",
+        "Granite"
+      ],
+      "answer": 2,
+      "explanation": "Chert forms mainly from the skeletons of tiny deep-sea organisms settling on the sea floor, layer by layer."
+    },
+    {
+      "question": "How did deep-sea chert end up at Inuyama?",
+      "options": [
+        "The sea retreated and exposed the sea floor",
+        "A river washed it down from the mountains",
+        "It rode an ocean plate to a trench and was scraped onto the edge of the continent"
+      ],
+      "answer": 3,
+      "explanation": "As the ocean plate sank beneath the continent, the chert on top was scraped off and, over a very long time, became land."
+    },
+    {
+      "question": "How does the chert from the extinction differ from the usual kind?",
+      "options": [
+        "The usual chert is red; that layer is black",
+        "The usual chert is black; that layer is white",
+        "Same colour, just thicker"
+      ],
+      "answer": 1,
+      "explanation": "The colour depends on the iron inside, so scientists think the deep sea may have lost its oxygen at the time."
+    }
+  ]
+}
