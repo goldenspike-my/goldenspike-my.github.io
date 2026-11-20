@@ -9,7 +9,11 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "5.18.2",
+    "@astrojs/markdown-remark": "7.3.6",
+    "astro": "7.4.7",
     "maplibre-gl": "^6.16.0"
+  },
+  "engines": {
+    "node": ">=22.23.4"
   }
 }

@@ -96,6 +96,6 @@ YouTube 频道首页 + 个人博客。中英双语，免费放在 GitHub Pages �
 ---
 
 ## 四、技术备注
-- 网站框架：Astro 5（静态网站）。
+- 网站框架：Astro 7（静态网站）。
 - 地震数据：USGS 公开的 GeoJSON（浏览器直接读取，不需要密钥）。地图底图：Esri World Dark Gray（免费、不需要密钥）。
-- 在自己电脑预览（可选，需要先安装 Node.js 22）：`npm install` 然后 `npm run dev`，打开 http://localhost:4321 。
+- 在自己电脑预览（可选，需要先安装 Node.js 22.23.4 或更新版本）：`npm install` 然后 `npm run dev`，打开 http://localhost:4321 。
