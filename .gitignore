@@ -4,3 +4,6 @@ dist/
 .env
 .env.*
 .DS_Store
+
+# Internal working notes: kept locally, not published
+HANDOFF.md
