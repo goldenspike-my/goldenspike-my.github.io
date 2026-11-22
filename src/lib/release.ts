@@ -35,8 +35,21 @@ export function videoReleaseTime(youtubeId?: string): Date | undefined {
   return youtubeId ? videoRelease.get(youtubeId) : undefined;
 }
 
-/** 博客 / 测验：publishAt → 对应视频的时间 → date */
+const DAY_MS = 24 * 60 * 60 * 1000;
+const TZ_MS = 8 * 60 * 60 * 1000;  // 马来西亚时间 = UTC+8
+
+/** 那一天的 0 点（马来西亚时间） */
+export function startOfReleaseDay(t: Date): Date {
+  const local = t.getTime() + TZ_MS;
+  return new Date(local - (local % DAY_MS) - TZ_MS);
+}
+
+/**
+ * 博客 / 测验：publishAt → 对应视频的时间 → date。
+ * 提早到发布当天 0 点（马来西亚时间）就放出来（导演 2026-11-22）：GitHub 的每小时排程常常好几个小时才跑一次，
+ * 晚上 8 点视频公开时，简介里的博客连结不能还是 404。视频卡片（videos.ts）还是照准确的时间。
+ */
 export function isReleased(data: { publishAt?: string; youtubeId?: string; date?: Date }): boolean {
   const t = parseRelease(data.publishAt) ?? videoReleaseTime(data.youtubeId) ?? parseRelease(data.date);
-  return !t || t.getTime() <= NOW.getTime();
+  return !t || startOfReleaseDay(t).getTime() <= NOW.getTime();
 }
